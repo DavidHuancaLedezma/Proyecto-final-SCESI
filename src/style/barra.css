@@ -19,7 +19,7 @@
     left: 0;
     width: 200px;
     height: 100vh;
-    background-color: #146adb15;
+    background-color: #146adb;
     transition: transform 0.6s ease;
 }
 
@@ -55,6 +55,18 @@
     color: white;
     font-size: 28px;
     cursor: pointer;
+}
+
+.boton-cerrar {
+    display: none;
+}
+
+.opciones-de-inicio.presionado .boton-abrir {
+    display: none;
+}
+
+.opciones-de-inicio.presionado .boton-cerrar {
+    display: block;
 }
 
 
