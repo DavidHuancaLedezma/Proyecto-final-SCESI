@@ -1,0 +1,65 @@
+.opciones-de-inicio {
+    background: #457B9D;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    height: 60px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 20px;
+}
+
+
+.menu-lateral {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    width: 200px;
+    height: 100vh;
+    background-color: #146adb15;
+    transition: transform 0.6s ease;
+}
+
+.ocultar-desplegable {
+    transform: translateX(-100%);
+    
+}
+
+.desplegar-opciones {
+    transform: translateX(0);
+}
+
+.opciones-contenedor {
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+    margin-top: 0;
+    padding: 10px;
+}
+.opciones {
+    margin: 10px;
+}
+
+.opciones-texto {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.opciones-de-inicio button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+
+@media only screen and (min-width: 480px) {
+  body {
+    font-size: 16px;
+  }
+}
