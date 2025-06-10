@@ -1,5 +1,7 @@
 import { useState } from "react";
+import "../../style/normalize/normalize.css"
 import "../../style/barra.css"
+import Zoom from "../fullscreem/zoom";
 function Barra() {
 
   const [desplegable, setDesplegable] = useState(false);
@@ -18,7 +20,7 @@ function Barra() {
     <section>
       <header className="opciones-de-inicio">
         <button onClick={handleClick}>☰</button>
-        <span>zoom</span>
+        <Zoom/>
       </header>
 
       <aside className={`menu-lateral ${buttonClassName}`}>
