@@ -1,0 +1,58 @@
+.busqueda-contenedor {
+    display: flex;
+    background-color: white;
+    justify-content: space-between;
+    margin: 0px 15px;
+    padding: 12px;
+    border-radius: 5px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4); 
+}
+
+
+.busqueda-comboBox {
+    border: 1px solid gray;
+    outline: none;
+    padding: 12px;
+    border-radius: 5px;
+}
+
+.busqueda-input {
+    border: 1px solid gray;
+    outline: none;
+    max-width: 130px;
+    border-radius: 5px;
+    padding: 12px 0px 12px 12px;
+}
+
+.busqueda-btn-limpiar {
+    display: none;
+
+}
+.busqueda-icono-contenedor {
+    border: 1px solid gray;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+.busqueda-icono-contenedor .busqueda-input {
+    border: none;
+}
+
+@media only screen and (min-width: 480px) {
+    .busqueda-contenedor {
+        margin: 0px 50px;
+    }
+
+    .busqueda-categorias{
+        display: flex;
+        gap: 30px;
+    }
+
+    .busqueda-btn-limpiar {
+        display: block;
+        border: 1px solid gray;
+        cursor: pointer;
+        max-width: 130px;
+        border-radius: 5px;
+        padding: 12px;
+    } 
+}

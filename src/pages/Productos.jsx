@@ -1,5 +1,6 @@
 import LayoutBarra from "../layout/LayoutBarra"
 import ComponenteProducto from "../components/productos/ComponenteProducto"
+import BarraBusqueda from "../components/busqueda/BarraBusqueda"
 import "../style/productos.css"
 function Productos () {
     const testProductos = [{
@@ -34,8 +35,24 @@ function Productos () {
         popular: "No",
         disponible: false
     }]
+
+    const opciones = [
+        {
+            id: 1,
+            categoria: "Carnes",
+        },
+        {
+            id: 2,
+            categoria: "Completos"
+        },
+        {
+            id: 3,
+            categoria: "Refrescos"
+        }
+    ]
     return(
         <LayoutBarra>
+            <BarraBusqueda opciones={opciones}/>
             <main className="cartelera-de-comidas">
                 {
                     testProductos.map(({id, nombre, descripcion, precio, imagen, origen, categoria, popular, disponible}) =>(

@@ -7,13 +7,9 @@ function Barra() {
 
   const [desplegable, setDesplegable] = useState(false);
  
-
   const handleClick = () => {
     setDesplegable(!desplegable);
   };
-
-
-
 
   const buttonClassName = desplegable ? "desplegar-opciones" : "ocultar-desplegable"
   const opcionesDeInicio = desplegable ? "opciones-de-inicio presionado" : "opciones-de-inicio"

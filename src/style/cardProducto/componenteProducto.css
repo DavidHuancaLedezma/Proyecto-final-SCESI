@@ -1,9 +1,12 @@
+body {
+  background: rgb(233, 228, 218);
+}
 .producto-contenedor{
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
   border-radius: 15px;
-  background-color: rgb(230, 230, 230);
+  background-color: white;
   max-width: 300px;
   margin: 16px;
   z-index: 1;
