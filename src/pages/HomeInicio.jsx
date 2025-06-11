@@ -3,7 +3,7 @@ import Barra from '../components/home/Barra';
 function HomeInicio() {
   return (
     <LayoutBarra>
-        <h1>funcion este lyout ? desde home inicio</h1>
+        <h1>Publicidad del inicio</h1>
     </LayoutBarra>
   );
 }

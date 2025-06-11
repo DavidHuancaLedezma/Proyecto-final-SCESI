@@ -70,10 +70,24 @@
 .opciones-de-inicio.presionado .boton-cerrar {
     display: block;
 }
+.opciones-contenedor-horizontal-pc {
+    display: none;
+}
 
 
 @media only screen and (min-width: 480px) {
-  body {
-    font-size: 16px;
+  .menu-lateral, .boton-abrir{
+    display: none;
   }
+  .opciones-contenedor-horizontal-pc {
+    display: flex;
+    list-style: none;
+    padding-left: 0;
+    margin: auto;
+    gap: 15px;
+  }
+  .opciones-texto {
+    color: white;
+  }
+
 }
