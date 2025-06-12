@@ -1,12 +1,10 @@
-import Barra from "../components/home/Barra";
-import "../style/layout.css"
-function LayoutBarra ( { children } ) {
+import Barra from '../components/home/Barra';
+import style from './layout.module.css';
+function LayoutBarra({ children }) {
   return (
     <>
       <Barra />
-      <main className="barra-superior">
-        {children}
-      </main>
+      <main className={style.barraSuperior}>{children}</main>
     </>
   );
 }

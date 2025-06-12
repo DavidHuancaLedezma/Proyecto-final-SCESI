@@ -10,10 +10,10 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomeInicio />} />
-        <Route path="/inicio" element={<Inicio/>}/>
-        <Route path="/perfil" element={<Perfil/>}/>
-        <Route path="/productos" element={<Productos/>}/>
-        <Route path="/carrito" element={<Carrito/>}/>
+        <Route path="/inicio" element={<Inicio />} />
+        <Route path="/perfil" element={<Perfil />} />
+        <Route path="/productos" element={<Productos />} />
+        <Route path="/carrito" element={<Carrito />} />
       </Routes>
     </BrowserRouter>
   );

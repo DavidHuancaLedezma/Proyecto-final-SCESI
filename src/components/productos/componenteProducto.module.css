@@ -1,4 +1,4 @@
-.producto-contenedor{
+.productoContenedor {
   display: flex;
   flex-direction: column;
   border: 1px solid #ddd;
@@ -7,61 +7,54 @@
   max-width: 300px;
   margin: 16px;
   z-index: 1;
-  transition: transform 0.2s ease;
 }
-.producto-contenedor:hover {
-  transform: scale(1.02);
-}
-.producto-foto {
+
+.productoFoto {
   border-radius: 15px 15px 0px 0px;
   height: 45%;
   width: 100%;
 }
-.producto-detalles {
+.productoDetalles {
   padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 8px;
 }
 
-.producto-nombre {
+.productoNombre {
   margin: 0;
   font-size: 25px;
   text-align: center;
 }
 
-.producto-descripcion {
+.productoDescripcion {
   font-size: 15px;
   color: #555;
   margin: 0;
   word-wrap: break-word;
-  
 }
 
-
-.producto-comprar {
+.productoComprar {
   display: flex;
   flex-direction: column;
   gap: 15px;
-  
 }
 
-.producto-informacion {
+.productoInformacion {
   font-size: 10px;
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-.producto-informacion-item {
+.productoInformacionItem {
   background-color: rgba(207, 203, 197, 0.884);
   color: white;
   border-radius: 10px;
-  padding: 5px; 
+  padding: 5px;
   margin: 5px;
-  
 }
 
-.producto-disponible {
+.productoDisponible {
   border: 0;
   padding: 10px;
   border-radius: 15px;
@@ -69,27 +62,26 @@
   color: white;
 }
 
-.producto-agotado {
+.productoAgotado {
   display: none;
 }
-.stock-producto.agotado .producto-disponible {
+.stockProducto.agotado .productoDisponible {
   display: none;
 }
 
-.stock-producto.agotado .producto-agotado {
+.stockProducto.agotado .productoAgotado {
   border: 0;
   padding: 10px;
   border-radius: 15px;
   display: block;
   background-color: red;
-  color: white
+  color: white;
 }
 
-.stock-producto {
+.stockProducto {
   display: flex;
   justify-content: center;
 }
-
 
 @media only screen and (min-width: 480px) {
   body {
