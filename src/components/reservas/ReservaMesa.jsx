@@ -23,10 +23,11 @@ function ReservaMesa ({mesasDisponibles}) {
                         <input type="text" placeholder="" />
                     </section>
                     <section className={style.inputDatos}>
+                        <label>Mesas disponibles</label>
                         <select className={style.busquedaComboBox}>
                             <option value="">Seleccionar Mesa</option> // revisar este error necesita por parametro los horarios
                                 {mesasDisponibles.map(({ id, numeroMesa }) => (
-                                    <option key={id} value={id}>Mesa {numeroMesa} disponible</option>))
+                                    <option key={id} value={id}>Mesa {numeroMesa}</option>))
                                 }
                             
                         </select>

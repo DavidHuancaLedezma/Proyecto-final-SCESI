@@ -1,7 +1,7 @@
 .formularioContenedor {
-    border: 1px solid gray;
-    margin-top: 80px;
+    margin-top: 60px;
     display: flex;
+    padding: 20px;
     justify-content: center;
 }
 
@@ -14,7 +14,6 @@
 
 .formularioReservas {
     width: 300px;
-    border: 1px solid green;
     border-radius: 10px;
     padding: 10px;
     background-color: rgb(240, 234, 234);
@@ -36,14 +35,15 @@
     height: 30px;
     margin: 3px;
     border-radius: 10px;
-    border: none;
+    border: 1px solid gray;
     outline: none;
 }
 
 .busquedaComboBox {
-    width: 205px;
+    width: 225px;
     height: 30px;
     border-radius: 10px;
+    outline: none;
 }
 
 .seccionDeEnvio {
@@ -59,4 +59,27 @@
     border-radius: 10px;
     width: 150px;
     padding: 10px;
+}
+
+
+@media only screen and (min-width: 480px) {
+  .inputDatos input {
+    height: 35px;
+    width: 250px;
+    margin: 3px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+  }
+  .inputDatos {
+    width: 260px;
+  }
+  .formularioReservas {
+    width: 360px;
+  }
+  .busquedaComboBox {
+    width: 260px;
+    height: 35px;
+    border-radius: 10px;
+  }
 }

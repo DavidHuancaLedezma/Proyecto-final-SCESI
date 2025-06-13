@@ -32,6 +32,7 @@ function Barra() {
         <ul className={style.opcionesContenedorHorizontalPc}>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/inicio">inicio</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/perfil">perfil</Link></li>
+          <li className={style.opciones}><Link className={style.opcionesTexto} to="/reserva">Reservas</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/productos">productos</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} onClick={handleClickCarrito}><FaShoppingCart/></Link></li>
         </ul>
