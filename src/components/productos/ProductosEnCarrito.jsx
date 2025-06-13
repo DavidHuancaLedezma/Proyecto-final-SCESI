@@ -19,7 +19,7 @@ function ProductoEnCarrito () {
             </main>
             <footer className={style.detallePrecio}>
                 <section className={style.precio}>
-                    <span>Total:</span>
+                    <span>Pago total:</span>
                     <span>100Bs.</span>
                 </section>
                 <button className={style.comprarProductosCarrito}>comprar</button>

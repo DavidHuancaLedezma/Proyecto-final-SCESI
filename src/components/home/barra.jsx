@@ -45,7 +45,7 @@ function Barra() {
         <ul className={style.opcionesContenedor}>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/inicio"><FaHome/>  Inicio</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/productos"><FaUtensils/>  Productos</Link></li>
-          <li className={style.opciones}><Link className={style.opcionesTexto} to=""><FaCalendarAlt/>  Reservas</Link></li>
+          <li className={style.opciones}><Link className={style.opcionesTexto} to="/reserva"><FaCalendarAlt/>  Reservas</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/carrito"><FaShoppingCart/>  Carrito</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/Perfil"><FaUser />  Perfil</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} to=""><FaSignOutAlt/>  Cerrar sesión</Link></li>

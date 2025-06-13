@@ -1,0 +1,62 @@
+.formularioContenedor {
+    border: 1px solid gray;
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo {
+    text-align: center;
+    margin: 20px;
+    font-size: 30px;
+    
+}
+
+.formularioReservas {
+    width: 300px;
+    border: 1px solid green;
+    border-radius: 10px;
+    padding: 10px;
+    background-color: rgb(240, 234, 234);
+
+}
+
+.datos {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.inputDatos {
+    margin: 15px;
+    width: 205px;
+}
+
+.inputDatos input {
+    height: 30px;
+    margin: 3px;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+}
+
+.busquedaComboBox {
+    width: 205px;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.seccionDeEnvio {
+    display: flex;
+    justify-content: center;
+    margin: 20px;
+}
+
+.btnEnviar {
+    border: none;
+    background-color: rgba(1, 89, 252, 0.829);
+    color: white;
+    border-radius: 10px;
+    width: 150px;
+    padding: 10px;
+}
