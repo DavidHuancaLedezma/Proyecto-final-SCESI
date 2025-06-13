@@ -1,8 +1,9 @@
 import LayoutBarra from '../layout/LayoutBarra';
+import ProductoEnCarrito from '../components/productos/ProductosEnCarrito';
 function Carrito() {
   return (
     <LayoutBarra>
-      <p>los crritos</p>
+      <ProductoEnCarrito/>
     </LayoutBarra>
   );
 }
