@@ -1,6 +1,6 @@
 import { FaShoppingCart, FaTrash } from 'react-icons/fa';
 import style from "./productoEnCarrito.module.css"
-function ProductoEnCarrito () {
+export const ProductoEnCarrito = () => {
     return(
         <main className={style.contenedorProductos}>
             <header className={style.titulo}>
@@ -27,5 +27,3 @@ function ProductoEnCarrito () {
         </main>
     );
 }
-
-export default ProductoEnCarrito;

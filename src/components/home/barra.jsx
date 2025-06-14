@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaUser, FaSignOutAlt, FaCalendarAlt, FaHome, FaUtensils, FaTrash } from 'react-icons/fa';
-import Zoom from '../fullscreem/Zoom';
+import { Zoom } from '../fullscreem/zoom';
 
 import '../../normalize.css';
 import style from './barra.module.css';
 
-function Barra() {
+export const Barra = () => {
   const [desplegable, setDesplegable] = useState(false);
   const [productosComprados, setProductosComprados] = useState(false);
 
@@ -80,5 +80,3 @@ function Barra() {
     </section>
   );
 }
-
-export default Barra;

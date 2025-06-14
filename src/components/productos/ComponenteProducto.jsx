@@ -2,7 +2,7 @@ import { FaShoppingCart, FaBan } from 'react-icons/fa';
 import '../../normalize.css';
 import style from './componenteProducto.module.css';
 
-function ComponenteProducto({nombre, descripcion, precio, imagen, origen, categoria, popular, disponible,}) {
+export const ComponenteProducto = ({nombre, descripcion, precio, imagen, origen, categoria, popular, disponible,}) => {
   
   const stock = disponible ? style.stockProducto : `${style.stockProducto} ${style.agotado}`;
   
@@ -38,4 +38,3 @@ function ComponenteProducto({nombre, descripcion, precio, imagen, origen, catego
     </article>
   );
 }
-export default ComponenteProducto;

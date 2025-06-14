@@ -1,5 +1,6 @@
-import LayoutBarra from '../layout/LayoutBarra';
-import ReservaMesa from '../components/reservas/ReservaMesa';
+//import LayoutBarra from '../layout/LayoutBarra';
+//import ReservaMesa from '../components/reservas/ReservaMesa';
+import { LayoutBarra, ReservaMesa } from '../components/index';
 function Reserva() {
   
   const mesas = [{

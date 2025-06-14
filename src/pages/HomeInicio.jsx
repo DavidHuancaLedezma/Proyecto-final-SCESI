@@ -1,4 +1,5 @@
-import LayoutBarra from '../layout/LayoutBarra';
+//import LayoutBarra from '../layout/LayoutBarra';
+import { LayoutBarra } from '../components';
 function HomeInicio() {
   return (
     <LayoutBarra>

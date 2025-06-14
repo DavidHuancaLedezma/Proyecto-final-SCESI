@@ -1,6 +1,6 @@
-import Barra from '../components/home/Barra';
+import { Barra } from '../components/home/barra';
 import style from './layout.module.css';
-function LayoutBarra({ children }) {
+export const LayoutBarra = ({ children }) => {
   return (
     <>
       <Barra />
@@ -9,4 +9,3 @@ function LayoutBarra({ children }) {
   );
 }
 
-export default LayoutBarra;

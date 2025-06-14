@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-function Zoom() {
+export const Zoom = () => {
   const [zoom, setZoom] = useState(false);
 
   const iconoMaximizar = (
@@ -40,5 +40,3 @@ function Zoom() {
 
   return <button onClick={alternarPantallaCompleta}>{icono}</button>;
 }
-
-export default Zoom;

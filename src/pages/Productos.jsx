@@ -1,6 +1,7 @@
-import LayoutBarra from '../layout/LayoutBarra';
-import ComponenteProducto from '../components/productos/ComponenteProducto';
-import BarraBusqueda from '../components/busqueda/BarraBusqueda';
+//import LayoutBarra from '../layout/LayoutBarra';
+//import ComponenteProducto from '../components/productos/ComponenteProducto';
+//import BarraBusqueda from '../components/busqueda/BarraBusqueda';
+import { ComponenteProducto, BarraBusqueda, LayoutBarra } from '../components';
 import style from './productos.module.css';
 function Productos() {
   const testProductos = [

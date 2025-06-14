@@ -1,7 +1,7 @@
 import { FaSearch } from 'react-icons/fa';
 import '../../normalize.css';
 import style from './barraBusqueda.module.css';
-function BarraBusqueda({ opciones }) {
+export const BarraBusqueda = ({ opciones }) => {
   return (
     <main className={style.busquedaContenedor}>
         <section className={style.busquedaCategorias}>
@@ -22,4 +22,4 @@ function BarraBusqueda({ opciones }) {
     </main>
   );
 }
-export default BarraBusqueda;
+

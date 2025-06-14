@@ -1,7 +1,7 @@
 import { FaUser, FaCalendar, FaEnvelope, FaUserShield } from 'react-icons/fa';
 import style from './usuario.module.css';
 
-function Usuario () {
+export const Usuario = () => {
     return(
         <main className={style.contenedorUsuario}>
             <section className={style.contenedorDatosUsuario}>
@@ -27,4 +27,3 @@ function Usuario () {
         </main>
     );
 }
-export default Usuario;
