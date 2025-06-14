@@ -1,0 +1,107 @@
+
+.publicidad {
+    margin-top: 60px;
+}
+
+.portada {
+    background-image: url("/src/assets/img/4k2.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.descripcion {
+    background-color: white;
+    width: 300px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.contenedortitulo {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px
+}
+
+.titulo {
+    font-size: 40px;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.presentacion {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.icono {
+    width: 110px;
+    height: 110px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    border-radius: 60px;
+}
+.icono img {
+    width: 90px;
+    height: 90px;
+}
+.descripciontitulo {
+    text-align: center;
+    opacity: .7;
+}
+
+.ambientes {
+    padding: 40px 0px;
+}
+
+.contenedorfotos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto {
+    
+    height: 280px;
+    width: 280px;
+    border-radius: 10px;
+    
+}
+.descripcionfotos {
+    text-align: center;
+    padding: 10px;
+    margin-top: 10px;
+}
+
+.referencia {
+    padding: 10px;
+    color: white;
+    background-color: saddlebrown;
+}
+
+.nombrerestaurante {
+    font-size: 25px;
+}
+
+.derechosreservados {
+    text-align: center;
+}
+
+.mapa {
+    width: 300px;
+    height: 300px;
+    border: 0;
+    border-radius: 20px;
+}
+
+.contenedorMapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
