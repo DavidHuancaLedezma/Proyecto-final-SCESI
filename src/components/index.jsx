@@ -1,5 +1,4 @@
 export * from './busqueda/BarraBusqueda';
-export * from './fullscreem/zoom';
 export * from './home/barra';
 export * from './productos/ComponenteProducto';
 export * from './productos/ProductosEnCarrito';

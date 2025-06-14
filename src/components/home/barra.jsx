@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaShoppingCart, FaUser, FaSignOutAlt, FaCalendarAlt, FaHome, FaUtensils, FaTrash } from 'react-icons/fa';
-import { Zoom } from '../fullscreem/zoom';
 
 import '../../normalize.css';
 import style from './barra.module.css';
@@ -38,7 +37,6 @@ export const Barra = () => {
         </ul>
         <footer className={style.sesion}>
           <button className={style.cerrarSesion}>Cerrar sesión</button>
-          <Zoom />
         </footer>
       </header>
 
