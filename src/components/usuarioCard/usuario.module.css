@@ -1,11 +1,14 @@
 .contenedorUsuario {
-    border: 1px solid gray;
+    display: flex;
+    justify-content: center;
+    margin: 90px 10px 10px 10px;
+}
+
+.contenedorDatosUsuario {
     display: flex;
     flex-direction: column;
-    margin: 40% 10px 10px 10px;
+    border: 1px solid gray;
     border-radius: 20px;
-
-
 }
 
 .usuario {
@@ -65,4 +68,26 @@
     vertical-align: middle;
     margin-right: 7px;
     color: gray;
+}
+
+
+@media only screen and (min-width: 480px) {
+  .contenedorUsuario {
+    flex-direction: row;
+    justify-content: center;
+    padding: 100px;
+
+  }
+  .usuario {
+    background-color: rgb(248, 215, 177);
+    display: flex;
+    border-radius: 20px 0px 0px 20px;
+  }
+  .informacionCuenta {
+    border-radius: 0px 20px 20px 0px;
+    padding: 20px;
+  }
+  .contenedorDatosUsuario {
+    flex-direction: row;
+  }
 }
