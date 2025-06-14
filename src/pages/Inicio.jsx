@@ -1,7 +1,15 @@
 import style from './Inicio.module.css'
 function Inicio() {
   return (
-      <p className={style.test}>los inicios</p>
+      <main className={style.publicidad}>
+        <header className={style.portada}>
+          <section>
+            <h1>titulo</h1>
+            <p>descripcion</p>
+          </section>
+        </header>
+        
+      </main>
   );
 }
 export default Inicio;
