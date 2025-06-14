@@ -79,9 +79,9 @@
 
   }
   .usuario {
-    background-color: rgb(248, 215, 177);
     display: flex;
     border-radius: 20px 0px 0px 20px;
+    min-width: 200px;
   }
   .informacionCuenta {
     border-radius: 0px 20px 20px 0px;

@@ -4,4 +4,3 @@ export * from './productos/ComponenteProducto';
 export * from './productos/ProductosEnCarrito';
 export * from './reservas/ReservaMesa';
 export * from './usuarioCard/Usuario';
-export * from '../layout/LayoutBarra'

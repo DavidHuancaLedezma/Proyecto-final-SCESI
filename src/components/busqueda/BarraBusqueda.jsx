@@ -1,6 +1,7 @@
 import { FaSearch } from 'react-icons/fa';
 import '../../normalize.css';
 import style from './barraBusqueda.module.css';
+
 export const BarraBusqueda = ({ opciones }) => {
   return (
     <main className={style.busquedaContenedor}>

@@ -1,10 +1,7 @@
-//import LayoutBarra from '../layout/LayoutBarra';
-import { LayoutBarra } from '../components';
+import style from './Inicio.module.css'
 function Inicio() {
   return (
-    <LayoutBarra>
-      <p>los inicios</p>
-    </LayoutBarra>
+      <p className={style.test}>los inicios</p>
   );
 }
 export default Inicio;

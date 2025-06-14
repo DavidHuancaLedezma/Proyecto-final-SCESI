@@ -29,10 +29,10 @@ export const Barra = () => {
         <button className={style.botonCerrar} onClick={handleClick}>←</button>
 
         <ul className={style.opcionesContenedorHorizontalPc}>
-          <li className={style.opciones}><Link className={style.opcionesTexto} to="/inicio">inicio</Link></li>
-          <li className={style.opciones}><Link className={style.opcionesTexto} to="/perfil">perfil</Link></li>
+          <li className={style.opciones}><Link className={style.opcionesTexto} to="/inicio">Inicio</Link></li>
+          <li className={style.opciones}><Link className={style.opcionesTexto} to="/perfil">Perfil</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} to="/reserva">Reservas</Link></li>
-          <li className={style.opciones}><Link className={style.opcionesTexto} to="/productos">productos</Link></li>
+          <li className={style.opciones}><Link className={style.opcionesTexto} to="/productos">Productos</Link></li>
           <li className={style.opciones}><Link className={style.opcionesTexto} onClick={handleClickCarrito}><FaShoppingCart/></Link></li>
         </ul>
         <footer className={style.sesion}>

@@ -1,6 +1,5 @@
-//import LayoutBarra from '../layout/LayoutBarra';
-//import ReservaMesa from '../components/reservas/ReservaMesa';
-import { LayoutBarra, ReservaMesa } from '../components/index';
+import { ReservaMesa } from '../components/index';
+
 function Reserva() {
   
   const mesas = [{
@@ -22,9 +21,7 @@ function Reserva() {
   }]
 
   return (
-    <LayoutBarra>
       <ReservaMesa mesasDisponibles={mesas}/>
-    </LayoutBarra>
   );
 }
 export default Reserva;

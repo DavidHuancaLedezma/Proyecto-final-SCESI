@@ -1,7 +1,4 @@
-//import LayoutBarra from '../layout/LayoutBarra';
-//import ComponenteProducto from '../components/productos/ComponenteProducto';
-//import BarraBusqueda from '../components/busqueda/BarraBusqueda';
-import { ComponenteProducto, BarraBusqueda, LayoutBarra } from '../components';
+import { ComponenteProducto, BarraBusqueda} from '../components';
 import style from './productos.module.css';
 function Productos() {
   const testProductos = [
@@ -58,14 +55,14 @@ function Productos() {
     },
   ];
   return (
-    <LayoutBarra>
+    <>
       <BarraBusqueda opciones={opciones} />
       <main className={style.carteleraDeComidas}>
         {testProductos.map(({id, nombre, descripcion, precio, imagen, origen, categoria, popular, disponible,}) => (
             <ComponenteProducto key={id} nombre={nombre} descripcion={descripcion} precio={precio} imagen={imagen} origen={origen} categoria={categoria} popular={popular} disponible={disponible}/>))
         }
       </main>
-    </LayoutBarra>
+    </>
   );
 }
 export default Productos;
