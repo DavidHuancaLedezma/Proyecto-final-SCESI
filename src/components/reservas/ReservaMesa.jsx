@@ -1,10 +1,12 @@
 import style from './reservaMesa.module.css';
-
+import { getProductos } from '../../services/peticiones';
 export const ReservaMesa = ({mesasDisponibles}) => {
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault(); 
         console.log("Formulario enviado");
+        let respuesta = (await getProductos()).data;
+        console.log(respuesta);
     };
     return(
         <main className={style.formularioContenedor}>
