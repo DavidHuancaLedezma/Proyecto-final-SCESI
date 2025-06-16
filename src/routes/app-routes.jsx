@@ -2,7 +2,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import HomeInicio from '../pages/HomeInicio';
 import Inicio from '../pages/Inicio';
 import Perfil from '../pages/Perfil';
-import Productos from '../pages/Productos';
+import Productos from '../pages/producto/Productos';
 import Carrito from '../pages/Carrito';
 import Reserva from '../pages/Reserva';
 import { Barra } from '../components';

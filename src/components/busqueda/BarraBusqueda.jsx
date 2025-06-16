@@ -8,9 +8,9 @@ export const BarraBusqueda = ({ opciones }) => {
         <section className={style.busquedaCategorias}>
             <select className={style.busquedaComboBox}>
                 <option value="">Categorias</option>
-                    {opciones.map(({ id, categoria }) => (
-                        <option key={id} value={id}>
-                            {categoria}
+                    {opciones.map(({ id_categoria, nombre }) => (
+                        <option key={id_categoria} value={id_categoria}>
+                            {nombre}
                         </option>))
                     }
             </select>

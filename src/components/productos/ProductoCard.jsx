@@ -1,8 +1,8 @@
 import { FaShoppingCart, FaBan } from 'react-icons/fa';
 import '../../normalize.css';
-import style from './componenteProducto.module.css';
+import style from './productoCard.module.css';
 
-export const ComponenteProducto = ({nombre, descripcion, precio, imagen, origen, categoria, popular, disponible,}) => {
+export const ComponenteProducto = ({nombre, descripcion, precio, imagen, origen, categoria, disponible}) => {
   
   const stock = disponible ? style.stockProducto : `${style.stockProducto} ${style.agotado}`;
   
@@ -22,7 +22,6 @@ export const ComponenteProducto = ({nombre, descripcion, precio, imagen, origen,
           <section className={style.productoInformacion}>
             <span className={style.productoInformacionItem}>Origen:{origen}</span>
             <span className={style.productoInformacionItem}>Categoria:{categoria}</span>
-            <span className={style.productoInformacionItem}>Popular:{popular}</span>
           </section>
 
           <span className={style.productoPrecio}>{precio} Bs.</span>
