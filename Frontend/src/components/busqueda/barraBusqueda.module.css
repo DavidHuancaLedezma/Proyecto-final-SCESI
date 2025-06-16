@@ -1,0 +1,58 @@
+.busquedaContenedor {
+  display: flex;
+  background-color: white;
+  justify-content: space-between;
+  margin: 0px 15px;
+  padding: 12px;
+  margin-top: 80px;
+  border-radius: 5px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+.busquedaComboBox {
+  border: 1px solid gray;
+  outline: none;
+  padding: 12px;
+  border-radius: 5px;
+}
+
+.busquedaInput {
+  border: 1px solid gray;
+  outline: none;
+  max-width: 130px;
+  border-radius: 5px;
+  padding: 12px 0px 12px 12px;
+}
+
+.busquedaBtnLimpiar {
+  display: none;
+}
+.busquedaIconoContenedor {
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding-left: 10px;
+}
+.busquedaIconoContenedor .busquedaInput {
+  border: none;
+}
+
+@media only screen and (min-width: 480px) {
+  .busquedaContenedor {
+    margin: 0px 50px;
+    margin-top: 80px;
+  }
+
+  .busquedaCategorias {
+    display: flex;
+    gap: 30px;
+  }
+
+  .busquedaBtnLimpiar {
+    display: block;
+    border: 1px solid gray;
+    cursor: pointer;
+    max-width: 130px;
+    border-radius: 5px;
+    padding: 12px;
+  }
+}
