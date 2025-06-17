@@ -1,9 +1,19 @@
 import { useEffect, useState } from 'react';
-import { getProductos, getCategorias, getBuscadorProductos } from '../../services/peticiones';
+import { getProductos, getCategorias, getBuscadorProductos, getProductosPorCategorias } from '../../services/peticiones';
 
 export const useProducto = () => {
   const [productos, setProductos] = useState([]);
   const [categoria, setCategoria] = useState([]);
+
+  const [textoActual, setTextoActual] = useState('');
+  const [categoriaActual, setCategoriaActual] = useState('');
+
+  const limpiar = () => {
+    setTextoActual('');
+    setCategoriaActual('');
+    buscarProducto('');
+    buscarCategorias('');
+  }
 
   const buscarProducto = async (nombreProducto) => {
     if(nombreProducto.trim() !== ""){
@@ -15,6 +25,18 @@ export const useProducto = () => {
       const respuesta = await getProductos();
       setProductos(respuesta.data);
     }
+    setTextoActual(nombreProducto);
+  }
+
+  const buscarCategorias = async (id) => {
+    if(id !== ""){
+      const respuesta = await getProductosPorCategorias(id);
+      setProductos(respuesta.data);
+    }else{
+      const respuesta = await getProductos();
+      setProductos(respuesta.data);
+    }
+    setCategoriaActual(id);
   }
 
   useEffect(() => {
@@ -43,6 +65,6 @@ export const useProducto = () => {
       getData();
   }, []);
 
-  return { productos, categoria, buscarProducto };
+  return { productos, categoria, buscarProducto, buscarCategorias, limpiar, textoActual, categoriaActual };
 }
 
