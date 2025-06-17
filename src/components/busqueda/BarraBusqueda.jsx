@@ -1,8 +1,10 @@
 import { FaSearch } from 'react-icons/fa';
 import '../../normalize.css';
 import style from './barraBusqueda.module.css';
+import { useState } from 'react';
 
-export const BarraBusqueda = ({ opciones }) => {
+export const BarraBusqueda = ({ opciones, cambiosEnTexto }) => {
+
   return (
     <main className={style.busquedaContenedor}>
         <section className={style.busquedaCategorias}>
@@ -18,7 +20,7 @@ export const BarraBusqueda = ({ opciones }) => {
         </section>
         <section className={style.busquedaIconoContenedor}>
             <FaSearch />
-            <input className={style.busquedaInput} placeholder="Buscar producto" type="text" />
+            <input className={style.busquedaInput} placeholder="Buscar producto" type="text" onChange={cambiosEnTexto} />
         </section>
     </main>
   );

@@ -1,31 +1,19 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { ComponenteProducto, BarraBusqueda} from '../../components';
 import { useProducto } from '../../components/hooks/useProducto';
-import { useCategoria } from '../../components/hooks/useCategoria';
 import style from './productos.module.css';
 function Productos() {
 
-  const { productos, error } = useProducto();
-  const { categoria } = useCategoria();
-  console.log(productos);
-  console.log(categoria);
-  const opciones = [
-    {
-      id_categoria: 1,
-      nombre: 'Carnes',
-    },
-    {
-      id_categoria: 2,
-      nombre: 'Completos',
-    },
-    {
-      id_categoria: 3,
-      nombre: 'Refrescos',
-    },
-  ];
+  const { productos, categoria, buscarProducto } = useProducto();
+
+  const handleBuscadorProducto = (e) => {
+    let nombreProducto = e.target.value;
+    buscarProducto(nombreProducto);
+  }
+
   return (
     <>
-      <BarraBusqueda opciones={categoria} />
+      <BarraBusqueda opciones={categoria} cambiosEnTexto={handleBuscadorProducto}/>
       <main className={style.carteleraDeComidas}>
         {productos.map(({id_producto, nombre, descripcion, precio, imagen, origen, disponible, categoria}) => (
             <ComponenteProducto 
