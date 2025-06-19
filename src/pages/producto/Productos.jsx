@@ -3,7 +3,7 @@ import {
   BarraBusqueda,
   NavBarHome,
 } from '../../components';
-import { useProducto } from '../../components/hooks/useProducto';
+import { useProducto } from '../../hooks/useProducto';
 import style from './productos.module.css';
 function Productos() {
   const {

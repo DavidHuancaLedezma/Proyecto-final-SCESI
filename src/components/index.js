@@ -6,3 +6,4 @@ export * from './productos/ProductosEnCarrito';
 export * from './reservas/ReservaMesa';
 export * from './usuarioCard/Usuario';
 export * from './NavBar/NavBarLogin';
+export * from './publicidadRestaurante/PublicidadRestaurante';

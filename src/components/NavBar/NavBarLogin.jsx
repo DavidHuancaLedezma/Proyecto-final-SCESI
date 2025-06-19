@@ -7,30 +7,30 @@ export const NavBarLogin = () => {
       <header className={style.opcionesDeInicio}>
         <h1 className={style.titulo}>Bienvenidos a fragmentos</h1>
 
-        <section className={style.sesion}>
-          <ul className={style.opcionesContenedorHorizontalPc}>
+        <nav>
+          <ul className={style.menuBar}>
             <li className={style.opciones}>
-              <Link className={style.opcionesTexto} to="/inicio">
+              <Link className={style.opcionesTexto} to="/">
                 Inicio
               </Link>
             </li>
             <li className={style.opciones}>
-              <Link className={style.opcionesTexto} to="/productos">
+              <Link className={style.opcionesTexto} to="/productos-de-muestra">
                 Productos
               </Link>
             </li>
             <li className={style.opciones}>
-              <Link className={style.opcionesTexto} to="/inicio">
+              <Link className={style.opcionesTexto} to="/iniciar-sesion">
                 Iniciar sesión
               </Link>
             </li>
             <li className={style.opciones}>
-              <Link className={style.opcionesTexto} to="/inicio">
+              <Link className={style.opcionesTexto} to="/Registrarse">
                 Registrarse
               </Link>
             </li>
           </ul>
-        </section>
+        </nav>
       </header>
     </main>
   );

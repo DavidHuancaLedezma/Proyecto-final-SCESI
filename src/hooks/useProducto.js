@@ -4,7 +4,7 @@ import {
   getCategorias,
   getBuscadorProductos,
   getProductosPorCategorias,
-} from '../../services/peticiones';
+} from '../services/peticiones';
 
 export const useProducto = () => {
   const [productos, setProductos] = useState([]);
