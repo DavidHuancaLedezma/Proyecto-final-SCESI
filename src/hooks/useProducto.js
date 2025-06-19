@@ -1,5 +1,10 @@
 import { useEffect, useState } from 'react';
-import { getProductos, getCategorias, getBuscadorProductos, getProductosPorCategorias } from '../../services/peticiones';
+import {
+  getProductos,
+  getCategorias,
+  getBuscadorProductos,
+  getProductosPorCategorias,
+} from '../../services/peticiones';
 
 export const useProducto = () => {
   const [productos, setProductos] = useState([]);
@@ -13,31 +18,30 @@ export const useProducto = () => {
     setCategoriaActual('');
     buscarProducto('');
     buscarCategorias('');
-  }
+  };
 
   const buscarProducto = async (nombreProducto) => {
-    if(nombreProducto.trim() !== ""){
+    if (nombreProducto.trim() !== '') {
       const respuesta = await getBuscadorProductos(nombreProducto);
-      
-      setProductos(respuesta.data);
 
-    }else{
+      setProductos(respuesta.data);
+    } else {
       const respuesta = await getProductos();
       setProductos(respuesta.data);
     }
     setTextoActual(nombreProducto);
-  }
+  };
 
   const buscarCategorias = async (id) => {
-    if(id !== ""){
+    if (id !== '') {
       const respuesta = await getProductosPorCategorias(id);
       setProductos(respuesta.data);
-    }else{
+    } else {
       const respuesta = await getProductos();
       setProductos(respuesta.data);
     }
     setCategoriaActual(id);
-  }
+  };
 
   useEffect(() => {
     const getData = async () => {
@@ -45,26 +49,32 @@ export const useProducto = () => {
         const respuesta = await getProductos();
         setProductos(respuesta.data);
       } catch (err) {
-        setError(err);
+        console.error("Productos no obtenidos: ", err);
       }
-    }
+    };
 
     getData();
   }, []);
 
-
   useEffect(() => {
-      const getData = async () => {
-          try {
-              const response = await getCategorias();
-              setCategoria(response.data);
-          } catch (error) {
-              console.log("error al obtener los datos");
-          }
+    const getData = async () => {
+      try {
+        const response = await getCategorias();
+        setCategoria(response.data);
+      } catch (error) {
+        console.error("No se obtuvieron categorias: ", error);
       }
-      getData();
+    };
+    getData();
   }, []);
 
-  return { productos, categoria, buscarProducto, buscarCategorias, limpiar, textoActual, categoriaActual };
-}
-
+  return {
+    productos,
+    categoria,
+    buscarProducto,
+    buscarCategorias,
+    limpiar,
+    textoActual,
+    categoriaActual,
+  };
+};

@@ -83,9 +83,8 @@
 }
 
 .productosAdquiridos {
-    display: none;
+  display: none;
 }
-
 
 @media only screen and (min-width: 480px) {
   .menuLateral,
@@ -142,7 +141,7 @@
     height: 70px;
     border-radius: 10px;
   }
-  
+
   .desplegarPanelCarrito {
     display: flex;
   }

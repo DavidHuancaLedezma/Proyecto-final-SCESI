@@ -1,23 +1,22 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import HomeInicio from '../pages/HomeInicio';
+import HomeInicio from '../pages/Login';
 import Inicio from '../pages/Inicio';
 import Perfil from '../pages/Perfil';
 import Productos from '../pages/producto/Productos';
 import Carrito from '../pages/Carrito';
 import Reserva from '../pages/Reserva';
-import { Barra } from '../components';
+import Login from '../pages/Login';
 
 export default function AppRoutes() {
   return (
     <BrowserRouter>
-      <Barra/>
       <Routes>
-        <Route path="/" element={<HomeInicio />} />
+        <Route path="/" element={<Login />} />
         <Route path="/inicio" element={<Inicio />} />
         <Route path="/perfil" element={<Perfil />} />
         <Route path="/productos" element={<Productos />} />
         <Route path="/carrito" element={<Carrito />} />
-        <Route path="/reserva" element={<Reserva/>} />
+        <Route path="/reserva" element={<Reserva />} />
       </Routes>
     </BrowserRouter>
   );
