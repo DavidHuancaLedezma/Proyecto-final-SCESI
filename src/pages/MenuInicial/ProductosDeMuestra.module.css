@@ -1,0 +1,15 @@
+.contenedorComidas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 70px;
+}
+
+@media only screen and (min-width: 480px) {
+  .contenedorComidas {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-items: stretch;
+  }
+}

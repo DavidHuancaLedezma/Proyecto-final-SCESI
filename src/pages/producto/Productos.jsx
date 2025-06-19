@@ -1,9 +1,9 @@
 import {
-  ComponenteProducto,
+  ProductoCard,
   BarraBusqueda,
   NavBarHome,
 } from '../../components';
-import { useProducto } from '../../hooks/useProducto';
+//import { useProducto } from '../../hooks/useProducto';
 import style from './productos.module.css';
 function Productos() {
   const {
@@ -49,7 +49,7 @@ function Productos() {
             disponible,
             categoria,
           }) => (
-            <ComponenteProducto
+            <ProductoCard
               key={id_producto}
               nombre={nombre}
               descripcion={descripcion}

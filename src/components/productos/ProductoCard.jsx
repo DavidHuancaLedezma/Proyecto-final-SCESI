@@ -2,7 +2,7 @@ import { FaShoppingCart, FaBan } from 'react-icons/fa';
 import '../../normalize.css';
 import style from './productoCard.module.css';
 
-export const ComponenteProducto = ({
+export const ProductoCard = ({
   nombre,
   descripcion,
   precio,
