@@ -6,7 +6,6 @@ import style from './ProductosDeMuestra.module.css'
 function ProductosDeMuestra() {
 
   const { productos } = useProduct()
-  console.log(productos)
 
 
   return (
