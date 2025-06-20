@@ -22,12 +22,11 @@
   display: flex;
   list-style: none;
   padding-left: 0;
-  gap: 15px;
 }
 
 .opciones {
-  margin: 7px;
-  padding: 7px;
+  margin: 3px;
+  padding: 3px;
 }
 
 .opcionesTexto {
