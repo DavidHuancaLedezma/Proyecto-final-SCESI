@@ -7,7 +7,6 @@ function ProductosDeMuestra() {
 
   const { productos } = useProduct()
 
-
   return (
     <>
       <NavBarLogin />

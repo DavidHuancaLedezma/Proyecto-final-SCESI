@@ -38,5 +38,20 @@
 
 
 @media only screen and (min-width: 480px) {
-  
+  .titulo {
+    display: block;
+    font-size: 20px;
+  }
+  .opcionesDeInicio {
+    justify-content: space-between;
+    padding: 0px 60px;
+  }
+  .opcionesTexto {
+    font-size: 15px;
+  }
+  .menuBar {
+    gap: 15px;
+  }
+
+
 }
