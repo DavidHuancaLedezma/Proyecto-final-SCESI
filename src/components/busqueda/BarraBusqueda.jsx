@@ -1,6 +1,6 @@
-import { FaSearch } from 'react-icons/fa';
-import '../../normalize.css';
-import style from './barraBusqueda.module.css';
+import { FaSearch } from 'react-icons/fa'
+import '../../normalize.css'
+import style from './barraBusqueda.module.css'
 
 export const BarraBusqueda = ({
   opciones,
@@ -10,6 +10,11 @@ export const BarraBusqueda = ({
   categoriaActual,
   limpiar,
 }) => {
+  const opcioness = [
+    { id_categoria: 1, nombre: 'carnes' },
+    { id_categoria: 2, nombre: 'refrecos' },
+  ]
+
   return (
     <main className={style.busquedaContenedor}>
       <section className={style.busquedaCategorias}>
@@ -19,7 +24,7 @@ export const BarraBusqueda = ({
           value={categoriaActual}
         >
           <option value="">Categorias</option>
-          {opciones.map(({ id_categoria, nombre }) => (
+          {opcioness.map(({ id_categoria, nombre }) => (
             <option key={id_categoria} value={id_categoria}>
               {nombre}
             </option>
@@ -40,5 +45,5 @@ export const BarraBusqueda = ({
         />
       </section>
     </main>
-  );
-};
+  )
+}

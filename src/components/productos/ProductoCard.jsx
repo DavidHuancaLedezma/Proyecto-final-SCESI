@@ -1,6 +1,6 @@
-import { FaShoppingCart, FaBan } from 'react-icons/fa';
-import '../../normalize.css';
-import style from './productoCard.module.css';
+import { FaShoppingCart, FaBan } from 'react-icons/fa'
+import '../../normalize.css'
+import style from './productoCard.module.css'
 
 export const ProductoCard = ({
   nombre,
@@ -13,7 +13,7 @@ export const ProductoCard = ({
 }) => {
   const stock = disponible
     ? style.stockProducto
-    : `${style.stockProducto} ${style.agotado}`;
+    : `${style.stockProducto} ${style.agotado}`
 
   return (
     <article className={style.productoContenedor}>
@@ -52,5 +52,5 @@ export const ProductoCard = ({
         </footer>
       </section>
     </article>
-  );
-};
+  )
+}

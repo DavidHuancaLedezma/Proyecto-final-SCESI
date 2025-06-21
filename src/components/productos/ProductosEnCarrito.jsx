@@ -1,5 +1,5 @@
-import { FaShoppingCart, FaTrash } from 'react-icons/fa';
-import style from './productoEnCarrito.module.css';
+import { FaShoppingCart, FaTrash } from 'react-icons/fa'
+import style from './productoEnCarrito.module.css'
 export const ProductoEnCarrito = () => {
   return (
     <main className={style.contenedorProductos}>
@@ -33,5 +33,5 @@ export const ProductoEnCarrito = () => {
         <button className={style.comprarProductosCarrito}>comprar</button>
       </footer>
     </main>
-  );
-};
+  )
+}
