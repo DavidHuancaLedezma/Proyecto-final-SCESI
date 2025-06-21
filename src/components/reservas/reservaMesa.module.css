@@ -1,66 +1,63 @@
 .formularioContenedor {
-    margin-top: 60px;
-    display: flex;
-    padding: 20px;
-    justify-content: center;
+  margin-top: 60px;
+  display: flex;
+  padding: 20px;
+  justify-content: center;
 }
 
 .titulo {
-    text-align: center;
-    margin: 20px;
-    font-size: 30px;
-    
+  text-align: center;
+  margin: 20px;
+  font-size: 30px;
 }
 
 .formularioReservas {
-    width: 300px;
-    border-radius: 10px;
-    padding: 10px;
-    background-color: rgb(240, 234, 234);
-
+  width: 300px;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: rgb(240, 234, 234);
 }
 
 .datos {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .inputDatos {
-    margin: 15px;
-    width: 205px;
+  margin: 15px;
+  width: 205px;
 }
 
 .inputDatos input {
-    height: 30px;
-    margin: 3px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    outline: none;
+  height: 30px;
+  margin: 3px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  outline: none;
 }
 
 .busquedaComboBox {
-    width: 225px;
-    height: 30px;
-    border-radius: 10px;
-    outline: none;
+  width: 225px;
+  height: 30px;
+  border-radius: 10px;
+  outline: none;
 }
 
 .seccionDeEnvio {
-    display: flex;
-    justify-content: center;
-    margin: 20px;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
 }
 
 .btnEnviar {
-    border: none;
-    background-color: rgba(1, 89, 252, 0.829);
-    color: white;
-    border-radius: 10px;
-    width: 150px;
-    padding: 10px;
+  border: none;
+  background-color: rgba(1, 89, 252, 0.829);
+  color: white;
+  border-radius: 10px;
+  width: 150px;
+  padding: 10px;
 }
-
 
 @media only screen and (min-width: 480px) {
   .inputDatos input {

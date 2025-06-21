@@ -1,8 +1,10 @@
-import { ProductoEnCarrito } from '../components';
-
+import { ProductoEnCarrito, NavBarHome } from '../components';
 function Carrito() {
   return (
-      <ProductoEnCarrito/>
+    <>
+      <NavBarHome />
+      <ProductoEnCarrito />
+    </>
   );
 }
 export default Carrito;
