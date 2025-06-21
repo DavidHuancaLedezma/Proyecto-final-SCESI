@@ -1,10 +1,12 @@
 import { useState } from 'react'
 import { registroDeCuenta, inicioDeSesion } from '../services/auth'
+import { useNavigate } from 'react-router-dom'
 
 export const useUsuario = () => {
     const [nombre, setNombre] = useState("")
     const [correoElectronico, setCorreoElectronico] = useState("")
     const [contrasenia, setContrasenia] = useState("")
+    const navigate = useNavigate()
 
     const envioDeRegistro = (e) => {
         e.preventDefault()
@@ -18,7 +20,7 @@ export const useUsuario = () => {
     const iniciarSesion = (e) => {
         e.preventDefault()
         console.log(correoElectronico, contrasenia)
-        inicioDeSesion(correoElectronico, contrasenia)
+        inicioDeSesion(correoElectronico, contrasenia, navigate)
         setCorreoElectronico("")
         setContrasenia("")
     }

@@ -1,4 +1,4 @@
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, doc, getDoc } from "firebase/firestore";
 import { db } from "./firebase";
 
 
@@ -12,4 +12,10 @@ export const getProductos = async () => {
     res.push({ idProducto: doc.id, ...doc.data() });
     })
     return res    
+}
+
+export const getUsuario = async (idUsuario) => {
+    const docRef = doc(db, "usuarios", idUsuario)
+    const docSnap = await getDoc(docRef)
+    return docSnap.data()
 }

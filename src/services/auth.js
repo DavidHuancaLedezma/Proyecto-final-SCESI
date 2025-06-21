@@ -1,7 +1,8 @@
 import { auth, db } from "./firebase";
-import { createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
-import { setDoc, doc } from "firebase/firestore"; 
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
+import { setDoc, doc , serverTimestamp} from "firebase/firestore"; 
 import { mensajeExito, mensajeError } from "./mensajes";
+
 
 export const registroDeCuenta = (nombre, email, contrasenia) => {
     createUserWithEmailAndPassword(auth, email, contrasenia)
@@ -11,7 +12,10 @@ export const registroDeCuenta = (nombre, email, contrasenia) => {
         const datosDeUsuario = {
             nombre:nombre,
             contrasenia:contrasenia,
-            email: email
+            email: email,
+            fechaRegistro: serverTimestamp(),
+            rol: "Usuario"
+
         }
         try {
             await setDoc(doc(db, "usuarios", user.uid), datosDeUsuario);
@@ -44,11 +48,12 @@ export const registroDeCuenta = (nombre, email, contrasenia) => {
 
 }
 
-export const inicioDeSesion = (email, contrasenia) => {
+export const inicioDeSesion = (email, contrasenia, navigate) => {
     signInWithEmailAndPassword(auth, email, contrasenia)
     .then((userCredential) => {
         const user = userCredential.user;
-        console.log(user);
+        console.log(user.uid);
+        navigate("/perfil")
     })
     .catch((error) => {
         mensajeError("Credenciales incorrectas", "Tus credenciales son incorrectas");
