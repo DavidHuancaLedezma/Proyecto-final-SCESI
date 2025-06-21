@@ -1,10 +1,8 @@
-import { NavBarLogin, ProductoCard } from '../../components';
-import { useProduct } from '../../hooks/useProduct';
+import { NavBarLogin, ProductoCard } from '../../components'
+import { useProduct } from '../../hooks/useProduct'
 import style from './ProductosDeMuestra.module.css'
 
-
 function ProductosDeMuestra() {
-
   const { productos } = useProduct()
 
   return (
@@ -20,7 +18,7 @@ function ProductosDeMuestra() {
             precio,
             imagen,
             origen,
-            disponible
+            disponible,
           }) => (
             <ProductoCard
               key={idProducto}
@@ -35,9 +33,8 @@ function ProductosDeMuestra() {
           )
         )}
       </main>
-
     </>
-  );
+  )
 }
 
-export default ProductosDeMuestra;
+export default ProductosDeMuestra

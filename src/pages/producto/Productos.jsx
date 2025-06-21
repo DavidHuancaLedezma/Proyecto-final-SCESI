@@ -1,46 +1,17 @@
-import {
-  ProductoCard,
-  BarraBusqueda,
-  NavBarHome,
-} from '../../components';
-//import { useProducto } from '../../hooks/useProducto';
-import style from './productos.module.css';
+import { ProductoCard, BarraBusqueda, NavBarHome } from '../../components'
+import { useProduct } from '../../hooks/useProduct'
+import style from './productos.module.css'
 function Productos() {
-  const {
-    productos,
-    categoria,
-    buscarProducto,
-    buscarCategorias,
-    limpiar,
-    textoActual,
-    categoriaActual,
-  } = useProducto();
-
-  const handleBuscadorProducto = (e) => {
-    let nombreProducto = e.target.value;
-    buscarProducto(nombreProducto);
-  };
-
-  const handleCategoria = (e) => {
-    let categoria = e.target.value;
-    buscarCategorias(categoria);
-  };
+  const { productos } = useProduct()
 
   return (
     <>
       <NavBarHome />
-      <BarraBusqueda
-        opciones={categoria}
-        cambiosEnTexto={handleBuscadorProducto}
-        cambioDeCategoria={handleCategoria}
-        textoActual={textoActual}
-        categoriaActual={categoriaActual}
-        limpiar={limpiar}
-      />
+      <BarraBusqueda />
       <main className={style.carteleraDeComidas}>
         {productos.map(
           ({
-            id_producto,
+            idProducto,
             nombre,
             descripcion,
             precio,
@@ -50,7 +21,7 @@ function Productos() {
             categoria,
           }) => (
             <ProductoCard
-              key={id_producto}
+              key={idProducto}
               nombre={nombre}
               descripcion={descripcion}
               precio={precio}
@@ -63,6 +34,6 @@ function Productos() {
         )}
       </main>
     </>
-  );
+  )
 }
-export default Productos;
+export default Productos

@@ -1,61 +1,57 @@
 .contenedor {
-    margin-top: 10px;
-    display: flex;
-    justify-content: center;
-    padding: 100px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  padding: 100px;
 }
 
-
 .formulario {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 30px;
-    border: 1px solid gray;
-    border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  border: 1px solid gray;
+  border-radius: 10px;
 }
 
 .informacion {
-    margin: 10px 0px;
-    display: flex;
-    flex-direction: column;
-
+  margin: 10px 0px;
+  display: flex;
+  flex-direction: column;
 }
 
 .informacion input {
-    outline: none;
-    padding: 5px;
+  outline: none;
+  padding: 5px;
 }
 
 .btnRegistrar {
-    border: none;
-    background-color: rgba(1, 89, 252, 0.829);
-    color: white;
-    border-radius: 10px;
-    width: 150px;
-    padding: 10px;
+  border: none;
+  background-color: rgba(1, 89, 252, 0.829);
+  color: white;
+  border-radius: 10px;
+  width: 150px;
+  padding: 10px;
 }
 
-
 .enlace {
-    margin-top: 15px;
-    color: black;
-    font-size: 13px;
+  margin-top: 15px;
+  color: black;
+  font-size: 13px;
 }
 
 .link {
-    color: black;
+  color: black;
 }
-
 
 @media only screen and (min-width: 480px) {
   .informacion input {
     outline: none;
     padding: 5px;
     width: 250px;
-   }
+  }
 
-   .enlace {
-     font-size: 15px;
-    }
+  .enlace {
+    font-size: 15px;
+  }
 }

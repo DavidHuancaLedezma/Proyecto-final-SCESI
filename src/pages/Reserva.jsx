@@ -1,4 +1,4 @@
-import { ReservaMesa, NavBarHome } from '../components/index';
+import { ReservaMesa, NavBarHome } from '../components/index'
 
 function Reserva() {
   const mesas = [
@@ -22,13 +22,13 @@ function Reserva() {
       numeroMesa: 40,
       disponible: true,
     },
-  ];
+  ]
 
   return (
     <>
       <NavBarHome />
       <ReservaMesa mesasDisponibles={mesas} />
     </>
-  );
+  )
 }
-export default Reserva;
+export default Reserva

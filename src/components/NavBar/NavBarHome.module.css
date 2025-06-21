@@ -111,11 +111,15 @@
   }
   footer .cerrarSesion {
     display: block;
-    border: 1px solid red;
     background-color: red;
-    border-radius: 8px;
-    font-size: 15px;
+    border-radius: 10px;
+    text-align: center;
     color: white;
+    font-size: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    width: 95px;
+    padding: 5px;
   }
   .titulo {
     display: block;

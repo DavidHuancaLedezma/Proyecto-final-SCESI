@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   FaShoppingCart,
   FaUser,
@@ -8,32 +8,32 @@ import {
   FaHome,
   FaUtensils,
   FaTrash,
-} from 'react-icons/fa';
+} from 'react-icons/fa'
 
-import '../../normalize.css';
-import style from './NavBarHome.module.css';
+import '../../normalize.css'
+import style from './NavBarHome.module.css'
 
 export const NavBarHome = () => {
-  const [desplegable, setDesplegable] = useState(false);
-  const [productosComprados, setProductosComprados] = useState(false);
+  const [desplegable, setDesplegable] = useState(false)
+  const [productosComprados, setProductosComprados] = useState(false)
 
   const handleClick = () => {
-    setDesplegable(!desplegable);
-  };
+    setDesplegable(!desplegable)
+  }
 
   const handleClickCarrito = () => {
-    setProductosComprados(!productosComprados);
-  };
+    setProductosComprados(!productosComprados)
+  }
 
   const buttonClassName = desplegable
     ? 'desplegarOpciones'
-    : 'ocultarDesplegable';
+    : 'ocultarDesplegable'
   const buttonCarritoPC = productosComprados
     ? 'desplegarPanelCarrito'
-    : 'ocultarPanelCarrito';
+    : 'ocultarPanelCarrito'
   const opcionesDeInicio = desplegable
     ? `${style.opcionesDeInicio} ${style.presionado}`
-    : style.opcionesDeInicio;
+    : style.opcionesDeInicio
 
   return (
     <section>
@@ -74,7 +74,13 @@ export const NavBarHome = () => {
           </li>
         </ul>
         <footer className={style.sesion}>
-          <button className={style.cerrarSesion}>Cerrar sesión</button>
+          <ul className={style.opcionesContenedorHorizontalPc}>
+            <li className={style.opciones}>
+              <Link className={style.cerrarSesion} to="/">
+                Cerrar sesion
+              </Link>
+            </li>
+          </ul>
         </footer>
       </header>
 
@@ -106,7 +112,7 @@ export const NavBarHome = () => {
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="">
+            <Link className={style.opcionesTexto} to="/">
               <FaSignOutAlt /> Cerrar sesión
             </Link>
           </li>
@@ -148,5 +154,5 @@ export const NavBarHome = () => {
         </aside>
       </section>
     </section>
-  );
-};
+  )
+}

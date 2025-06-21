@@ -1,4 +1,4 @@
-import { NavBarHome, PublicidadRestaurante } from '../../components';
+import { NavBarHome, PublicidadRestaurante } from '../../components'
 
 function Inicio() {
   return (
@@ -6,6 +6,6 @@ function Inicio() {
       <NavBarHome />
       <PublicidadRestaurante />
     </>
-  );
+  )
 }
-export default Inicio;
+export default Inicio

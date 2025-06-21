@@ -1,10 +1,10 @@
-import { ProductoEnCarrito, NavBarHome } from '../components';
+import { ProductoEnCarrito, NavBarHome } from '../components'
 function Carrito() {
   return (
     <>
       <NavBarHome />
       <ProductoEnCarrito />
     </>
-  );
+  )
 }
-export default Carrito;
+export default Carrito
