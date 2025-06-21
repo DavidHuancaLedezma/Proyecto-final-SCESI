@@ -23,9 +23,22 @@ export const registroDeCuenta = (nombre, email, contrasenia) => {
 
     })
     .catch((error) => {
-        //const errorCode = error.code;
-        //const errorMessage = error.message;
-        mensajeError("Correo electronico existente", "El correo electronico que registraste ya fue registrado con otra cuenta")
+        const errorMessage = error.message;
+        let titulo = ""
+        let descripcion = ""
+        if(errorMessage === "Firebase: Error (auth/invalid-email)."){
+            titulo = "Correo electrinico inválido"
+            descripcion = "El correo electronico ingresado no tiene @."
+        }else if (errorMessage === "Firebase: Password should be at least 6 characters (auth/weak-password)."){
+            titulo = "Contraseña demasiado corta"
+            descripcion = "La contraseña tiene que tener mínimo 6 caracteres."
+        }else if (errorMessage === "Firebase: Error (auth/email-already-in-use)."){
+            titulo = "Correo electronico existente"
+            descripcion = "El correo electronico que ingresaste ya fue registrado con otra cuenta."
+        }
+
+        console.log(errorMessage)
+        mensajeError(titulo, descripcion)
         
     });
 
@@ -34,7 +47,6 @@ export const registroDeCuenta = (nombre, email, contrasenia) => {
 export const inicioDeSesion = (email, contrasenia) => {
     signInWithEmailAndPassword(auth, email, contrasenia)
     .then((userCredential) => {
-        // Signed in 
         const user = userCredential.user;
         console.log(user);
     })

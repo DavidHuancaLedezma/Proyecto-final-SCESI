@@ -1,5 +1,6 @@
 import { NavBarLogin } from '../../components'
 import { useUsuario } from '../../hooks/useUsuario';
+import { Link } from 'react-router-dom';
 import style from './Registrarse.module.css'
 function Registrarse() {
 
@@ -10,7 +11,7 @@ function Registrarse() {
       <NavBarLogin />
       <main className={style.contenedor}>
             <form className={style.formulario} onSubmit={envioDeRegistro} >
-              <h2>Crear Cuenta</h2>
+              <h2>Crear cuenta</h2>
 
               <section className={style.informacion}>
                 <label>Nombre completo</label>
@@ -29,6 +30,10 @@ function Registrarse() {
               </section>
 
               <button className={style.btnRegistrar} type="submit">Registrarse</button>
+
+              <div className={style.enlace}>
+                Ya tienes una cuenta ? <Link className={style.link} to="/iniciar-sesion">Iniciar sesión</Link>
+              </div>
           </form>
         </main>
     </>

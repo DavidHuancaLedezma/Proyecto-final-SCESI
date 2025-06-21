@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { registroDeCuenta } from '../services/auth'
+import { registroDeCuenta, inicioDeSesion } from '../services/auth'
 
 export const useUsuario = () => {
     const [nombre, setNombre] = useState("")
@@ -15,6 +15,14 @@ export const useUsuario = () => {
         setContrasenia("")
     }
 
-    return {nombre, correoElectronico, contrasenia, setNombre, setCorreoElectronico, setContrasenia, envioDeRegistro}
+    const iniciarSesion = (e) => {
+        e.preventDefault()
+        console.log(correoElectronico, contrasenia)
+        inicioDeSesion(correoElectronico, contrasenia)
+        setCorreoElectronico("")
+        setContrasenia("")
+    }
+
+    return {nombre, correoElectronico, contrasenia, setNombre, setCorreoElectronico, setContrasenia, envioDeRegistro, iniciarSesion}
 
 }

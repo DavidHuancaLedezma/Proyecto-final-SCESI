@@ -1,5 +1,5 @@
 .contenedor {
-    margin-top: 10px;
+    margin-top: 50px;
     display: flex;
     justify-content: center;
     padding: 100px;
@@ -27,7 +27,7 @@
     padding: 5px;
 }
 
-.btnRegistrar {
+.btnIngresar {
     border: none;
     background-color: rgba(1, 89, 252, 0.829);
     color: white;
@@ -36,10 +36,8 @@
     padding: 10px;
 }
 
-
 .enlace {
     margin-top: 15px;
-    color: black;
     font-size: 13px;
 }
 
