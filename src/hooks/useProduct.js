@@ -3,6 +3,11 @@ import { getProductos } from '../services/consultas'
 
 export const useProduct = () => {
   const [productos, setProductos] = useState([])
+  const [ocurrencia, setOcurrencia] = useState('')
+
+  const filtrarProductos = (producto) => {
+    return producto.nombre.toLowerCase().includes(ocurrencia.toLowerCase())
+  }
 
   useEffect(() => {
     const getDatos = async () => {
@@ -12,5 +17,5 @@ export const useProduct = () => {
     getDatos()
   }, [])
 
-  return { productos }
+  return { productos, ocurrencia, setOcurrencia, filtrarProductos }
 }
