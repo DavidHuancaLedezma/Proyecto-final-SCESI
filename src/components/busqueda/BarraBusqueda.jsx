@@ -11,8 +11,8 @@ export const BarraBusqueda = ({
   limpiar,
 }) => {
   const opcioness = [
-    { id_categoria: 1, nombre: 'carnes' },
-    { id_categoria: 2, nombre: 'refrecos' },
+    { id_categoria: 1, nombre: 'Carnes' },
+    { id_categoria: 2, nombre: 'Refrescos' },
   ]
 
   return (
@@ -25,7 +25,7 @@ export const BarraBusqueda = ({
         >
           <option value="">Categorias</option>
           {opcioness.map(({ id_categoria, nombre }) => (
-            <option key={id_categoria} value={id_categoria}>
+            <option key={id_categoria} value={nombre}>
               {nombre}
             </option>
           ))}
