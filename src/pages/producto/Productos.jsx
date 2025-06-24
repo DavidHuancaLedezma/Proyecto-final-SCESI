@@ -5,12 +5,14 @@ function Productos() {
   const {
     productos,
     ocurrencia,
+    carritoDeProductos,
     setOcurrencia,
     setCategoria,
     categoria,
     filtrarProductos,
     filtrarCategorias,
     limpiar,
+    agregarProducto,
   } = useProduct()
 
   const manejarCambioEnTexto = (e) => {
@@ -26,9 +28,14 @@ function Productos() {
     setOcurrencia('')
   }
 
+  const agregarProductoAlCarrito = (producto) => {
+    console.log(producto)
+    agregarProducto(producto)
+  }
+
   return (
     <>
-      <NavBarHome />
+      <NavBarHome productosAgregados={carritoDeProductos} />
       <BarraBusqueda
         cambiosEnTexto={manejarCambioEnTexto}
         cambioDeCategoria={manejarCambioCategoria}
@@ -53,6 +60,7 @@ function Productos() {
             }) => (
               <ProductoCard
                 key={idProducto}
+                idProducto={idProducto}
                 nombre={nombre}
                 descripcion={descripcion}
                 precio={precio}
@@ -60,6 +68,7 @@ function Productos() {
                 origen={origen}
                 disponible={disponible}
                 categoria={categoria}
+                agregarProductoAlCarrito={agregarProductoAlCarrito}
               />
             )
           )}

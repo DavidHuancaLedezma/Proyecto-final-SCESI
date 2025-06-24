@@ -3,6 +3,7 @@ import '../../normalize.css'
 import style from './productoCard.module.css'
 
 export const ProductoCard = ({
+  idProducto,
   nombre,
   descripcion,
   precio,
@@ -10,10 +11,19 @@ export const ProductoCard = ({
   origen,
   categoria,
   disponible,
+  agregarProductoAlCarrito,
 }) => {
   const stock = disponible
     ? style.stockProducto
     : `${style.stockProducto} ${style.agotado}`
+
+  const producto = {
+    idProducto: idProducto,
+    nombre: nombre,
+    precio: precio,
+    imagen: imagen,
+    cantidad: 1,
+  }
 
   return (
     <article className={style.productoContenedor}>
@@ -42,7 +52,10 @@ export const ProductoCard = ({
           <span className={style.productoPrecio}>{precio} Bs.</span>
 
           <section className={stock}>
-            <button className={style.productoDisponible}>
+            <button
+              className={style.productoDisponible}
+              onClick={() => agregarProductoAlCarrito(producto)}
+            >
               Agregar al carrito <FaShoppingCart />
             </button>
             <button className={style.productoAgotado}>

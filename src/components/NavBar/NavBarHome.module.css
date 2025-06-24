@@ -74,6 +74,7 @@
 .opcionesDeInicio.presionado .botonCerrar {
   display: block;
 }
+
 .opcionesContenedorHorizontalPc {
   display: none;
 }
@@ -91,6 +92,7 @@
   .botonAbrir {
     display: none;
   }
+
   .opcionesContenedorHorizontalPc {
     display: flex;
     list-style: none;
@@ -102,13 +104,16 @@
     margin: 3px;
     padding: 3px;
   }
+
   .opcionesTexto {
     color: white;
     font-size: 15px;
   }
+
   footer {
     display: flex;
   }
+
   footer .cerrarSesion {
     display: block;
     background-color: red;
@@ -121,14 +126,17 @@
     width: 95px;
     padding: 5px;
   }
+
   .titulo {
     display: block;
     font-size: 25px;
   }
+
   .tituloCarrito {
     margin-left: 20px;
     color: white;
   }
+
   .productosAdquiridos {
     display: flex;
     justify-content: end;
@@ -146,40 +154,16 @@
     overflow-y: auto;
   }
 
-  .comidasCarrito {
-    width: 90px;
-    height: 70px;
-    border-radius: 10px;
-  }
-
   .desplegarPanelCarrito {
     display: flex;
   }
+
   .ocultarPanelCarrito {
     display: none;
   }
-  .detalleProducto {
-    display: flex;
-    padding: 5px;
-    background-color: white;
-    border-radius: 10px;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin: 10px;
-  }
-  .eliminarProducto {
-    border: 1px solid red;
-    padding: 4px;
-    border-radius: 5px;
-    color: white;
-    background-color: rgba(255, 0, 0, 0.664);
-  }
+ 
   .eliminarProducto:hover {
     background-color: red;
-  }
-  .descripcionProducto p {
-    margin: 0px;
   }
 
   .detalle {

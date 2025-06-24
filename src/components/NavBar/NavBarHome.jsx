@@ -7,13 +7,14 @@ import {
   FaCalendarAlt,
   FaHome,
   FaUtensils,
-  FaTrash,
 } from 'react-icons/fa'
+
+import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
 
 import '../../normalize.css'
 import style from './NavBarHome.module.css'
 
-export const NavBarHome = () => {
+export const NavBarHome = ({ productosAgregados }) => {
   const [desplegable, setDesplegable] = useState(false)
   const [productosComprados, setProductosComprados] = useState(false)
 
@@ -128,21 +129,21 @@ export const NavBarHome = () => {
             </h1>
           </header>
           <main>
-            <figure className={style.detalleProducto}>
-              <img
-                className={style.comidasCarrito}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewdvz0HQg1CNrO1U2TTbBfyzw5d9CIINWpw&s"
-                alt=""
-              />
-              <figcaption className={style.descripcionProducto}>
-                <p>Nombre: Una amburguesa</p>
-                <p>Cantidad: 1</p>
-                <p>Subtotal: 20 Bs.</p>
-              </figcaption>
-              <button className={style.eliminarProducto}>
-                <FaTrash />
-              </button>
-            </figure>
+            {productosAgregados ? (
+              productosAgregados.map(
+                ({ idProducto, nombre, cantidad, imagen, precio }) => (
+                  <ProductoCardPequenio
+                    key={idProducto}
+                    nombre={nombre}
+                    cantidad={cantidad}
+                    imagen={imagen}
+                    precio={precio}
+                  />
+                )
+              )
+            ) : (
+              <p>Carrito sin productos</p>
+            )}
           </main>
           <footer className={style.detalle}>
             <section className={style.precio}>

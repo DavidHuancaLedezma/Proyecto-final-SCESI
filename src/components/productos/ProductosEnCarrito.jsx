@@ -2,7 +2,7 @@ import { FaShoppingCart, FaTrash } from 'react-icons/fa'
 import style from './productoEnCarrito.module.css'
 export const ProductoEnCarrito = () => {
   return (
-    <main className={style.contenedorProductos}>
+    <section className={style.contenedorProductos}>
       <header className={style.titulo}>
         <h1>
           <FaShoppingCart /> Tu carrito
@@ -32,6 +32,6 @@ export const ProductoEnCarrito = () => {
         </section>
         <button className={style.comprarProductosCarrito}>comprar</button>
       </footer>
-    </main>
+    </section>
   )
 }
