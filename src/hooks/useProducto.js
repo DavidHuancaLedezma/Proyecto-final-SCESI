@@ -1,80 +1,89 @@
 import { useEffect, useState } from 'react'
-import {
-  getProductos,
-  getCategorias,
-  getBuscadorProductos,
-  getProductosPorCategorias,
-} from '../services/peticiones'
+import { getProductos } from '../services/consultas'
 
 export const useProducto = () => {
   const [productos, setProductos] = useState([])
-  const [categoria, setCategoria] = useState([])
+  const [ocurrencia, setOcurrencia] = useState('')
+  const [categoria, setCategoria] = useState('')
+  const [carritoDeProductos, setCarritoDeProductos] = useState([])
+  const [precioTotal, setPrecioTotal] = useState('')
 
-  const [textoActual, setTextoActual] = useState('')
-  const [categoriaActual, setCategoriaActual] = useState('')
+  const agregarProducto = (producto) => {
+    const index = carritoDeProductos.findIndex(
+      (productosExistentes) => productosExistentes.nombre === producto.nombre
+    )
+
+    let productosActualizados = []
+
+    if (index !== -1) {
+      const productoConNuevaCantida = {
+        ...carritoDeProductos[index],
+        cantidad: carritoDeProductos[index].cantidad + 1,
+      }
+      productosActualizados = [...carritoDeProductos]
+      productosActualizados[index] = productoConNuevaCantida
+    } else {
+      productosActualizados = [...carritoDeProductos]
+      productosActualizados.push(producto)
+    }
+    setCarritoDeProductos(productosActualizados)
+    precioTotalProductos(productosActualizados)
+  }
+
+  const eliminarProducto = (idProducto) => {
+    const index = carritoDeProductos.findIndex(
+      (productoParaEliminar) => productoParaEliminar.idProducto === idProducto
+    )
+
+    let productosActualizados = [...carritoDeProductos]
+    productosActualizados.splice(index,1)
+    setCarritoDeProductos(productosActualizados)
+    precioTotalProductos(productosActualizados)
+  }
+
+  const precioTotalProductos = (productos) => {
+    let precio = 0
+    productos.forEach((producto) =>{
+      precio += (producto.precio * producto.cantidad)
+    })
+    setPrecioTotal(precio)
+  }
+
+  const filtrarProductos = (producto) => {
+    return producto.nombre
+      .toLowerCase()
+      .includes(ocurrencia.toLowerCase().trim())
+  }
+  const filtrarCategorias = (producto) => {
+    return producto.categoria.toLowerCase().includes(categoria.toLowerCase())
+  }
 
   const limpiar = () => {
-    setTextoActual('')
-    setCategoriaActual('')
-    buscarProducto('')
-    buscarCategorias('')
-  }
-
-  const buscarProducto = async (nombreProducto) => {
-    if (nombreProducto.trim() !== '') {
-      const respuesta = await getBuscadorProductos(nombreProducto)
-
-      setProductos(respuesta.data)
-    } else {
-      const respuesta = await getProductos()
-      setProductos(respuesta.data)
-    }
-    setTextoActual(nombreProducto)
-  }
-
-  const buscarCategorias = async (id) => {
-    if (id !== '') {
-      const respuesta = await getProductosPorCategorias(id)
-      setProductos(respuesta.data)
-    } else {
-      const respuesta = await getProductos()
-      setProductos(respuesta.data)
-    }
-    setCategoriaActual(id)
+    setCategoria('')
+    setOcurrencia('')
   }
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const respuesta = await getProductos()
-        setProductos(respuesta.data)
-      } catch (err) {
-        console.error('Productos no obtenidos: ', err)
-      }
+    const getDatos = async () => {
+      const respuesta = await getProductos()
+      setProductos(respuesta)
     }
-
-    getData()
-  }, [])
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await getCategorias()
-        setCategoria(response.data)
-      } catch (error) {
-        console.error('No se obtuvieron categorias: ', error)
-      }
-    }
-    getData()
+    getDatos()
   }, [])
 
   return {
     productos,
+    ocurrencia,
+    carritoDeProductos,
+    precioTotal,
+    setOcurrencia,
+    setCategoria,
+    setCarritoDeProductos,
     categoria,
-    buscarProducto,
-    buscarCategorias,
+    filtrarProductos,
+    filtrarCategorias,
     limpiar,
-    textoActual,
-    categoriaActual,
+    agregarProducto,
+    eliminarProducto,
   }
 }

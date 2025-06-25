@@ -1,4 +1,4 @@
-.detalle { 
+.detalle {
   display: flex;
   background-color: white;
   border-radius: 10px;
@@ -9,31 +9,30 @@
   align-items: center;
 }
 
-.comidasCarrito { 
+.comidasCarrito {
   height: 80px;
   width: 100px;
   border-radius: 10px;
   object-fit: cover;
 }
 
-.descripcionProducto p { 
+.descripcionProducto p {
   margin: 0;
   font-size: 15px;
 }
 
-.eliminarProducto { 
+.eliminarProducto {
   border: 1px solid red;
   background-color: rgba(255, 0, 0, 0.664);
   border-radius: 5px;
   color: white;
 }
 
-.eliminarProducto:hover { 
+.eliminarProducto:hover {
   background-color: red;
 }
 
-
-.listaProductos {  
-  overflow-y: auto; 
+.listaProductos {
+  overflow-y: auto;
   margin: 0;
 }

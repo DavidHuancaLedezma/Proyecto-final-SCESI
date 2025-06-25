@@ -1,11 +1,12 @@
 import { ProductoCard, BarraBusqueda, NavBarHome } from '../../components'
-import { useProduct } from '../../hooks/useProduct'
+import { useProducto } from '../../hooks/useProducto'
 import style from './productos.module.css'
 function Productos() {
   const {
     productos,
     ocurrencia,
     carritoDeProductos,
+    precioTotal,
     setOcurrencia,
     setCategoria,
     categoria,
@@ -13,7 +14,8 @@ function Productos() {
     filtrarCategorias,
     limpiar,
     agregarProducto,
-  } = useProduct()
+    eliminarProducto,
+  } = useProducto()
 
   const manejarCambioEnTexto = (e) => {
     const texto = e.target.value
@@ -29,13 +31,20 @@ function Productos() {
   }
 
   const agregarProductoAlCarrito = (producto) => {
-    console.log(producto)
     agregarProducto(producto)
+  }
+
+  const eliminarProductoDelCarrito = (idProducto) => {
+    eliminarProducto(idProducto)
   }
 
   return (
     <>
-      <NavBarHome productosAgregados={carritoDeProductos} />
+      <NavBarHome
+        productosAgregados={carritoDeProductos}
+        eliminarProductoDelCarrito={eliminarProductoDelCarrito}
+        precioTotal={precioTotal}
+      />
       <BarraBusqueda
         cambiosEnTexto={manejarCambioEnTexto}
         cambioDeCategoria={manejarCambioCategoria}

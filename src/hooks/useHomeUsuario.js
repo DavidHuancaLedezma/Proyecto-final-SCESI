@@ -6,7 +6,7 @@ export const useHomeUsuario = () => {
   const [usuario, setUsuario] = useState(null)
 
   //const cerrarSesion = () => {
-    
+
   //}
 
   useEffect(() => {
@@ -16,7 +16,6 @@ export const useHomeUsuario = () => {
       setUsuario(datos)
     })
   }, [])
-
 
   return { usuario }
 }

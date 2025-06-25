@@ -14,7 +14,11 @@ import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
 import '../../normalize.css'
 import style from './NavBarHome.module.css'
 
-export const NavBarHome = ({ productosAgregados }) => {
+export const NavBarHome = ({
+  productosAgregados,
+  eliminarProductoDelCarrito,
+  precioTotal,
+}) => {
   const [desplegable, setDesplegable] = useState(false)
   const [productosComprados, setProductosComprados] = useState(false)
 
@@ -24,6 +28,10 @@ export const NavBarHome = ({ productosAgregados }) => {
 
   const handleClickCarrito = () => {
     setProductosComprados(!productosComprados)
+  }
+
+  const obtenerIdProducto = (id) => {
+    eliminarProductoDelCarrito(id)
   }
 
   const buttonClassName = desplegable
@@ -138,6 +146,8 @@ export const NavBarHome = ({ productosAgregados }) => {
                     cantidad={cantidad}
                     imagen={imagen}
                     precio={precio}
+                    idProducto={idProducto}
+                    obtenerIdProducto={obtenerIdProducto}
                   />
                 )
               )
@@ -148,7 +158,11 @@ export const NavBarHome = ({ productosAgregados }) => {
           <footer className={style.detalle}>
             <section className={style.precio}>
               <span>Total:</span>
-              <span>100Bs.</span>
+              {precioTotal ? (
+                <span>{precioTotal} Bs.</span>
+              ) : (
+                <span>0 Bs.</span>
+              )}
             </section>
             <button className={style.comprarProductosCarrito}>comprar</button>
           </footer>

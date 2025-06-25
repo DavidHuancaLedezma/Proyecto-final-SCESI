@@ -1,6 +1,7 @@
-import { FaShoppingCart, FaTrash } from 'react-icons/fa'
+import { FaShoppingCart } from 'react-icons/fa'
+import { ProductoCardPequenio } from './ProductoCardPequenio'
 import style from './productoEnCarrito.module.css'
-export const ProductoEnCarrito = () => {
+export const ProductoEnCarrito = ({ productosAgregados }) => {
   return (
     <section className={style.contenedorProductos}>
       <header className={style.titulo}>
@@ -9,21 +10,21 @@ export const ProductoEnCarrito = () => {
         </h1>
       </header>
       <main className={style.listaProductos}>
-        <figure className={style.detalle}>
-          <img
-            className={style.comidasCarrito}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewdvz0HQg1CNrO1U2TTbBfyzw5d9CIINWpw&s"
-            alt=""
-          />
-          <figcaption className={style.descripcionProducto}>
-            <p>Una amburguesa</p>
-            <p>Cantidad: 1</p>
-            <p>Subtotal: 20 Bs.</p>
-          </figcaption>
-          <button className={style.eliminarProducto}>
-            <FaTrash />
-          </button>
-        </figure>
+        {productosAgregados ? (
+          productosAgregados.map(
+            ({ idProducto, nombre, cantidad, imagen, precio }) => (
+              <ProductoCardPequenio
+                key={idProducto}
+                nombre={nombre}
+                cantidad={cantidad}
+                imagen={imagen}
+                precio={precio}
+              />
+            )
+          )
+        ) : (
+          <p className={style.vacio}>Carrito sin productos</p>
+        )}
       </main>
       <footer className={style.detallePrecio}>
         <section className={style.precio}>
