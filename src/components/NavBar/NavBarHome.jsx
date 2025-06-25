@@ -137,7 +137,7 @@ export const NavBarHome = ({
             </h1>
           </header>
           <main>
-            {productosAgregados ? (
+            {productosAgregados && productosAgregados.length > 0 ? (
               productosAgregados.map(
                 ({ idProducto, nombre, cantidad, imagen, precio }) => (
                   <ProductoCardPequenio
@@ -152,7 +152,7 @@ export const NavBarHome = ({
                 )
               )
             ) : (
-              <p>Carrito sin productos</p>
+              <p className={style.vacio}>Carrito sin productos</p>
             )}
           </main>
           <footer className={style.detalle}>

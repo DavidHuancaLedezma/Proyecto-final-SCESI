@@ -36,15 +36,15 @@ export const useProducto = () => {
     )
 
     let productosActualizados = [...carritoDeProductos]
-    productosActualizados.splice(index,1)
+    productosActualizados.splice(index, 1)
     setCarritoDeProductos(productosActualizados)
     precioTotalProductos(productosActualizados)
   }
 
   const precioTotalProductos = (productos) => {
     let precio = 0
-    productos.forEach((producto) =>{
-      precio += (producto.precio * producto.cantidad)
+    productos.forEach((producto) => {
+      precio += producto.precio * producto.cantidad
     })
     setPrecioTotal(precio)
   }

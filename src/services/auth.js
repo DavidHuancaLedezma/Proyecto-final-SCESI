@@ -49,7 +49,6 @@ export const registroDeCuenta = (nombre, email, contrasenia) => {
           'El correo electronico que ingresaste ya fue registrado con otra cuenta.'
       }
 
-      console.log(errorMessage)
       mensajeError(titulo, descripcion)
     })
 }
@@ -62,6 +61,8 @@ export const inicioDeSesion = (email, contrasenia, navigate) => {
       navigate('/perfil')
     })
     .catch((error) => {
+      const errorMessage = error.message;
+      console.error(errorMessage)
       mensajeError(
         'Credenciales incorrectas',
         'Tus credenciales son incorrectas'

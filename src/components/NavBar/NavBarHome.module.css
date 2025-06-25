@@ -1,5 +1,5 @@
 .opcionesDeInicio {
-  background: orange;
+  background: rgb(255, 123, 0);
   position: fixed;
   top: 0px;
   left: 0px;
@@ -144,7 +144,7 @@
 
   .carrito {
     position: fixed;
-    background-color: rgb(255, 114, 12);
+    background-color: rgb(255, 123, 0);
     border-radius: 10px 0px 0px 10px;
     margin-top: 60px;
     height: calc(100vh - 60px);
@@ -188,5 +188,11 @@
   .precio {
     margin: 5px;
     font-size: 20px;
+  }
+  .vacio {
+    text-align: center;
+    opacity: 0.6;
+    margin-top: 50%;
+    color: white;
   }
 }

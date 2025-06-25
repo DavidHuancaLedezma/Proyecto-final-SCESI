@@ -25,7 +25,6 @@ function Productos() {
 
   const manejarCambioCategoria = (e) => {
     const texto = e.target.value
-    console.log(texto)
     setCategoria(texto)
     setOcurrencia('')
   }

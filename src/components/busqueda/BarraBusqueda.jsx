@@ -1,19 +1,16 @@
+import { useCategoria } from '../../hooks/useCategoria'
 import { FaSearch } from 'react-icons/fa'
+import style from './BarraBusqueda.module.css'
 import '../../normalize.css'
-import style from './barraBusqueda.module.css'
 
 export const BarraBusqueda = ({
-  opciones,
   cambiosEnTexto,
   cambioDeCategoria,
   textoActual,
   categoriaActual,
   limpiar,
 }) => {
-  const opcioness = [
-    { id_categoria: 1, nombre: 'Carnes' },
-    { id_categoria: 2, nombre: 'Refrescos' },
-  ]
+  const { categorias } = useCategoria()
 
   return (
     <main className={style.busquedaContenedor}>
@@ -24,9 +21,9 @@ export const BarraBusqueda = ({
           value={categoriaActual}
         >
           <option value="">Categorias</option>
-          {opcioness.map(({ id_categoria, nombre }) => (
-            <option key={id_categoria} value={nombre}>
-              {nombre}
+          {categorias.map(({ idCategoria, nombre_categoria }) => (
+            <option key={idCategoria} value={nombre_categoria}>
+              {nombre_categoria}
             </option>
           ))}
         </select>
