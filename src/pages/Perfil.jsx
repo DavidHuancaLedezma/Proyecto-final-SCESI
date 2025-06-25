@@ -1,12 +1,17 @@
 import { Usuario, NavBarHome } from '../components'
 import { useHomeUsuario } from '../hooks/useHomeUsuario'
+import { useProducto } from '../hooks/useProducto'
 
 function Perfil() {
   const { usuario } = useHomeUsuario()
-
+  const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
   return (
     <>
-      <NavBarHome />
+      <NavBarHome
+        productosAgregados={carritoDeProductos}
+        eliminarProductoDelCarrito={eliminarProducto}
+        precioTotal={precioTotal}
+      />
       {usuario ? (
         <Usuario
           nombre={usuario.nombre}

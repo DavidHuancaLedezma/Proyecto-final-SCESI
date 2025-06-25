@@ -27,6 +27,7 @@ export const useProducto = () => {
       productosActualizados.push(producto)
     }
     setCarritoDeProductos(productosActualizados)
+    localStorage.setItem('carrito', JSON.stringify(productosActualizados))
     precioTotalProductos(productosActualizados)
   }
 
@@ -38,6 +39,7 @@ export const useProducto = () => {
     let productosActualizados = [...carritoDeProductos]
     productosActualizados.splice(index, 1)
     setCarritoDeProductos(productosActualizados)
+    localStorage.setItem('carrito', JSON.stringify(productosActualizados))
     precioTotalProductos(productosActualizados)
   }
 
@@ -69,6 +71,11 @@ export const useProducto = () => {
       setProductos(respuesta)
     }
     getDatos()
+    let productosSeleccionados = localStorage.getItem('carrito')
+    if(productosSeleccionados){
+    setCarritoDeProductos(JSON.parse(productosSeleccionados))
+    precioTotalProductos(JSON.parse(productosSeleccionados))
+    }
   }, [])
 
   return {

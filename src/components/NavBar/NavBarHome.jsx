@@ -121,7 +121,11 @@ export const NavBarHome = ({
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/">
+            <Link
+              className={style.opcionesTexto}
+              to="/"
+              onClick={() => localStorage.removeItem('carrito')}
+            >
               <FaSignOutAlt /> Cerrar sesión
             </Link>
           </li>

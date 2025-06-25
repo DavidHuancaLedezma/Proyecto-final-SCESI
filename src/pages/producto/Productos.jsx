@@ -28,7 +28,7 @@ function Productos() {
     setCategoria(texto)
     setOcurrencia('')
   }
-
+  /*
   const agregarProductoAlCarrito = (producto) => {
     agregarProducto(producto)
   }
@@ -36,12 +36,13 @@ function Productos() {
   const eliminarProductoDelCarrito = (idProducto) => {
     eliminarProducto(idProducto)
   }
+*/
 
   return (
     <>
       <NavBarHome
         productosAgregados={carritoDeProductos}
-        eliminarProductoDelCarrito={eliminarProductoDelCarrito}
+        eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
       />
       <BarraBusqueda
@@ -76,7 +77,7 @@ function Productos() {
                 origen={origen}
                 disponible={disponible}
                 categoria={categoria}
-                agregarProductoAlCarrito={agregarProductoAlCarrito}
+                agregarProductoAlCarrito={agregarProducto}
               />
             )
           )}
