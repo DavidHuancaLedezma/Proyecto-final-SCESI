@@ -24,3 +24,12 @@ export const getCategorias = async () => {
   })
   return res
 }
+
+export const getMesas = async () => {
+  const querySnapshot = await getDocs(collection(db, 'mesa'))
+  let res = []
+  querySnapshot.forEach((doc) => {
+    res.push({ idMesa: doc.id, ...doc.data() })
+  })
+  return res
+}
