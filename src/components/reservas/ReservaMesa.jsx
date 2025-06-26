@@ -1,14 +1,14 @@
-import style from './reservaMesa.module.css';
-import { registroDeCuenta, inicioDeSesion } from '../../services/auth';
+import style from './reservaMesa.module.css'
+import { registroDeCuenta, inicioDeSesion } from '../../services/auth'
 
 export const ReservaMesa = ({ mesasDisponibles }) => {
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    const email = 'david22@gmail.com';
-    const password = '1234567891';
-    const nombre = 'david123';
-    registroDeCuenta(email, password, nombre);
-  };
+    e.preventDefault()
+    const email = 'david22@gmail.com'
+    const password = '1234567891'
+    const nombre = 'david123'
+    registroDeCuenta(email, password, nombre)
+  }
 
   return (
     <main className={style.formularioContenedor}>
@@ -45,5 +45,5 @@ export const ReservaMesa = ({ mesasDisponibles }) => {
         </footer>
       </form>
     </main>
-  );
-};
+  )
+}

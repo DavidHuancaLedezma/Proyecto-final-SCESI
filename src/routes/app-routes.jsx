@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 //import HomeInicio from '../pages/Login';
-import Inicio from '../pages/inicio/Inicio';
-import Perfil from '../pages/Perfil';
-import Productos from '../pages/producto/Productos';
-import Carrito from '../pages/Carrito';
-import Reserva from '../pages/Reserva';
-import Publicidad from '../pages/MenuInicial/PublicidadInicio';
-import ProductosDeMuestra from '../pages/MenuInicial/ProductosDeMuestra';
-import IniciarSesion from '../pages/MenuInicial/IniciarSesion';
-import Registrarse from '../pages/MenuInicial/Registrarse';
+import Inicio from '../pages/inicio/Inicio'
+import Perfil from '../pages/Perfil'
+import Productos from '../pages/producto/Productos'
+import Carrito from '../pages/Carrito'
+import Reserva from '../pages/Reserva'
+import Publicidad from '../pages/MenuInicial/PublicidadInicio'
+import ProductosDeMuestra from '../pages/MenuInicial/ProductosDeMuestra'
+import IniciarSesion from '../pages/MenuInicial/IniciarSesion'
+import Registrarse from '../pages/MenuInicial/Registrarse'
 
 export default function AppRoutes() {
   return (
@@ -25,5 +25,5 @@ export default function AppRoutes() {
         <Route path="/reserva" element={<Reserva />} />
       </Routes>
     </BrowserRouter>
-  );
+  )
 }

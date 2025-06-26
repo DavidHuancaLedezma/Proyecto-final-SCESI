@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom';
-import style from './NavBarLogin.module.css';
+import { Link } from 'react-router-dom'
+import style from './NavBarLogin.module.css'
 
 export const NavBarLogin = () => {
   return (
@@ -33,5 +33,5 @@ export const NavBarLogin = () => {
         </nav>
       </header>
     </main>
-  );
-};
+  )
+}

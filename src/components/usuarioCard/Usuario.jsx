@@ -1,5 +1,5 @@
-import { FaUser, FaCalendar, FaEnvelope, FaUserShield } from 'react-icons/fa';
-import style from './usuario.module.css';
+import { FaUser, FaCalendar, FaEnvelope, FaUserShield } from 'react-icons/fa'
+import style from './usuario.module.css'
 
 export const Usuario = ({ nombre, correoElectrico, fechaDeRegistro, rol }) => {
   return (
@@ -32,5 +32,5 @@ export const Usuario = ({ nombre, correoElectrico, fechaDeRegistro, rol }) => {
         </section>
       </section>
     </main>
-  );
-};
+  )
+}

@@ -1,68 +1,71 @@
-import {
-  ProductoCard,
-  BarraBusqueda,
-  NavBarHome,
-} from '../../components';
-//import { useProducto } from '../../hooks/useProducto';
-import style from './productos.module.css';
+import { ProductoCard, BarraBusqueda, NavBarHome } from '../../components'
+import { useBusqueda } from '../../hooks/useBusqueda'
+import { useProducto } from '../../hooks/useProducto'
+import style from './productos.module.css'
 function Productos() {
   const {
     productos,
-    categoria,
-    buscarProducto,
-    buscarCategorias,
-    limpiar,
-    textoActual,
-    categoriaActual,
-  } = useProducto();
+    carritoDeProductos,
+    precioTotal,
+    agregarProducto,
+    eliminarProducto,
+  } = useProducto()
 
-  const handleBuscadorProducto = (e) => {
-    let nombreProducto = e.target.value;
-    buscarProducto(nombreProducto);
-  };
-
-  const handleCategoria = (e) => {
-    let categoria = e.target.value;
-    buscarCategorias(categoria);
-  };
+  const {
+    busquedaPorTexto,
+    busquedaPorCategoria,
+    filtrarProductosPorTexto,
+    filtrarProductosPorCategorias,
+    manejarCambioBusquedaPorTexto,
+    manejarCambioBusquedaPorCategoria,
+    limpiarBusquedas,
+  } = useBusqueda()
 
   return (
     <>
-      <NavBarHome />
+      <NavBarHome
+        productosAgregados={carritoDeProductos}
+        eliminarProductoDelCarrito={eliminarProducto}
+        precioTotal={precioTotal}
+      />
       <BarraBusqueda
-        opciones={categoria}
-        cambiosEnTexto={handleBuscadorProducto}
-        cambioDeCategoria={handleCategoria}
-        textoActual={textoActual}
-        categoriaActual={categoriaActual}
-        limpiar={limpiar}
+        cambiosEnTexto={manejarCambioBusquedaPorTexto}
+        cambioDeCategoria={manejarCambioBusquedaPorCategoria}
+        textoActual={busquedaPorTexto}
+        categoriaActual={busquedaPorCategoria}
+        limpiar={limpiarBusquedas}
       />
       <main className={style.carteleraDeComidas}>
-        {productos.map(
-          ({
-            id_producto,
-            nombre,
-            descripcion,
-            precio,
-            imagen,
-            origen,
-            disponible,
-            categoria,
-          }) => (
-            <ProductoCard
-              key={id_producto}
-              nombre={nombre}
-              descripcion={descripcion}
-              precio={precio}
-              imagen={imagen}
-              origen={origen}
-              disponible={disponible}
-              categoria={categoria}
-            />
-          )
-        )}
+        {productos
+          .filter(filtrarProductosPorTexto)
+          .filter(filtrarProductosPorCategorias)
+          .map(
+            ({
+              idProducto,
+              nombre,
+              descripcion,
+              precio,
+              imagen,
+              origen,
+              disponible,
+              categoria,
+            }) => (
+              <ProductoCard
+                key={idProducto}
+                idProducto={idProducto}
+                nombre={nombre}
+                descripcion={descripcion}
+                precio={precio}
+                imagen={imagen}
+                origen={origen}
+                disponible={disponible}
+                categoria={categoria}
+                agregarProductoAlCarrito={agregarProducto}
+              />
+            )
+          )}
       </main>
     </>
-  );
+  )
 }
-export default Productos;
+export default Productos

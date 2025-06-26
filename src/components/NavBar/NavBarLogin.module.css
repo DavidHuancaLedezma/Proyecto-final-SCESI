@@ -1,5 +1,5 @@
 .opcionesDeInicio {
-  background: #457b9d;
+  background: rgb(255, 123, 0);
   position: fixed;
   top: 0px;
   left: 0px;
@@ -36,7 +36,6 @@
   font-size: 13px;
 }
 
-
 @media only screen and (min-width: 480px) {
   .titulo {
     display: block;
@@ -52,6 +51,4 @@
   .menuBar {
     gap: 15px;
   }
-
-
 }

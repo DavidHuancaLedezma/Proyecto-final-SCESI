@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 import {
   FaShoppingCart,
   FaUser,
@@ -7,33 +7,43 @@ import {
   FaCalendarAlt,
   FaHome,
   FaUtensils,
-  FaTrash,
-} from 'react-icons/fa';
+  FaTimesCircle,
+} from 'react-icons/fa'
 
-import '../../normalize.css';
-import style from './NavBarHome.module.css';
+import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
 
-export const NavBarHome = () => {
-  const [desplegable, setDesplegable] = useState(false);
-  const [productosComprados, setProductosComprados] = useState(false);
+import '../../normalize.css'
+import style from './NavBarHome.module.css'
+
+export const NavBarHome = ({
+  productosAgregados,
+  eliminarProductoDelCarrito,
+  precioTotal,
+}) => {
+  const [desplegable, setDesplegable] = useState(false)
+  const [productosComprados, setProductosComprados] = useState(false)
 
   const handleClick = () => {
-    setDesplegable(!desplegable);
-  };
+    setDesplegable(!desplegable)
+  }
 
   const handleClickCarrito = () => {
-    setProductosComprados(!productosComprados);
-  };
+    setProductosComprados(!productosComprados)
+  }
+
+  const obtenerIdProducto = (id) => {
+    eliminarProductoDelCarrito(id)
+  }
 
   const buttonClassName = desplegable
     ? 'desplegarOpciones'
-    : 'ocultarDesplegable';
+    : 'ocultarDesplegable'
   const buttonCarritoPC = productosComprados
     ? 'desplegarPanelCarrito'
-    : 'ocultarPanelCarrito';
+    : 'ocultarPanelCarrito'
   const opcionesDeInicio = desplegable
     ? `${style.opcionesDeInicio} ${style.presionado}`
-    : style.opcionesDeInicio;
+    : style.opcionesDeInicio
 
   return (
     <section>
@@ -43,7 +53,7 @@ export const NavBarHome = () => {
           ☰
         </button>
         <button className={style.botonCerrar} onClick={handleClick}>
-          ←
+          <FaTimesCircle />
         </button>
 
         <ul className={style.opcionesContenedorHorizontalPc}>
@@ -74,7 +84,13 @@ export const NavBarHome = () => {
           </li>
         </ul>
         <footer className={style.sesion}>
-          <button className={style.cerrarSesion}>Cerrar sesión</button>
+          <ul className={style.opcionesContenedorHorizontalPc}>
+            <li className={style.opciones}>
+              <Link className={style.cerrarSesion} to="/">
+                Cerrar sesion
+              </Link>
+            </li>
+          </ul>
         </footer>
       </header>
 
@@ -106,7 +122,11 @@ export const NavBarHome = () => {
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="">
+            <Link
+              className={style.opcionesTexto}
+              to="/"
+              onClick={() => localStorage.removeItem('carrito')}
+            >
               <FaSignOutAlt /> Cerrar sesión
             </Link>
           </li>
@@ -122,31 +142,37 @@ export const NavBarHome = () => {
             </h1>
           </header>
           <main>
-            <figure className={style.detalleProducto}>
-              <img
-                className={style.comidasCarrito}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewdvz0HQg1CNrO1U2TTbBfyzw5d9CIINWpw&s"
-                alt=""
-              />
-              <figcaption className={style.descripcionProducto}>
-                <p>Nombre: Una amburguesa</p>
-                <p>Cantidad: 1</p>
-                <p>Subtotal: 20 Bs.</p>
-              </figcaption>
-              <button className={style.eliminarProducto}>
-                <FaTrash />
-              </button>
-            </figure>
+            {productosAgregados && productosAgregados.length > 0 ? (
+              productosAgregados.map(
+                ({ idProducto, nombre, cantidad, imagen, precio }) => (
+                  <ProductoCardPequenio
+                    key={idProducto}
+                    nombre={nombre}
+                    cantidad={cantidad}
+                    imagen={imagen}
+                    precio={precio}
+                    idProducto={idProducto}
+                    obtenerIdProducto={obtenerIdProducto}
+                  />
+                )
+              )
+            ) : (
+              <p className={style.vacio}>Carrito sin productos</p>
+            )}
           </main>
           <footer className={style.detalle}>
             <section className={style.precio}>
               <span>Total:</span>
-              <span>100Bs.</span>
+              {precioTotal ? (
+                <span>{precioTotal} Bs.</span>
+              ) : (
+                <span>0 Bs.</span>
+              )}
             </section>
             <button className={style.comprarProductosCarrito}>comprar</button>
           </footer>
         </aside>
       </section>
     </section>
-  );
-};
+  )
+}

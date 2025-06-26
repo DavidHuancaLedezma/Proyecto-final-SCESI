@@ -1,80 +1,74 @@
-import { useEffect, useState } from 'react';
-import {
-  getProductos,
-  getCategorias,
-  getBuscadorProductos,
-  getProductosPorCategorias,
-} from '../services/peticiones';
+import { useEffect, useState } from 'react'
+import { getProductos } from '../services/consultas'
 
 export const useProducto = () => {
-  const [productos, setProductos] = useState([]);
-  const [categoria, setCategoria] = useState([]);
+  const [productos, setProductos] = useState([])
+  const [carritoDeProductos, setCarritoDeProductos] = useState([])
+  const [precioTotal, setPrecioTotal] = useState('')
 
-  const [textoActual, setTextoActual] = useState('');
-  const [categoriaActual, setCategoriaActual] = useState('');
+  const agregarProducto = (producto) => {
+    const index = carritoDeProductos.findIndex(
+      (productosExistentes) => productosExistentes.nombre === producto.nombre
+    )
 
-  const limpiar = () => {
-    setTextoActual('');
-    setCategoriaActual('');
-    buscarProducto('');
-    buscarCategorias('');
-  };
+    let productosActualizados = []
 
-  const buscarProducto = async (nombreProducto) => {
-    if (nombreProducto.trim() !== '') {
-      const respuesta = await getBuscadorProductos(nombreProducto);
-
-      setProductos(respuesta.data);
+    if (index !== -1) {
+      const productoConNuevaCantida = {
+        ...carritoDeProductos[index],
+        cantidad: carritoDeProductos[index].cantidad + 1,
+      }
+      productosActualizados = [...carritoDeProductos]
+      productosActualizados[index] = productoConNuevaCantida
     } else {
-      const respuesta = await getProductos();
-      setProductos(respuesta.data);
+      productosActualizados = [...carritoDeProductos]
+      productosActualizados.push(producto)
     }
-    setTextoActual(nombreProducto);
-  };
 
-  const buscarCategorias = async (id) => {
-    if (id !== '') {
-      const respuesta = await getProductosPorCategorias(id);
-      setProductos(respuesta.data);
-    } else {
-      const respuesta = await getProductos();
-      setProductos(respuesta.data);
-    }
-    setCategoriaActual(id);
-  };
+    setCarritoDeProductos(productosActualizados)
+    localStorage.setItem('carrito', JSON.stringify(productosActualizados))
+    precioTotalProductos(productosActualizados)
+  }
+
+  const eliminarProducto = (idProducto) => {
+    const index = carritoDeProductos.findIndex(
+      (productoParaEliminar) => productoParaEliminar.idProducto === idProducto
+    )
+
+    let productosActualizados = [...carritoDeProductos]
+    productosActualizados.splice(index, 1)
+    setCarritoDeProductos(productosActualizados)
+    localStorage.setItem('carrito', JSON.stringify(productosActualizados))
+    precioTotalProductos(productosActualizados)
+  }
+
+  const precioTotalProductos = (productos) => {
+    let precio = 0
+    productos.forEach((producto) => {
+      precio += producto.precio * producto.cantidad
+    })
+    setPrecioTotal(precio)
+  }
 
   useEffect(() => {
-    const getData = async () => {
-      try {
-        const respuesta = await getProductos();
-        setProductos(respuesta.data);
-      } catch (err) {
-        console.error("Productos no obtenidos: ", err);
-      }
-    };
-
-    getData();
-  }, []);
-
-  useEffect(() => {
-    const getData = async () => {
-      try {
-        const response = await getCategorias();
-        setCategoria(response.data);
-      } catch (error) {
-        console.error("No se obtuvieron categorias: ", error);
-      }
-    };
-    getData();
-  }, []);
+    const getDatos = async () => {
+      const respuesta = await getProductos()
+      setProductos(respuesta)
+    }
+    getDatos()
+    let productosSeleccionados = localStorage.getItem('carrito')
+    if (productosSeleccionados) {
+      setCarritoDeProductos(JSON.parse(productosSeleccionados))
+      precioTotalProductos(JSON.parse(productosSeleccionados))
+    }
+  }, [])
 
   return {
     productos,
-    categoria,
-    buscarProducto,
-    buscarCategorias,
-    limpiar,
-    textoActual,
-    categoriaActual,
-  };
-};
+    carritoDeProductos,
+    precioTotal,
+    setCarritoDeProductos,
+    agregarProducto,
+    eliminarProducto,
+  }
+}
