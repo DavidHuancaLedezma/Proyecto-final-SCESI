@@ -7,13 +7,19 @@ import {
   FaCalendarAlt,
   FaHome,
   FaUtensils,
-  FaTrash,
+  FaTimesCircle,
 } from 'react-icons/fa'
+
+import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
 
 import '../../normalize.css'
 import style from './NavBarHome.module.css'
 
-export const NavBarHome = () => {
+export const NavBarHome = ({
+  productosAgregados,
+  eliminarProductoDelCarrito,
+  precioTotal,
+}) => {
   const [desplegable, setDesplegable] = useState(false)
   const [productosComprados, setProductosComprados] = useState(false)
 
@@ -23,6 +29,10 @@ export const NavBarHome = () => {
 
   const handleClickCarrito = () => {
     setProductosComprados(!productosComprados)
+  }
+
+  const obtenerIdProducto = (id) => {
+    eliminarProductoDelCarrito(id)
   }
 
   const buttonClassName = desplegable
@@ -43,7 +53,7 @@ export const NavBarHome = () => {
           ☰
         </button>
         <button className={style.botonCerrar} onClick={handleClick}>
-          ←
+          <FaTimesCircle />
         </button>
 
         <ul className={style.opcionesContenedorHorizontalPc}>
@@ -112,7 +122,11 @@ export const NavBarHome = () => {
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/">
+            <Link
+              className={style.opcionesTexto}
+              to="/"
+              onClick={() => localStorage.removeItem('carrito')}
+            >
               <FaSignOutAlt /> Cerrar sesión
             </Link>
           </li>
@@ -128,26 +142,32 @@ export const NavBarHome = () => {
             </h1>
           </header>
           <main>
-            <figure className={style.detalleProducto}>
-              <img
-                className={style.comidasCarrito}
-                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewdvz0HQg1CNrO1U2TTbBfyzw5d9CIINWpw&s"
-                alt=""
-              />
-              <figcaption className={style.descripcionProducto}>
-                <p>Nombre: Una amburguesa</p>
-                <p>Cantidad: 1</p>
-                <p>Subtotal: 20 Bs.</p>
-              </figcaption>
-              <button className={style.eliminarProducto}>
-                <FaTrash />
-              </button>
-            </figure>
+            {productosAgregados && productosAgregados.length > 0 ? (
+              productosAgregados.map(
+                ({ idProducto, nombre, cantidad, imagen, precio }) => (
+                  <ProductoCardPequenio
+                    key={idProducto}
+                    nombre={nombre}
+                    cantidad={cantidad}
+                    imagen={imagen}
+                    precio={precio}
+                    idProducto={idProducto}
+                    obtenerIdProducto={obtenerIdProducto}
+                  />
+                )
+              )
+            ) : (
+              <p className={style.vacio}>Carrito sin productos</p>
+            )}
           </main>
           <footer className={style.detalle}>
             <section className={style.precio}>
               <span>Total:</span>
-              <span>100Bs.</span>
+              {precioTotal ? (
+                <span>{precioTotal} Bs.</span>
+              ) : (
+                <span>0 Bs.</span>
+              )}
             </section>
             <button className={style.comprarProductosCarrito}>comprar</button>
           </footer>

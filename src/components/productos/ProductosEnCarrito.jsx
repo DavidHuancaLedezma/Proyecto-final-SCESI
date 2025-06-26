@@ -1,37 +1,47 @@
-import { FaShoppingCart, FaTrash } from 'react-icons/fa'
+import { FaShoppingCart } from 'react-icons/fa'
+import { ProductoCardPequenio } from './ProductoCardPequenio'
 import style from './productoEnCarrito.module.css'
-export const ProductoEnCarrito = () => {
+export const ProductoEnCarrito = ({
+  productosAgregados,
+  precioTotal,
+  eliminarProducto,
+}) => {
+  const obtenerIdProducto = (id) => {
+    eliminarProducto(id)
+  }
   return (
-    <main className={style.contenedorProductos}>
+    <section className={style.contenedorProductos}>
       <header className={style.titulo}>
         <h1>
           <FaShoppingCart /> Tu carrito
         </h1>
       </header>
       <main className={style.listaProductos}>
-        <figure className={style.detalle}>
-          <img
-            className={style.comidasCarrito}
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQewdvz0HQg1CNrO1U2TTbBfyzw5d9CIINWpw&s"
-            alt=""
-          />
-          <figcaption className={style.descripcionProducto}>
-            <p>Una amburguesa</p>
-            <p>Cantidad: 1</p>
-            <p>Subtotal: 20 Bs.</p>
-          </figcaption>
-          <button className={style.eliminarProducto}>
-            <FaTrash />
-          </button>
-        </figure>
+        {productosAgregados ? (
+          productosAgregados.map(
+            ({ idProducto, nombre, cantidad, imagen, precio }) => (
+              <ProductoCardPequenio
+                key={idProducto}
+                nombre={nombre}
+                cantidad={cantidad}
+                imagen={imagen}
+                precio={precio}
+                idProducto={idProducto}
+                obtenerIdProducto={obtenerIdProducto}
+              />
+            )
+          )
+        ) : (
+          <p className={style.vacio}>Carrito sin productos</p>
+        )}
       </main>
       <footer className={style.detallePrecio}>
         <section className={style.precio}>
           <span>Pago total:</span>
-          <span>100Bs.</span>
+          {precioTotal ? <span>{precioTotal} Bs.</span> : <span>0 Bs.</span>}
         </section>
         <button className={style.comprarProductosCarrito}>comprar</button>
       </footer>
-    </main>
+    </section>
   )
 }

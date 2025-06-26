@@ -1,20 +1,25 @@
 import { Usuario, NavBarHome } from '../components'
-import { useHomeUsuario } from '../hooks/useHomeUsuario'
+import { useUsuario } from '../hooks/useUsuario'
+import { useProducto } from '../hooks/useProducto'
 
 function Perfil() {
-  const { usuario } = useHomeUsuario()
-
+  const { datosUsuarioActivo } = useUsuario()
+  const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
   return (
     <>
-      <NavBarHome />
-      {usuario ? (
+      <NavBarHome
+        productosAgregados={carritoDeProductos}
+        eliminarProductoDelCarrito={eliminarProducto}
+        precioTotal={precioTotal}
+      />
+      {datosUsuarioActivo ? (
         <Usuario
-          nombre={usuario.nombre}
-          correoElectrico={usuario.email}
-          fechaDeRegistro={usuario.fechaRegistro
+          nombre={datosUsuarioActivo.nombre}
+          correoElectrico={datosUsuarioActivo.email}
+          fechaDeRegistro={datosUsuarioActivo.fechaRegistro
             .toDate()
             .toLocaleString('es-BO')}
-          rol={usuario.rol}
+          rol={datosUsuarioActivo.rol}
         />
       ) : (
         <Usuario

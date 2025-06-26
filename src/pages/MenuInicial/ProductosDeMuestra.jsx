@@ -1,9 +1,9 @@
 import { NavBarLogin, ProductoCard } from '../../components'
-import { useProduct } from '../../hooks/useProduct'
+import { useProducto } from '../../hooks/useProducto'
 import style from './ProductosDeMuestra.module.css'
 
 function ProductosDeMuestra() {
-  const { productos } = useProduct()
+  const { productos } = useProducto()
 
   return (
     <>

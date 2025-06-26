@@ -1,38 +1,54 @@
-import { useState } from 'react'
-import { registroDeCuenta, inicioDeSesion } from '../services/auth'
+import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { usuarioLogueado } from '../services/auth'
+import { registroDeCuenta, inicioDeSesion } from '../services/auth'
 
 export const useUsuario = () => {
-  const [nombre, setNombre] = useState('')
-  const [correoElectronico, setCorreoElectronico] = useState('')
-  const [contrasenia, setContrasenia] = useState('')
+  const [datosUsuarioActivo, setDatosUsuarioActivo] = useState(null)
+  const [usuario, setUsuario] = useState({
+    nombre: '',
+    correoElectronico: '',
+    contrasenia: '',
+  })
+
   const navigate = useNavigate()
 
   const envioDeRegistro = (e) => {
     e.preventDefault()
-    console.log(nombre, correoElectronico, contrasenia)
-    registroDeCuenta(nombre, correoElectronico, contrasenia)
-    setNombre('')
-    setCorreoElectronico('')
-    setContrasenia('')
+
+    console.log(usuario.nombre, usuario.correoElectronico, usuario.contrasenia)
+    registroDeCuenta(
+      usuario.nombre,
+      usuario.correoElectronico,
+      usuario.contrasenia
+    )
+    setUsuario({
+      nombre: '',
+      correoElectronico: '',
+      contrasenia: '',
+    })
   }
 
   const iniciarSesion = (e) => {
     e.preventDefault()
-    console.log(correoElectronico, contrasenia)
-    inicioDeSesion(correoElectronico, contrasenia, navigate)
-    setCorreoElectronico('')
-    setContrasenia('')
+    console.log(usuario.correoElectronico, usuario.contrasenia)
+    inicioDeSesion(usuario.correoElectronico, usuario.contrasenia, navigate)
+    setUsuario({
+      nombre: '',
+      correoElectronico: '',
+      contrasenia: '',
+    })
   }
 
+  useEffect(() => {
+    usuarioLogueado(setDatosUsuarioActivo)
+  }, [])
+
   return {
-    nombre,
-    correoElectronico,
-    contrasenia,
-    setNombre,
-    setCorreoElectronico,
-    setContrasenia,
+    usuario,
+    setUsuario,
     envioDeRegistro,
     iniciarSesion,
+    datosUsuarioActivo,
   }
 }

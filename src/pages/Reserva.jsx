@@ -1,6 +1,7 @@
 import { ReservaMesa, NavBarHome } from '../components/index'
-
+import { useProducto } from '../hooks/useProducto'
 function Reserva() {
+  const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
   const mesas = [
     {
       id: 1,
@@ -26,7 +27,11 @@ function Reserva() {
 
   return (
     <>
-      <NavBarHome />
+      <NavBarHome
+        productosAgregados={carritoDeProductos}
+        eliminarProductoDelCarrito={eliminarProducto}
+        precioTotal={precioTotal}
+      />
       <ReservaMesa mesasDisponibles={mesas} />
     </>
   )
