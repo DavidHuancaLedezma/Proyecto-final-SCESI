@@ -74,7 +74,7 @@ export const NavBarHome = ({
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/productos">
-              Productos
+              Menú
             </Link>
           </li>
           <li className={style.opciones}>

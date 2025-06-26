@@ -4,7 +4,8 @@ import { useReserva } from '../hooks/useReserva'
 function Reserva() {
   const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
 
-  const { mesas } = useReserva()
+  const { mesas, datosReserva, setDatosReserva, envioFormularioDeReserva } =
+    useReserva()
 
   return (
     <>
@@ -13,7 +14,12 @@ function Reserva() {
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
       />
-      <ReservaMesa mesasDisponibles={mesas} />
+      <ReservaMesa
+        mesasDisponibles={mesas}
+        setDatosReserva={setDatosReserva}
+        envioFormularioDeReserva={envioFormularioDeReserva}
+        datosReserva={datosReserva}
+      />
     </>
   )
 }

@@ -1,5 +1,6 @@
-import { collection, getDocs, doc, getDoc } from 'firebase/firestore'
+import { collection, getDocs, doc, getDoc, setDoc } from 'firebase/firestore'
 import { db } from './firebase'
+import { mensajeExito } from './mensajes'
 
 export const getProductos = async () => {
   const querySnapshot = await getDocs(collection(db, 'producto'))
@@ -33,3 +34,16 @@ export const getMesas = async () => {
   })
   return res
 }
+
+export const registrarReserva = async (idUsuario, datosDeRegistro) => {
+  try {
+    await setDoc(doc(db, 'reserva', idUsuario), datosDeRegistro)
+    mensajeExito(
+      'Reserva realizada',
+      'Tu mesa fue reservada con exito'
+    )
+  } catch (e) {
+    console.error('Error al crear un documento: ', e)
+  }
+}
+
