@@ -7,6 +7,7 @@ import {
   FaCalendarAlt,
   FaHome,
   FaUtensils,
+  FaTimesCircle,
 } from 'react-icons/fa'
 
 import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
@@ -52,7 +53,7 @@ export const NavBarHome = ({
           ☰
         </button>
         <button className={style.botonCerrar} onClick={handleClick}>
-          ←
+          <FaTimesCircle />
         </button>
 
         <ul className={style.opcionesContenedorHorizontalPc}>

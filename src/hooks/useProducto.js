@@ -3,8 +3,6 @@ import { getProductos } from '../services/consultas'
 
 export const useProducto = () => {
   const [productos, setProductos] = useState([])
-  const [ocurrencia, setOcurrencia] = useState('')
-  const [categoria, setCategoria] = useState('')
   const [carritoDeProductos, setCarritoDeProductos] = useState([])
   const [precioTotal, setPrecioTotal] = useState('')
 
@@ -26,6 +24,7 @@ export const useProducto = () => {
       productosActualizados = [...carritoDeProductos]
       productosActualizados.push(producto)
     }
+
     setCarritoDeProductos(productosActualizados)
     localStorage.setItem('carrito', JSON.stringify(productosActualizados))
     precioTotalProductos(productosActualizados)
@@ -51,20 +50,6 @@ export const useProducto = () => {
     setPrecioTotal(precio)
   }
 
-  const filtrarProductos = (producto) => {
-    return producto.nombre
-      .toLowerCase()
-      .includes(ocurrencia.toLowerCase().trim())
-  }
-  const filtrarCategorias = (producto) => {
-    return producto.categoria.toLowerCase().includes(categoria.toLowerCase())
-  }
-
-  const limpiar = () => {
-    setCategoria('')
-    setOcurrencia('')
-  }
-
   useEffect(() => {
     const getDatos = async () => {
       const respuesta = await getProductos()
@@ -72,24 +57,17 @@ export const useProducto = () => {
     }
     getDatos()
     let productosSeleccionados = localStorage.getItem('carrito')
-    if(productosSeleccionados){
-    setCarritoDeProductos(JSON.parse(productosSeleccionados))
-    precioTotalProductos(JSON.parse(productosSeleccionados))
+    if (productosSeleccionados) {
+      setCarritoDeProductos(JSON.parse(productosSeleccionados))
+      precioTotalProductos(JSON.parse(productosSeleccionados))
     }
   }, [])
 
   return {
     productos,
-    ocurrencia,
     carritoDeProductos,
     precioTotal,
-    setOcurrencia,
-    setCategoria,
     setCarritoDeProductos,
-    categoria,
-    filtrarProductos,
-    filtrarCategorias,
-    limpiar,
     agregarProducto,
     eliminarProducto,
   }

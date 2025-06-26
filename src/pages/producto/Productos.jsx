@@ -1,42 +1,25 @@
 import { ProductoCard, BarraBusqueda, NavBarHome } from '../../components'
+import { useBusqueda } from '../../hooks/useBusqueda'
 import { useProducto } from '../../hooks/useProducto'
 import style from './productos.module.css'
 function Productos() {
   const {
     productos,
-    ocurrencia,
     carritoDeProductos,
     precioTotal,
-    setOcurrencia,
-    setCategoria,
-    categoria,
-    filtrarProductos,
-    filtrarCategorias,
-    limpiar,
     agregarProducto,
     eliminarProducto,
   } = useProducto()
 
-  const manejarCambioEnTexto = (e) => {
-    const texto = e.target.value
-    setOcurrencia(texto)
-    setCategoria('')
-  }
-
-  const manejarCambioCategoria = (e) => {
-    const texto = e.target.value
-    setCategoria(texto)
-    setOcurrencia('')
-  }
-  /*
-  const agregarProductoAlCarrito = (producto) => {
-    agregarProducto(producto)
-  }
-
-  const eliminarProductoDelCarrito = (idProducto) => {
-    eliminarProducto(idProducto)
-  }
-*/
+  const {
+    busquedaPorTexto,
+    busquedaPorCategoria,
+    filtrarProductosPorTexto,
+    filtrarProductosPorCategorias,
+    manejarCambioBusquedaPorTexto,
+    manejarCambioBusquedaPorCategoria,
+    limpiarBusquedas,
+  } = useBusqueda()
 
   return (
     <>
@@ -46,16 +29,16 @@ function Productos() {
         precioTotal={precioTotal}
       />
       <BarraBusqueda
-        cambiosEnTexto={manejarCambioEnTexto}
-        cambioDeCategoria={manejarCambioCategoria}
-        textoActual={ocurrencia}
-        categoriaActual={categoria}
-        limpiar={limpiar}
+        cambiosEnTexto={manejarCambioBusquedaPorTexto}
+        cambioDeCategoria={manejarCambioBusquedaPorCategoria}
+        textoActual={busquedaPorTexto}
+        categoriaActual={busquedaPorCategoria}
+        limpiar={limpiarBusquedas}
       />
       <main className={style.carteleraDeComidas}>
         {productos
-          .filter(filtrarProductos)
-          .filter(filtrarCategorias)
+          .filter(filtrarProductosPorTexto)
+          .filter(filtrarProductosPorCategorias)
           .map(
             ({
               idProducto,

@@ -3,13 +3,7 @@ import { useUsuario } from '../../hooks/useUsuario'
 import { Link } from 'react-router-dom'
 import style from './IniciarSesion.module.css'
 function IniciarSesion() {
-  const {
-    correoElectronico,
-    contrasenia,
-    setCorreoElectronico,
-    setContrasenia,
-    iniciarSesion,
-  } = useUsuario()
+  const { usuario, setUsuario, iniciarSesion } = useUsuario()
 
   return (
     <>
@@ -22,9 +16,14 @@ function IniciarSesion() {
             <label>Correo electrónico</label>
             <input
               type="text"
-              value={correoElectronico}
+              value={usuario.correoElectronico}
               required
-              onChange={(e) => setCorreoElectronico(e.target.value)}
+              onChange={(e) =>
+                setUsuario((prev) => ({
+                  ...prev,
+                  correoElectronico: e.target.value,
+                }))
+              }
             />
           </section>
 
@@ -32,9 +31,11 @@ function IniciarSesion() {
             <label>Contraseña</label>
             <input
               type="password"
-              value={contrasenia}
+              value={usuario.contrasenia}
               required
-              onChange={(e) => setContrasenia(e.target.value)}
+              onChange={(e) =>
+                setUsuario((prev) => ({ ...prev, contrasenia: e.target.value }))
+              }
             />
           </section>
 

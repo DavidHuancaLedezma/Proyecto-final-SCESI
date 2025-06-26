@@ -3,15 +3,7 @@ import { useUsuario } from '../../hooks/useUsuario'
 import { Link } from 'react-router-dom'
 import style from './Registrarse.module.css'
 function Registrarse() {
-  const {
-    nombre,
-    correoElectronico,
-    contrasenia,
-    setNombre,
-    setCorreoElectronico,
-    setContrasenia,
-    envioDeRegistro,
-  } = useUsuario()
+  const { usuario, setUsuario, envioDeRegistro } = useUsuario()
 
   return (
     <>
@@ -24,9 +16,11 @@ function Registrarse() {
             <label>Nombre completo</label>
             <input
               type="text"
-              value={nombre}
+              value={usuario.nombre}
               required
-              onChange={(e) => setNombre(e.target.value)}
+              onChange={(e) =>
+                setUsuario((prev) => ({ ...prev, nombre: e.target.value }))
+              }
             />
           </section>
 
@@ -34,9 +28,14 @@ function Registrarse() {
             <label>Correo electrónico</label>
             <input
               type="text"
-              value={correoElectronico}
+              value={usuario.correoElectronico}
               required
-              onChange={(e) => setCorreoElectronico(e.target.value)}
+              onChange={(e) =>
+                setUsuario((prev) => ({
+                  ...prev,
+                  correoElectronico: e.target.value,
+                }))
+              }
             />
           </section>
 
@@ -44,9 +43,11 @@ function Registrarse() {
             <label>Contraseña</label>
             <input
               type="password"
-              value={contrasenia}
+              value={usuario.contrasenia}
               required
-              onChange={(e) => setContrasenia(e.target.value)}
+              onChange={(e) =>
+                setUsuario((prev) => ({ ...prev, contrasenia: e.target.value }))
+              }
             />
           </section>
 

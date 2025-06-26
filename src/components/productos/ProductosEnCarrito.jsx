@@ -1,7 +1,14 @@
 import { FaShoppingCart } from 'react-icons/fa'
 import { ProductoCardPequenio } from './ProductoCardPequenio'
 import style from './productoEnCarrito.module.css'
-export const ProductoEnCarrito = ({ productosAgregados }) => {
+export const ProductoEnCarrito = ({
+  productosAgregados,
+  precioTotal,
+  eliminarProducto,
+}) => {
+  const obtenerIdProducto = (id) => {
+    eliminarProducto(id)
+  }
   return (
     <section className={style.contenedorProductos}>
       <header className={style.titulo}>
@@ -19,6 +26,8 @@ export const ProductoEnCarrito = ({ productosAgregados }) => {
                 cantidad={cantidad}
                 imagen={imagen}
                 precio={precio}
+                idProducto={idProducto}
+                obtenerIdProducto={obtenerIdProducto}
               />
             )
           )
@@ -29,7 +38,7 @@ export const ProductoEnCarrito = ({ productosAgregados }) => {
       <footer className={style.detallePrecio}>
         <section className={style.precio}>
           <span>Pago total:</span>
-          <span>100Bs.</span>
+          {precioTotal ? <span>{precioTotal} Bs.</span> : <span>0 Bs.</span>}
         </section>
         <button className={style.comprarProductosCarrito}>comprar</button>
       </footer>
