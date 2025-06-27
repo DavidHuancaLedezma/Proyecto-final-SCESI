@@ -73,6 +73,11 @@ export const NavBarHome = ({
             </Link>
           </li>
           <li className={style.opciones}>
+            <Link className={style.opcionesTexto} to="/historial-reserva">
+              Historial de reservas
+            </Link>
+          </li>
+          <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/productos">
               Menú
             </Link>
@@ -109,6 +114,11 @@ export const NavBarHome = ({
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/reserva">
               <FaCalendarAlt /> Reservas
+            </Link>
+          </li>
+          <li className={style.opciones}>
+            <Link className={style.opcionesTexto} to="/historial-reserva">
+              Historial de reservas
             </Link>
           </li>
           <li className={style.opciones}>

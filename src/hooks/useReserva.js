@@ -25,8 +25,6 @@ export const useReserva = () => {
         
     }
 
-
-
     useEffect(() => {
        const getDatos = async () => {
         const respuesta = await getMesas()
