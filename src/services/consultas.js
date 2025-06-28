@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getDoc, setDoc } from 'firebase/firestore'
+import { collection, getDocs, doc, getDoc, query, addDoc, where } from 'firebase/firestore'
 import { db } from './firebase'
 import { mensajeExito } from './mensajes'
 
@@ -35,9 +35,9 @@ export const getMesas = async () => {
   return res
 }
 
-export const registrarReserva = async (idUsuario, datosDeRegistro) => {
+export const registrarReserva = async (datosDeRegistro) => {
   try {
-    await setDoc(doc(db, 'reserva', idUsuario), datosDeRegistro)
+    await addDoc(collection(db, 'reserva'), datosDeRegistro)
     mensajeExito(
       'Reserva realizada',
       'Tu mesa fue reservada con exito'
@@ -45,5 +45,24 @@ export const registrarReserva = async (idUsuario, datosDeRegistro) => {
   } catch (e) {
     console.error('Error al crear un documento: ', e)
   }
+}
+
+export const getReserva = async (idUsuario) =>{
+  /*
+  const querySnapshot = await getDocs(collection(db,'reserva',idUsuario))
+  let res = []
+  querySnapshot.forEach((doc) => {
+    res.push({idReserva:doc.id, ...doc.data()})
+  })
+  return res
+  */
+
+  const q = query(collection(db, "reserva"), where("idUsuario", "==", idUsuario));
+  let res = []
+  const querySnapshot = await getDocs(q);
+  querySnapshot.forEach((doc) => {
+    res.push({idReserva:doc.id,...doc.data()})
+  });
+  return res
 }
 

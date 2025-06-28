@@ -9,18 +9,19 @@ export const useReserva = () => {
         fechaReserva:'',
         horaReserva:'',
         nroDePersonas:'',
+        idUsuario:localStorage.getItem('idUsuario'),
     })
 
     
     const envioFormularioDeReserva = (e) => {
         e.preventDefault()
-        const idUsuario = localStorage.getItem('idUsuario')
-        registrarReserva(idUsuario, datosReserva)
+        registrarReserva(datosReserva)
         setDatosReserva({
             mesaSeleccionada:'',
             fechaReserva:'',
             horaReserva:'',
             nroDePersonas:'',
+            idUsuario:localStorage.getItem('idUsuario'),
         })
         
     }

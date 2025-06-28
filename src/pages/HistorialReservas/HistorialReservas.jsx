@@ -1,7 +1,10 @@
 import { NavBarHome } from '../../components'
 import style from './HistorialReserva.module.css'
 import imgCarrito from '../../assets/img/carrito-de-historial.png'
+import { useHistorialReserva } from '../../hooks/useHistorialReserva'
 function HistorialReserva() {
+  const { datosReserva } = useHistorialReserva()
+
   return (
     <div className={style.contenedor}>
       <NavBarHome />
@@ -25,60 +28,32 @@ function HistorialReserva() {
                 <th>Nro de mesa</th>
                 <th>Fecha de reserva</th>
                 <th>Hora</th>
+                <th>Nro de personas</th>
                 <th>Estado</th>
                 <th>Orden</th>
               </tr>
             </thead>
             <tbody className={style.contenidoTabla}>
-              <tr>
-                <td>10</td>
-                <td>10/11/2025</td>
-                <td>13:15</td>
-                <td>Pendiente</td>
-                <td>Ninguno</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>10/11/2025</td>
-                <td>13:15</td>
-                <td>Pendiente</td>
-                <td>Ninguno</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>10/11/2025</td>
-                <td>13:15</td>
-                <td>Pendiente</td>
-                <td>Ninguno</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>10/11/2025</td>
-                <td>13:15</td>
-                <td>Pendiente</td>
-                <td>Ninguno</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>10/11/2025</td>
-                <td>13:15</td>
-                <td>Pendiente</td>
-                <td>Ninguno</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>10/11/2025</td>
-                <td>13:15</td>
-                <td>Pendiente</td>
-                <td>Ninguno</td>
-              </tr>
-              <tr>
-                <td>10</td>
-                <td>10/11/2025</td>
-                <td>13:15</td>
-                <td>Pendiente</td>
-                <td>Ninguno</td>
-              </tr>
+              {datosReserva.map(
+                ({
+                  idReserva,
+                  mesaSeleccionada,
+                  fechaReserva,
+                  horaReserva,
+                  nroDePersonas,
+                }) => (
+                  <tr key={idReserva}>
+                    <td>{mesaSeleccionada}</td>
+                    <td>
+                      {new Date(fechaReserva).toLocaleDateString('es-BO')}
+                    </td>
+                    <td>{horaReserva}</td>
+                    <td>{nroDePersonas}</td>
+                    <td>Pendiente</td>
+                    <td>Ninguno</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </main>
