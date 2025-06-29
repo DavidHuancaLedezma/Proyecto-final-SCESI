@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-//import HomeInicio from '../pages/Login';
 import Inicio from '../pages/inicio/Inicio'
 import Perfil from '../pages/Perfil'
 import Productos from '../pages/producto/Productos'
@@ -9,6 +8,7 @@ import Publicidad from '../pages/MenuInicial/PublicidadInicio'
 import ProductosDeMuestra from '../pages/MenuInicial/ProductosDeMuestra'
 import IniciarSesion from '../pages/MenuInicial/IniciarSesion'
 import Registrarse from '../pages/MenuInicial/Registrarse'
+import HistorialReserva from '../pages/HistorialReservas/HistorialReservas'
 
 export default function AppRoutes() {
   return (
@@ -23,6 +23,7 @@ export default function AppRoutes() {
         <Route path="/productos" element={<Productos />} />
         <Route path="/carrito" element={<Carrito />} />
         <Route path="/reserva" element={<Reserva />} />
+        <Route path="/historial-reserva" element={<HistorialReserva />} />
       </Routes>
     </BrowserRouter>
   )
