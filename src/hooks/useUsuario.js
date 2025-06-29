@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { usuarioLogueado } from '../services/auth'
-import { registroDeCuenta, inicioDeSesion } from '../services/auth'
+import { registroDeCuenta, inicioDeSesion, usuarioLogueado } from '../services/auth'
 
 export const useUsuario = () => {
   const [datosUsuarioActivo, setDatosUsuarioActivo] = useState(null)
