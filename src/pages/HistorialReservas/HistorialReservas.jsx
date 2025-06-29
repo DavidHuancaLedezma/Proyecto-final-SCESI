@@ -40,6 +40,7 @@ function HistorialReserva() {
                   mesaSeleccionada,
                   fechaReserva,
                   horaReserva,
+                  estado,
                   nroDePersonas,
                 }) => (
                   <tr key={idReserva}>
@@ -49,7 +50,7 @@ function HistorialReserva() {
                     </td>
                     <td>{horaReserva}</td>
                     <td>{nroDePersonas}</td>
-                    <td>Pendiente</td>
+                    <td>{estado}</td>
                     <td>Ninguno</td>
                   </tr>
                 )

@@ -9,6 +9,7 @@ export const useReserva = () => {
         fechaReserva:'',
         horaReserva:'',
         nroDePersonas:'',
+        estado: 'Pendiente',
         idUsuario:localStorage.getItem('idUsuario'),
     })
 
@@ -21,6 +22,7 @@ export const useReserva = () => {
             fechaReserva:'',
             horaReserva:'',
             nroDePersonas:'',
+            estado:'Pendiente',
             idUsuario:localStorage.getItem('idUsuario'),
         })
         
