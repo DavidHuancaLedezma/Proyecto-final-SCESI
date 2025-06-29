@@ -9,10 +9,8 @@ import {
   FaUtensils,
   FaTimesCircle,
 } from 'react-icons/fa'
-
+import { useReserva } from '../../hooks/useReserva'
 import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
-
-import '../../normalize.css'
 import style from './NavBarHome.module.css'
 
 export const NavBarHome = ({
@@ -22,7 +20,7 @@ export const NavBarHome = ({
 }) => {
   const [desplegable, setDesplegable] = useState(false)
   const [productosComprados, setProductosComprados] = useState(false)
-
+  const { agregarOrdenEnReserva } = useReserva()
   const handleClick = () => {
     setDesplegable(!desplegable)
   }
@@ -179,7 +177,12 @@ export const NavBarHome = ({
                 <span>0 Bs.</span>
               )}
             </section>
-            <button className={style.comprarProductosCarrito}>comprar</button>
+            <button
+              className={style.comprarProductosCarrito}
+              onClick={() => agregarOrdenEnReserva(productosAgregados)}
+            >
+              Comprar
+            </button>
           </footer>
         </aside>
       </section>

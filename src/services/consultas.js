@@ -1,4 +1,4 @@
-import { collection, getDocs, doc, getDoc, query, addDoc, where } from 'firebase/firestore'
+import { collection, getDocs, doc, getDoc, query, addDoc, where, updateDoc, orderBy, limit } from 'firebase/firestore'
 import { db } from './firebase'
 import { mensajeExito } from './mensajes'
 
@@ -47,16 +47,7 @@ export const registrarReserva = async (datosDeRegistro) => {
   }
 }
 
-export const getReserva = async (idUsuario) =>{
-  /*
-  const querySnapshot = await getDocs(collection(db,'reserva',idUsuario))
-  let res = []
-  querySnapshot.forEach((doc) => {
-    res.push({idReserva:doc.id, ...doc.data()})
-  })
-  return res
-  */
-
+export const getReserva = async (idUsuario) => {
   const q = query(collection(db, "reserva"), where("idUsuario", "==", idUsuario));
   let res = []
   const querySnapshot = await getDocs(q);
@@ -66,3 +57,19 @@ export const getReserva = async (idUsuario) =>{
   return res
 }
 
+export const getIdUltimaReserva = async () => {
+  const q = query(
+    collection(db, 'reserva'),
+    orderBy('fechaDeCreacion', 'desc'),
+    limit(1)
+  )
+  const querySnapshot = await getDocs(q)
+  return querySnapshot.docs[0].id
+}
+
+export const setReserva = async (idReserva, productos) => {
+    const washingtonRef = doc(db, "reserva", idReserva);
+    await updateDoc(washingtonRef, {
+      listaProductos: productos
+    });
+}

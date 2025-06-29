@@ -1,14 +1,19 @@
 import { useEffect, useState } from "react"
 import { getMesas } from "../services/consultas"
 import { registrarReserva } from "../services/consultas"
+import { serverTimestamp } from "firebase/firestore"
+import { getIdUltimaReserva, setReserva } from "../services/consultas"
+import { mensajeExito, mensajeError } from "../services/mensajes"
 
 export const useReserva = () => {
     const [mesas, setMesas] = useState([])
     const [datosReserva, setDatosReserva] = useState({
         mesaSeleccionada:'',
         fechaReserva:'',
+        fechaDeCreacion: serverTimestamp(),
         horaReserva:'',
         nroDePersonas:'',
+        listaProductos: '',
         estado: 'Pendiente',
         idUsuario:localStorage.getItem('idUsuario'),
     })
@@ -20,8 +25,10 @@ export const useReserva = () => {
         setDatosReserva({
             mesaSeleccionada:'',
             fechaReserva:'',
+            fechaDeCreacion: serverTimestamp(),
             horaReserva:'',
             nroDePersonas:'',
+            listaProductos: '',
             estado:'Pendiente',
             idUsuario:localStorage.getItem('idUsuario'),
         })
@@ -36,6 +43,22 @@ export const useReserva = () => {
        }
        getDatos() 
     },[])
+
+    const agregarOrdenEnReserva = async (productos) => {
     
-    return { mesas,datosReserva, setDatosReserva, envioFormularioDeReserva }
+            let listaProductos = ''
+            productos.forEach((producto) => {
+                listaProductos += producto.cantidad+ ' ' + producto.nombre + ', '
+            })
+            if(listaProductos !== ''){
+                listaProductos = listaProductos.slice(0, -2)
+                const id = await getIdUltimaReserva()
+                setReserva(id, listaProductos)
+                mensajeExito("Orden realizada", "Tus orden fue agregada con exito a tu ultima reserva de mesa.")
+            }else{
+                mensajeError("Carrito vacío", "Por favor seleciona tu orden del menú.")
+            }
+        }
+    
+    return { mesas,datosReserva, setDatosReserva, envioFormularioDeReserva, agregarOrdenEnReserva }
 }
