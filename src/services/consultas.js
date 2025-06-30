@@ -11,6 +11,18 @@ export const getProductos = async () => {
   return res
 }
 
+export const addProdructo = async (datosProducto) => {
+    try {
+      await addDoc(collection(db, 'producto'), datosProducto)
+      mensajeExito(
+        'Producto registrado',
+        'El producto fue registrado con éxito en el menú.'
+      )
+    } catch (e) {
+      console.error('Error al crear un documento: ', e)
+    }
+}
+
 export const getUsuario = async (idUsuario) => {
   const docRef = doc(db, 'usuarios', idUsuario)
   const docSnap = await getDoc(docRef)

@@ -41,32 +41,17 @@ export const NavBarAdministrador = ({
 
         <ul className={style.opcionesContenedorHorizontalPc}>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/inicio">
-              Inicio
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="">
+            <Link className={style.opcionesTexto} to="/PerfilAdministrador">
               Perfil
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="">
-              Reservas
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="">
-              Historial de reservas
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="">
-              Menú
+            <Link className={style.opcionesTexto} to="/RegistroProductos">
+              Añadir menú
             </Link>
           </li>
         </ul>
-        <footer className={style.sesion}>
+        <footer>
           <ul className={style.opcionesContenedorHorizontalPc}>
             <li className={style.opciones}>
               <Link className={style.cerrarSesion} to="/">
@@ -76,37 +61,16 @@ export const NavBarAdministrador = ({
           </ul>
         </footer>
       </header>
-
       <aside className={`${style.menuLateral} ${style[buttonClassName]}`}>
         <ul className={style.opcionesContenedor}>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/inicio">
-              <FaHome /> Inicio
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/productos">
-              <FaUtensils /> Menú
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/reserva">
-              <FaCalendarAlt /> Reservas
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/historial-reserva">
-              <FaHistory /> Historial de reservas
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/Perfil">
+            <Link className={style.opcionesTexto} to="/PerfilAdministrador">
               <FaUser /> Perfil
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/">
-              <FaSignOutAlt /> Cerrar sesión
+            <Link className={style.opcionesTexto} to="/RegistroProductos">
+              Añadir menú
             </Link>
           </li>
         </ul>

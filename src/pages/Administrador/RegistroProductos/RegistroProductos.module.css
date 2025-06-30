@@ -1,0 +1,83 @@
+.contenedor {
+    margin-top: 60px;
+    display: flex;
+    justify-content: center;
+}
+
+.formulario {
+    margin: 30px 0px;
+    border: 1px solid grey;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.titulo {
+    font-size: 20px;
+    text-align: center;
+}
+
+.datosDeEntrada {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 0px;
+}
+
+.datosDeEntrada input {
+    height: 30px;
+    margin: 3px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+.datosDeEntrada textarea {
+    height: 60px;
+    margin: 3px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+.datosDeEntrada label {
+    margin: 3px;
+}
+
+.datosDeEntrada select {
+    height: 30px;
+    margin: 3px;
+    border-radius: 10px;
+    border: 1px solid gray;
+    outline: none;
+}
+
+.btnEnviar {
+  border: none;
+  background-color: rgba(1, 89, 252, 0.829);
+  color: white;
+  border-radius: 10px;
+  width: 150px;
+  padding: 10px;
+}
+
+.seccionDeEnvio {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media only screen and (min-width: 480px) {
+  .alineacion {
+    display: flex;
+  }
+  .alineacion .datosDeEntrada {
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  
+  .alineacion .datosDeEntrada input, select{
+    width: 200px;
+  }
+  .formulario {
+    margin: 15px;
+  }
+}
