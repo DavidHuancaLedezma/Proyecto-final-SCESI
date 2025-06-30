@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import {
-  FaShoppingCart,
   FaUser,
   FaSignOutAlt,
   FaCalendarAlt,
@@ -10,36 +9,21 @@ import {
   FaTimesCircle,
   FaHistory,
 } from 'react-icons/fa'
-import { useReserva } from '../../hooks/useReserva'
-import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
-import style from './NavBarHome.module.css'
+import style from './NavBarAdministrador.module.css'
 
-export const NavBarHome = ({
+export const NavBarAdministrador = ({
   productosAgregados,
   eliminarProductoDelCarrito,
   precioTotal,
 }) => {
   const [desplegable, setDesplegable] = useState(false)
-  const [productosComprados, setProductosComprados] = useState(false)
-  const { agregarOrdenEnReserva } = useReserva()
   const handleClick = () => {
     setDesplegable(!desplegable)
-  }
-
-  const handleClickCarrito = () => {
-    setProductosComprados(!productosComprados)
-  }
-
-  const obtenerIdProducto = (id) => {
-    eliminarProductoDelCarrito(id)
   }
 
   const buttonClassName = desplegable
     ? 'desplegarOpciones'
     : 'ocultarDesplegable'
-  const buttonCarritoPC = productosComprados
-    ? 'desplegarPanelCarrito'
-    : 'ocultarPanelCarrito'
   const opcionesDeInicio = desplegable
     ? `${style.opcionesDeInicio} ${style.presionado}`
     : style.opcionesDeInicio
@@ -47,7 +31,7 @@ export const NavBarHome = ({
   return (
     <section>
       <header className={opcionesDeInicio}>
-        <h1 className={style.titulo}>Bienvenidos a fragmentos</h1>
+        <h1 className={style.titulo}>Administrador</h1>
         <button className={style.botonAbrir} onClick={handleClick}>
           ☰
         </button>
@@ -62,28 +46,23 @@ export const NavBarHome = ({
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/perfil">
+            <Link className={style.opcionesTexto} to="">
               Perfil
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/reserva">
+            <Link className={style.opcionesTexto} to="">
               Reservas
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/historial-reserva">
+            <Link className={style.opcionesTexto} to="">
               Historial de reservas
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/productos">
+            <Link className={style.opcionesTexto} to="">
               Menú
-            </Link>
-          </li>
-          <li className={style.opciones}>
-            <Link className={style.opcionesTexto} onClick={handleClickCarrito}>
-              <FaShoppingCart />
             </Link>
           </li>
         </ul>
@@ -121,11 +100,6 @@ export const NavBarHome = ({
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} to="/carrito">
-              <FaShoppingCart /> Carrito
-            </Link>
-          </li>
-          <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/Perfil">
               <FaUser /> Perfil
             </Link>
@@ -137,52 +111,6 @@ export const NavBarHome = ({
           </li>
         </ul>
       </aside>
-      <section
-        className={`${style.productosAdquiridos} ${style[buttonCarritoPC]}`}
-      >
-        <aside className={style.carrito}>
-          <header className={style.tituloCarrito}>
-            <h1>
-              <FaShoppingCart /> Tu carrito
-            </h1>
-          </header>
-          <main>
-            {productosAgregados && productosAgregados.length > 0 ? (
-              productosAgregados.map(
-                ({ idProducto, nombre, cantidad, imagen, precio }) => (
-                  <ProductoCardPequenio
-                    key={idProducto}
-                    nombre={nombre}
-                    cantidad={cantidad}
-                    imagen={imagen}
-                    precio={precio}
-                    idProducto={idProducto}
-                    obtenerIdProducto={obtenerIdProducto}
-                  />
-                )
-              )
-            ) : (
-              <p className={style.vacio}>Carrito sin productos</p>
-            )}
-          </main>
-          <footer className={style.detalle}>
-            <section className={style.precio}>
-              <span>Total:</span>
-              {precioTotal ? (
-                <span>{precioTotal} Bs.</span>
-              ) : (
-                <span>0 Bs.</span>
-              )}
-            </section>
-            <button
-              className={style.comprarProductosCarrito}
-              onClick={() => agregarOrdenEnReserva(productosAgregados)}
-            >
-              Comprar
-            </button>
-          </footer>
-        </aside>
-      </section>
     </section>
   )
 }
