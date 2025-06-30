@@ -1,11 +1,14 @@
 import { FaShoppingCart } from 'react-icons/fa'
 import { ProductoCardPequenio } from './ProductoCardPequenio'
+import { useReserva } from '../../hooks/useReserva'
 import style from './productoEnCarrito.module.css'
 export const ProductoEnCarrito = ({
   productosAgregados,
   precioTotal,
   eliminarProducto,
 }) => {
+  const { agregarOrdenEnReserva } = useReserva()
+
   const obtenerIdProducto = (id) => {
     eliminarProducto(id)
   }
@@ -40,7 +43,14 @@ export const ProductoEnCarrito = ({
           <span>Pago total:</span>
           {precioTotal ? <span>{precioTotal} Bs.</span> : <span>0 Bs.</span>}
         </section>
-        <button className={style.comprarProductosCarrito}>comprar</button>
+        <button
+          className={style.comprarProductosCarrito}
+          onClick={() => {
+            agregarOrdenEnReserva(productosAgregados)
+          }}
+        >
+          comprar
+        </button>
       </footer>
     </section>
   )
