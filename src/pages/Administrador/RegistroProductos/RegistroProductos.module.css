@@ -1,53 +1,53 @@
 .contenedor {
-    margin-top: 60px;
-    display: flex;
-    justify-content: center;
+  margin-top: 60px;
+  display: flex;
+  justify-content: center;
 }
 
 .formulario {
-    margin: 30px 0px;
-    border: 1px solid grey;
-    border-radius: 10px;
-    padding: 20px;
+  margin: 30px 0px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  padding: 20px;
 }
 
 .titulo {
-    font-size: 20px;
-    text-align: center;
+  font-size: 20px;
+  text-align: center;
 }
 
 .datosDeEntrada {
-    display: flex;
-    flex-direction: column;
-    margin: 20px 0px;
+  display: flex;
+  flex-direction: column;
+  margin: 20px 0px;
 }
 
 .datosDeEntrada input {
-    height: 30px;
-    margin: 3px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    outline: none;
+  height: 30px;
+  margin: 3px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  outline: none;
 }
 
 .datosDeEntrada textarea {
-    height: 60px;
-    margin: 3px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    outline: none;
+  height: 60px;
+  margin: 3px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  outline: none;
 }
 
 .datosDeEntrada label {
-    margin: 3px;
+  margin: 3px;
 }
 
 .datosDeEntrada select {
-    height: 30px;
-    margin: 3px;
-    border-radius: 10px;
-    border: 1px solid gray;
-    outline: none;
+  height: 30px;
+  margin: 3px;
+  border-radius: 10px;
+  border: 1px solid gray;
+  outline: none;
 }
 
 .btnEnviar {
@@ -60,10 +60,9 @@
 }
 
 .seccionDeEnvio {
-    display: flex;
-    justify-content: center;
+  display: flex;
+  justify-content: center;
 }
-
 
 @media only screen and (min-width: 480px) {
   .alineacion {
@@ -73,8 +72,9 @@
     margin-left: 5px;
     margin-right: 5px;
   }
-  
-  .alineacion .datosDeEntrada input, select{
+
+  .alineacion .datosDeEntrada input,
+  select {
     width: 200px;
   }
   .formulario {

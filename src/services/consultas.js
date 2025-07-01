@@ -1,4 +1,15 @@
-import { collection, getDocs, doc, getDoc, query, addDoc, where, updateDoc, orderBy, limit } from 'firebase/firestore'
+import {
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  query,
+  addDoc,
+  where,
+  updateDoc,
+  orderBy,
+  limit,
+} from 'firebase/firestore'
 import { db } from './firebase'
 import { mensajeExito } from './mensajes'
 
@@ -12,15 +23,15 @@ export const getProductos = async () => {
 }
 
 export const addProdructo = async (datosProducto) => {
-    try {
-      await addDoc(collection(db, 'producto'), datosProducto)
-      mensajeExito(
-        'Producto registrado',
-        'El producto fue registrado con éxito en el menú.'
-      )
-    } catch (e) {
-      console.error('Error al crear un documento: ', e)
-    }
+  try {
+    await addDoc(collection(db, 'producto'), datosProducto)
+    mensajeExito(
+      'Producto registrado',
+      'El producto fue registrado con éxito en el menú.'
+    )
+  } catch (e) {
+    console.error('Error al crear un documento: ', e)
+  }
 }
 
 export const getUsuario = async (idUsuario) => {
@@ -50,22 +61,22 @@ export const getMesas = async () => {
 export const registrarReserva = async (datosDeRegistro) => {
   try {
     await addDoc(collection(db, 'reserva'), datosDeRegistro)
-    mensajeExito(
-      'Reserva realizada',
-      'Tu mesa fue reservada con exito'
-    )
+    mensajeExito('Reserva realizada', 'Tu mesa fue reservada con exito')
   } catch (e) {
     console.error('Error al crear un documento: ', e)
   }
 }
 
 export const getReserva = async (idUsuario) => {
-  const q = query(collection(db, "reserva"), where("idUsuario", "==", idUsuario));
+  const q = query(
+    collection(db, 'reserva'),
+    where('idUsuario', '==', idUsuario)
+  )
   let res = []
-  const querySnapshot = await getDocs(q);
+  const querySnapshot = await getDocs(q)
   querySnapshot.forEach((doc) => {
-    res.push({idReserva:doc.id,...doc.data()})
-  });
+    res.push({ idReserva: doc.id, ...doc.data() })
+  })
   return res
 }
 
@@ -80,8 +91,8 @@ export const getIdUltimaReserva = async () => {
 }
 
 export const setReserva = async (idReserva, productos) => {
-    const washingtonRef = doc(db, "reserva", idReserva);
-    await updateDoc(washingtonRef, {
-      listaProductos: productos
-    });
+  const washingtonRef = doc(db, 'reserva', idReserva)
+  await updateDoc(washingtonRef, {
+    listaProductos: productos,
+  })
 }
