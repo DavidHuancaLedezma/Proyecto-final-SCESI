@@ -1,8 +1,38 @@
+import { useState, useEffect } from 'react'
 import { NavBarAdministrador } from '../../../components'
 import { useHistorialReserva } from '../../../hooks/useHistorialReserva'
+import { setEstadoReserva, eliminarReserva } from '../../../services/consultas'
 import style from './PanelReservas.module.css'
 function PanelReservas() {
-  const { datosReserva } = useHistorialReserva()
+  const { datosReserva, cargarDatos } = useHistorialReserva()
+
+  const [estadosSeleccionados, setEstadosSeleccionados] = useState({})
+
+  useEffect(() => {
+    const estadosIniciales = {}
+    datosReserva.forEach((reserva) => {
+      estadosIniciales[reserva.idReserva] = reserva.estado
+    })
+    setEstadosSeleccionados(estadosIniciales)
+  }, [datosReserva])
+
+  const estadoActual = (e, idReserva) => {
+    let valor = e.target.value === 'true'
+    setEstadosSeleccionados((prev) => ({
+      ...prev,
+      [idReserva]: valor,
+    }))
+  }
+
+  const guardarEdicion = async (idReserva) => {
+    const estadoSeleccionado = estadosSeleccionados[idReserva]
+    setEstadoReserva(idReserva, estadoSeleccionado)
+    await cargarDatos()
+  }
+  const eliminarReservaCliente = async (idReserva) => {
+    await eliminarReserva(idReserva)
+    await cargarDatos()
+  }
 
   return (
     <>
@@ -48,15 +78,26 @@ function PanelReservas() {
                       <td className={style.tamanioCeldas}>
                         {listaProductos ? listaProductos : 'Sin orden'}
                       </td>
-                      <td>{estado ? 'Aceptado' : 'Pendiente'}</td>
+                      <td>{estado ? 'Aceptado ✅' : 'Pendiente ⏳'}</td>
                       <td>
-                        <select className={style.estado} name="" id="">
-                          <option value="">aceptado</option>
-                          <option value="">pendiente</option>
+                        <select
+                          className={style.estado}
+                          value={estadosSeleccionados[idReserva]}
+                          onChange={(e) => estadoActual(e, idReserva)}
+                        >
+                          <option value={true}>aceptado</option>
+                          <option value={false}>pendiente</option>
                         </select>
                       </td>
                       <td>
-                        <button>Guardar</button> <button>Eliminar</button>
+                        <button onClick={() => guardarEdicion(idReserva)}>
+                          Guardar
+                        </button>{' '}
+                        <button
+                          onClick={() => eliminarReservaCliente(idReserva)}
+                        >
+                          Eliminar
+                        </button>
                       </td>
                     </tr>
                   )

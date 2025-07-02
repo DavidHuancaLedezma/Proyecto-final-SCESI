@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { getMesas } from '../services/consultas'
 import { registrarReserva } from '../services/consultas'
 import { serverTimestamp } from 'firebase/firestore'
-import { getIdUltimaReserva, setReserva } from '../services/consultas'
+import { getIdUltimaReserva, setProductosReserva } from '../services/consultas'
 import { mensajeExito, mensajeError } from '../services/mensajes'
 
 export const useReserva = () => {
@@ -49,22 +49,24 @@ export const useReserva = () => {
     productos.forEach((producto) => {
       listaProductos += producto.cantidad + ' ' + producto.nombre + ', '
     })
-    
+
     if (listaProductos !== '') {
       listaProductos = listaProductos.slice(0, -2)
       let idUsuario = localStorage.getItem('idUsuario')
       const id = await getIdUltimaReserva(idUsuario)
-      
-      if(id.length > 0){
-        setReserva(id[0].id, listaProductos)
-      mensajeExito(
-        'Orden realizada',
-        'Tus orden fue agregada con exito a tu ultima reserva de mesa.'
-      )
-      }else {
-        mensajeError('Sin reservas', 'Por favor realiza tu primero tu reserva antes de ordenar algo del menú.')
+
+      if (id.length > 0) {
+        setProductosReserva(id[0].id, listaProductos)
+        mensajeExito(
+          'Orden realizada',
+          'Tus orden fue agregada con exito a tu ultima reserva de mesa.'
+        )
+      } else {
+        mensajeError(
+          'Sin reservas',
+          'Por favor realiza tu primero tu reserva antes de ordenar algo del menú.'
+        )
       }
-      
     } else {
       mensajeError('Carrito vacío', 'Por favor seleciona tu orden del menú.')
     }

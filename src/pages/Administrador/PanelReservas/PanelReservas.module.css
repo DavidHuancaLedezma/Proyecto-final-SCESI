@@ -12,12 +12,10 @@
 }
 
 .datosReserva {
-  border: 1px solid green;
   border-radius: 10px;
 }
 
 .contenedorTabla {
-  border: 1px solid red;
   height: 380px;
   overflow-x: auto;
 }

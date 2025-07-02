@@ -9,6 +9,7 @@ import {
   updateDoc,
   orderBy,
   limit,
+  deleteDoc,
 } from 'firebase/firestore'
 import { db } from './firebase'
 import { mensajeExito } from './mensajes'
@@ -101,9 +102,20 @@ export const getIdUltimaReserva = async (idUsuario) => {
   return querySnapshot.docs
 }
 
-export const setReserva = async (idReserva, productos) => {
+export const setProductosReserva = async (idReserva, productos) => {
   const washingtonRef = doc(db, 'reserva', idReserva)
   await updateDoc(washingtonRef, {
     listaProductos: productos,
   })
+}
+
+export const setEstadoReserva = async (idReserva, nuevoEstado) => {
+  const washingtonRef = doc(db, 'reserva', idReserva)
+  await updateDoc(washingtonRef, {
+    estado: nuevoEstado,
+  })
+}
+
+export const eliminarReserva = async (idReserva) => {
+  await deleteDoc(doc(db, 'reserva', idReserva))
 }
