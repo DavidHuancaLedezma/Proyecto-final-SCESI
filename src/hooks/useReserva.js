@@ -14,8 +14,9 @@ export const useReserva = () => {
     horaReserva: '',
     nroDePersonas: '',
     listaProductos: '',
-    estado: 'Pendiente',
+    estado: false,
     idUsuario: localStorage.getItem('idUsuario'),
+    nombreUsuario: localStorage.getItem('nombreUsuario'),
   })
 
   const envioFormularioDeReserva = (e) => {
@@ -28,8 +29,9 @@ export const useReserva = () => {
       horaReserva: '',
       nroDePersonas: '',
       listaProductos: '',
-      estado: 'Pendiente',
+      estado: false,
       idUsuario: localStorage.getItem('idUsuario'),
+      nombreUsuario: localStorage.getItem('nombreUsuario'),
     })
   }
 
@@ -47,14 +49,22 @@ export const useReserva = () => {
     productos.forEach((producto) => {
       listaProductos += producto.cantidad + ' ' + producto.nombre + ', '
     })
+    
     if (listaProductos !== '') {
       listaProductos = listaProductos.slice(0, -2)
-      const id = await getIdUltimaReserva()
-      setReserva(id, listaProductos)
+      let idUsuario = localStorage.getItem('idUsuario')
+      const id = await getIdUltimaReserva(idUsuario)
+      
+      if(id.length > 0){
+        setReserva(id[0].id, listaProductos)
       mensajeExito(
         'Orden realizada',
         'Tus orden fue agregada con exito a tu ultima reserva de mesa.'
       )
+      }else {
+        mensajeError('Sin reservas', 'Por favor realiza tu primero tu reserva antes de ordenar algo del menú.')
+      }
+      
     } else {
       mensajeError('Carrito vacío', 'Por favor seleciona tu orden del menú.')
     }

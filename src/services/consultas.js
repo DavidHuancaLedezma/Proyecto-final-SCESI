@@ -72,6 +72,7 @@ export const getReserva = async (idUsuario) => {
     collection(db, 'reserva'),
     where('idUsuario', '==', idUsuario)
   )
+
   let res = []
   const querySnapshot = await getDocs(q)
   querySnapshot.forEach((doc) => {
@@ -80,14 +81,24 @@ export const getReserva = async (idUsuario) => {
   return res
 }
 
-export const getIdUltimaReserva = async () => {
+export const getAllReservas = async () => {
+  let res = []
+  const querySnapshot = await getDocs(collection(db, 'reserva'))
+  querySnapshot.forEach((doc) => {
+    res.push({ idReserva: doc.id, ...doc.data() })
+  })
+  return res
+}
+
+export const getIdUltimaReserva = async (idUsuario) => {
   const q = query(
     collection(db, 'reserva'),
+    where('idUsuario', '==', idUsuario),
     orderBy('fechaDeCreacion', 'desc'),
     limit(1)
   )
   const querySnapshot = await getDocs(q)
-  return querySnapshot.docs[0].id
+  return querySnapshot.docs
 }
 
 export const setReserva = async (idReserva, productos) => {

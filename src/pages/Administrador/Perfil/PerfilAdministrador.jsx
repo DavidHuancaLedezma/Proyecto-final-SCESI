@@ -2,6 +2,7 @@ import { NavBarAdministrador, Usuario } from '../../../components'
 import { useUsuario } from '../../../hooks/useUsuario'
 function PerfilAdministrador() {
   const { datosUsuarioActivo } = useUsuario()
+  localStorage.setItem('rol', datosUsuarioActivo.rol)
   return (
     <>
       <NavBarAdministrador />

@@ -5,6 +5,8 @@ import { useProducto } from '../hooks/useProducto'
 function Perfil() {
   const { datosUsuarioActivo } = useUsuario()
   const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
+  localStorage.setItem('nombreUsuario', datosUsuarioActivo.nombre)
+  localStorage.setItem('rol', datosUsuarioActivo.rol)
   return (
     <>
       <NavBarHome

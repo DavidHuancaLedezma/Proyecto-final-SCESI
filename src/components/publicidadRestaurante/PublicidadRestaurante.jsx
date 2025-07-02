@@ -8,7 +8,7 @@ export const PublicidadRestaurante = () => {
   return (
     <div className={style.publicidad}>
       <header className={style.portada}>
-        <section className={style.contenedorTitulo}>
+        <article className={style.contenedorTitulo}>
           <h1 className={style.titulo}>Bienvenido a Fragmentos</h1>
           <figure className={style.presentacion}>
             <div className={style.icono}>
@@ -23,10 +23,10 @@ export const PublicidadRestaurante = () => {
               </p>
             </figcaption>
           </figure>
-        </section>
+        </article>
       </header>
       <main>
-        <section className={style.ambientes}>
+        <article className={style.ambientes}>
           <figure className={style.contenedorFotos}>
             <img className={style.foto} src={ambientes1} alt="" />
             <figcaption className={style.descripcionFotos}>
@@ -37,8 +37,8 @@ export const PublicidadRestaurante = () => {
               suscipit autem explicabo omnis?
             </figcaption>
           </figure>
-        </section>
-        <section className={style.ambientes}>
+        </article>
+        <article className={style.ambientes}>
           <figure className={style.contenedorFotos}>
             <img className={style.foto} src={ambientes2} alt="" />
             <figcaption className={style.descripcionFotos}>
@@ -49,8 +49,8 @@ export const PublicidadRestaurante = () => {
               cupiditate! Consectetur, ipsum!
             </figcaption>
           </figure>
-        </section>
-        <section className={style.ambientes}>
+        </article>
+        <article className={style.ambientes}>
           <figure className={style.contenedorFotos}>
             <img className={style.foto} src={ambientes3} alt="" />
             <figcaption className={style.descripcionFotos}>
@@ -61,8 +61,8 @@ export const PublicidadRestaurante = () => {
               consectetur fugiat ipsam sed corrupti aut.
             </figcaption>
           </figure>
-        </section>
-        <section className={style.ambientes}>
+        </article>
+        <article className={style.ambientes}>
           <div className={style.contenedorMapa}>
             <iframe
               className={style.mapa}
@@ -76,7 +76,7 @@ export const PublicidadRestaurante = () => {
               pronto, que esperas.
             </div>
           </div>
-        </section>
+        </article>
       </main>
       <footer className={style.referencia}>
         <p className={style.derechosReservados}>

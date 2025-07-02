@@ -7,7 +7,7 @@ import {
 } from '../services/auth'
 
 export const useUsuario = () => {
-  const [datosUsuarioActivo, setDatosUsuarioActivo] = useState(null)
+  const [datosUsuarioActivo, setDatosUsuarioActivo] = useState('')
   const [usuario, setUsuario] = useState({
     nombre: '',
     correoElectronico: '',

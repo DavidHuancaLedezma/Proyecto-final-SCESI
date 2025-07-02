@@ -1,0 +1,106 @@
+.contenedor {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.titulo {
+  text-align: center;
+  margin: 30px;
+  font-size: 30px;
+}
+
+.datosReserva {
+  border: 1px solid green;
+  border-radius: 10px;
+}
+
+.contenedorTabla {
+  border: 1px solid red;
+  height: 380px;
+  overflow-x: auto;
+}
+
+.contenedorTabla table {
+  border-collapse: collapse;
+  min-width: 1080px;
+}
+
+.contenedorTabla table thead {
+  background-color: orange;
+}
+
+.contenedorTabla table thead th {
+  padding: 10px 5px;
+  color: white;
+}
+
+.contenedorTabla table tbody td {
+  padding: 10px 5px;
+  text-align: center;
+}
+
+.tamanioCeldas {
+  width: 120px;
+}
+
+.estado {
+  width: 100px;
+}
+/*
+
+.titulo {
+    text-align: center;
+    margin: 30px;
+    font-size: 30px;
+}
+
+.datosReserva {
+    background-color: greenyellow;
+    border-radius: 10px;
+}
+
+.contenedorTabla {
+    height: 400px;
+    width: 1000px;
+    overflow-x: auto;
+}
+
+.contenedorTabla table {
+    border-collapse: collapse;
+}
+
+.contenedorTabla table thead {
+    background-color: red;
+}
+
+.contenedorTabla table tbody {
+    background-color: white;
+}
+
+.contenedorTabla table thead th {
+    padding: 10px 20px;
+}
+
+.contenedorTabla table tbody td {
+    padding: 10px 20px;
+    text-align: center;
+    max-width: 110px;
+}
+
+
+@media only screen and (min-width: 480px) {
+  .contenedor {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+  */
+
+@media only screen and (min-width: 480px) {
+  .contenedor {
+    flex-direction: row;
+    align-items: center;
+  }
+}

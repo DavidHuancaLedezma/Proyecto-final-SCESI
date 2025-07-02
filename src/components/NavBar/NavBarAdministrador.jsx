@@ -50,6 +50,11 @@ export const NavBarAdministrador = ({
               Añadir menú
             </Link>
           </li>
+          <li className={style.opciones}>
+            <Link className={style.opcionesTexto} to="/PanelReservas">
+              Reservas
+            </Link>
+          </li>
         </ul>
         <footer>
           <ul className={style.opcionesContenedorHorizontalPc}>
@@ -71,6 +76,11 @@ export const NavBarAdministrador = ({
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/RegistroProductos">
               Añadir menú
+            </Link>
+          </li>
+          <li className={style.opciones}>
+            <Link className={style.opcionesTexto} to="/PanelReservas">
+              Reservas
             </Link>
           </li>
         </ul>

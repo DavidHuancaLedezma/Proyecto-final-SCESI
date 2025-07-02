@@ -57,7 +57,7 @@ function HistorialReserva() {
                       </td>
                       <td>{horaReserva}</td>
                       <td>{nroDePersonas}</td>
-                      <td>{estado}</td>
+                      <td>{estado ? 'Aceptado' : 'Pendiente'}</td>
                       <td>{listaProductos ? listaProductos : 'Sin orden'}</td>
                     </tr>
                   )
