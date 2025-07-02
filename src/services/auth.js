@@ -57,10 +57,17 @@ export const registroDeCuenta = (nombre, email, contrasenia) => {
 
 export const inicioDeSesion = (email, contrasenia, navigate) => {
   signInWithEmailAndPassword(auth, email, contrasenia)
-    .then((userCredential) => {
+    .then(async (userCredential) => {
       const user = userCredential.user
       console.log(user.uid)
-      navigate('/perfil')
+      const datos = await getUsuario(user.uid)
+      const rol = datos.rol
+      console.log(rol)
+      if (rol === 'Usuario') {
+        navigate('/perfil')
+      } else {
+        navigate('/perfilAdministrador')
+      }
     })
     .catch((error) => {
       const errorMessage = error.message
@@ -75,7 +82,7 @@ export const inicioDeSesion = (email, contrasenia, navigate) => {
 export const usuarioLogueado = (setDatosUsuarioActivo) => {
   onAuthStateChanged(auth, async (user) => {
     console.log('datos usuario actual: ', user.email, user.uid)
-    localStorage.setItem('idUsuario',user.uid)
+    localStorage.setItem('idUsuario', user.uid)
     const datos = await getUsuario(user.uid)
     setDatosUsuarioActivo(datos)
   })

@@ -1,19 +1,11 @@
-import { Usuario, NavBarHome } from '../components'
-import { useUsuario } from '../hooks/useUsuario'
-import { useProducto } from '../hooks/useProducto'
-
-function Perfil() {
+import { NavBarAdministrador, Usuario } from '../../../components'
+import { useUsuario } from '../../../hooks/useUsuario'
+function PerfilAdministrador() {
   const { datosUsuarioActivo } = useUsuario()
-  const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
-  localStorage.setItem('nombreUsuario', datosUsuarioActivo.nombre)
   localStorage.setItem('rol', datosUsuarioActivo.rol)
   return (
     <>
-      <NavBarHome
-        productosAgregados={carritoDeProductos}
-        eliminarProductoDelCarrito={eliminarProducto}
-        precioTotal={precioTotal}
-      />
+      <NavBarAdministrador />
       {datosUsuarioActivo ? (
         <Usuario
           nombre={datosUsuarioActivo.nombre}
@@ -34,4 +26,5 @@ function Perfil() {
     </>
   )
 }
-export default Perfil
+
+export default PerfilAdministrador

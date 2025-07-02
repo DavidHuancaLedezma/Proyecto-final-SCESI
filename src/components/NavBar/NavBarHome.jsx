@@ -8,6 +8,7 @@ import {
   FaHome,
   FaUtensils,
   FaTimesCircle,
+  FaHistory,
 } from 'react-icons/fa'
 import { useReserva } from '../../hooks/useReserva'
 import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
@@ -106,7 +107,7 @@ export const NavBarHome = ({
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/productos">
-              <FaUtensils /> Productos
+              <FaUtensils /> Menú
             </Link>
           </li>
           <li className={style.opciones}>
@@ -116,7 +117,7 @@ export const NavBarHome = ({
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/historial-reserva">
-              Historial de reservas
+              <FaHistory /> Historial de reservas
             </Link>
           </li>
           <li className={style.opciones}>
@@ -130,11 +131,7 @@ export const NavBarHome = ({
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link
-              className={style.opcionesTexto}
-              to="/"
-              onClick={() => localStorage.removeItem('carrito')}
-            >
+            <Link className={style.opcionesTexto} to="/">
               <FaSignOutAlt /> Cerrar sesión
             </Link>
           </li>
