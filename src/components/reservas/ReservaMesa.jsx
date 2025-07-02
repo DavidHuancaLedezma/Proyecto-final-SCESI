@@ -1,11 +1,18 @@
 import style from './reservaMesa.module.css'
-
 export const ReservaMesa = ({
   mesasDisponibles,
   setDatosReserva,
   envioFormularioDeReserva,
   datosReserva,
 }) => {
+  const manejarCambio = (e) => {
+    const { name, value } = e.target
+    setDatosReserva((prev) => ({
+      ...prev,
+      [name]: value,
+    }))
+  }
+
   return (
     <main className={style.formularioContenedor}>
       <form
@@ -17,15 +24,11 @@ export const ReservaMesa = ({
           <section className={style.inputDatos}>
             <label>Nro de mesa</label>
             <select
+              name="mesaSeleccionada"
               className={style.busquedaComboBox}
               required
               value={datosReserva.mesaSeleccionada}
-              onChange={(e) => {
-                setDatosReserva((prev) => ({
-                  ...prev,
-                  mesaSeleccionada: e.target.value,
-                }))
-              }}
+              onChange={manejarCambio}
             >
               <option value="">Seleccionar mesa</option>
               {mesasDisponibles.map(({ idMesa, numero_mesa, ubicacion }) => (
@@ -38,44 +41,32 @@ export const ReservaMesa = ({
           <section className={style.inputDatos}>
             <label>Fecha de reserva</label>
             <input
+              name="fechaReserva"
               type="date"
               required
               value={datosReserva.fechaReserva}
-              onChange={(e) => {
-                setDatosReserva((prev) => ({
-                  ...prev,
-                  fechaReserva: e.target.value,
-                }))
-              }}
+              onChange={manejarCambio}
             />
           </section>
           <section className={style.inputDatos}>
             <label>Hora de reserva</label>
             <input
+              name="horaReserva"
               type="time"
               required
               value={datosReserva.horaReserva}
-              onChange={(e) => {
-                setDatosReserva((prev) => ({
-                  ...prev,
-                  horaReserva: e.target.value,
-                }))
-              }}
+              onChange={manejarCambio}
             />
           </section>
           <section className={style.inputDatos}>
             <label>Nro de personas</label>
             <input
+              name="nroDePersonas"
               type="number"
               placeholder="0"
               required
               value={datosReserva.nroDePersonas}
-              onChange={(e) => {
-                setDatosReserva((prev) => ({
-                  ...prev,
-                  nroDePersonas: e.target.value,
-                }))
-              }}
+              onChange={manejarCambio}
             />
           </section>
         </main>

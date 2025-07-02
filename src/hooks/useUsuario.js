@@ -1,9 +1,13 @@
 import { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { registroDeCuenta, inicioDeSesion, usuarioLogueado } from '../services/auth'
+import {
+  registroDeCuenta,
+  inicioDeSesion,
+  usuarioLogueado,
+} from '../services/auth'
 
 export const useUsuario = () => {
-  const [datosUsuarioActivo, setDatosUsuarioActivo] = useState(null)
+  const [datosUsuarioActivo, setDatosUsuarioActivo] = useState('')
   const [usuario, setUsuario] = useState({
     nombre: '',
     correoElectronico: '',

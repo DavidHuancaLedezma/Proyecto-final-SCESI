@@ -10,6 +10,8 @@ import IniciarSesion from '../pages/MenuInicial/IniciarSesion'
 import Registrarse from '../pages/MenuInicial/Registrarse'
 import HistorialReserva from '../pages/HistorialReservas/HistorialReservas'
 import PerfilAdministrador from '../pages/Administrador/Perfil/PerfilAdministrador'
+import RegistroProductos from '../pages/Administrador/RegistroProductos/RegistroProductos'
+import PanelReservas from '../pages/Administrador/PanelReservas/PanelReservas'
 
 export default function AppRoutes() {
   return (
@@ -26,6 +28,8 @@ export default function AppRoutes() {
         <Route path="/reserva" element={<Reserva />} />
         <Route path="/historial-reserva" element={<HistorialReserva />} />
         <Route path="/PerfilAdministrador" element={<PerfilAdministrador />} />
+        <Route path="/RegistroProductos" element={<RegistroProductos />} />
+        <Route path="/PanelReservas" element={<PanelReservas />} />
       </Routes>
     </BrowserRouter>
   )
