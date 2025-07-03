@@ -12,7 +12,7 @@ import HistorialReserva from '../pages/HistorialReservas/HistorialReservas'
 import PerfilAdministrador from '../pages/Administrador/Perfil/PerfilAdministrador'
 import RegistroProductos from '../pages/Administrador/RegistroProductos/RegistroProductos'
 import PanelReservas from '../pages/Administrador/PanelReservas/PanelReservas'
-
+import PanelProductos from '../pages/Administrador/PanelProductos/PanelProductos'
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -30,6 +30,7 @@ export default function AppRoutes() {
         <Route path="/PerfilAdministrador" element={<PerfilAdministrador />} />
         <Route path="/RegistroProductos" element={<RegistroProductos />} />
         <Route path="/PanelReservas" element={<PanelReservas />} />
+        <Route path="/PanelProductos" element={<PanelProductos />} />
       </Routes>
     </BrowserRouter>
   )

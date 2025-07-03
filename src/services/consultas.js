@@ -23,6 +23,17 @@ export const getProductos = async () => {
   return res
 }
 
+export const editarProducto = async (idProducto, nuevoEstado) => {
+  const washingtonRef = doc(db, 'producto', idProducto)
+  await updateDoc(washingtonRef, {
+    disponible: nuevoEstado,
+  })
+}
+
+export const eliminarProducto = async (idProducto) => {
+    await deleteDoc(doc(db, 'producto', idProducto))
+}
+
 export const addProdructo = async (datosProducto) => {
   try {
     await addDoc(collection(db, 'producto'), datosProducto)

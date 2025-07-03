@@ -1,0 +1,50 @@
+.contenedor {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.titulo {
+  text-align: center;
+  margin: 30px;
+  font-size: 30px;
+}
+
+.contenedorTabla {
+    overflow-x: auto;
+    height: 380px;
+}
+
+.tabla {
+    border-collapse: collapse;
+    min-width: 700px;
+}
+
+.tabla thead {
+    background-color: orange;
+}
+
+.tabla thead th {
+    padding: 10px 5px;
+}
+
+.tabla tbody td {
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.tamanioCeldas {
+  max-width: 170px;
+}
+
+.estado {
+  width: 100px;
+}
+
+@media only screen and (min-width: 480px) {
+  .contenedor {
+    flex-direction: row;
+    align-items: center;
+  }
+}

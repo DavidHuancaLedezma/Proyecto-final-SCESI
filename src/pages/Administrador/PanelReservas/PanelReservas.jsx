@@ -38,7 +38,7 @@ function PanelReservas() {
     <>
       <NavBarAdministrador />
       <div className={style.contenedor}>
-        <main className={style.datosReserva}>
+        <div className={style.datosReserva}>
           <header className={style.titulo}>Panel de reservas</header>
           <main className={style.contenedorTabla}>
             <table>
@@ -105,7 +105,7 @@ function PanelReservas() {
               </tbody>
             </table>
           </main>
-        </main>
+        </div>
       </div>
     </>
   )

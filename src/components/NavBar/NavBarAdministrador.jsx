@@ -11,11 +11,7 @@ import {
 } from 'react-icons/fa'
 import style from './NavBarAdministrador.module.css'
 
-export const NavBarAdministrador = ({
-  productosAgregados,
-  eliminarProductoDelCarrito,
-  precioTotal,
-}) => {
+export const NavBarAdministrador = () => {
   const [desplegable, setDesplegable] = useState(false)
   const handleClick = () => {
     setDesplegable(!desplegable)
@@ -55,6 +51,11 @@ export const NavBarAdministrador = ({
               Reservas
             </Link>
           </li>
+          <li className={style.opciones}>
+            <Link className={style.opcionesTexto} to="/PanelProductos">
+              Productos
+            </Link>
+          </li>
         </ul>
         <footer>
           <ul className={style.opcionesContenedorHorizontalPc}>
@@ -81,6 +82,11 @@ export const NavBarAdministrador = ({
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PanelReservas">
               Reservas
+            </Link>
+          </li>
+          <li className={style.opciones}>
+            <Link className={style.opcionesTexto} to="/PanelProductos">
+              Productos
             </Link>
           </li>
         </ul>
