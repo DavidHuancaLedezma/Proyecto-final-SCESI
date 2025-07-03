@@ -38,6 +38,10 @@
   max-width: 170px;
 }
 
+.tamanioMinimoCeldas {
+  min-width: 150px;
+}
+
 .estado {
   width: 100px;
 }

@@ -59,13 +59,11 @@ export const inicioDeSesion = (email, contrasenia, navigate) => {
   signInWithEmailAndPassword(auth, email, contrasenia)
     .then(async (userCredential) => {
       const user = userCredential.user
-      console.log(user.uid)
       const datos = await getUsuario(user.uid)
       const rol = datos.rol
-      console.log(rol)
       if (rol === 'Usuario') {
         navigate('/perfil')
-      } else {
+      } else if (rol === 'Administrador') {
         navigate('/perfilAdministrador')
       }
     })

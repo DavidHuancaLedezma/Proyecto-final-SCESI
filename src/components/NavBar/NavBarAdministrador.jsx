@@ -7,7 +7,11 @@ import {
   FaHome,
   FaUtensils,
   FaTimesCircle,
+  FaUserAlt,
   FaHistory,
+  FaProductHunt,
+  FaPlusCircle,
+  FaBars,
 } from 'react-icons/fa'
 import style from './NavBarAdministrador.module.css'
 
@@ -81,22 +85,27 @@ export const NavBarAdministrador = () => {
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/RegistroProductos">
-              Añadir menú
+              <FaPlusCircle /> Añadir menú
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PanelReservas">
-              Reservas
+              <FaCalendarAlt /> Reservas
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PanelProductos">
-              Productos
+              <FaUtensils /> Productos
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PanelUsuarios">
-              Usuarios
+              <FaUserAlt /> Usuarios
+            </Link>
+          </li>
+          <li className={style.opciones}>
+            <Link className={style.opcionesTexto} to="/">
+              <FaSignOutAlt /> Cerrar sesión
             </Link>
           </li>
         </ul>

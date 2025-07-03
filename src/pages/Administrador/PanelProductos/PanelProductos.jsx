@@ -72,7 +72,9 @@ function PanelProductos() {
                       <td className={style.tamanioCeldas}>{descripcion}</td>
                       <td>{origen}</td>
                       <td>{precio} bs</td>
-                      <td>{disponible ? 'Disponible' : 'Agotado'}</td>
+                      <td className={style.tamanioMinimoCeldas}>
+                        {disponible ? 'Disponible' : 'Agotado'}
+                      </td>
                       <td>
                         <select
                           className={style.estado}
@@ -83,7 +85,7 @@ function PanelProductos() {
                           <option value={false}>Agotado</option>
                         </select>
                       </td>
-                      <td>
+                      <td className={style.tamanioMinimoCeldas}>
                         <button onClick={() => guardarEdicion(idProducto)}>
                           Guardar
                         </button>{' '}
