@@ -3,9 +3,10 @@
 }
 
 .portada {
-  background-image: url('/src/assets/img/4k2.jpg');
+  background-image: url('/src/assets/img/portada.png');
   background-repeat: no-repeat;
   background-size: cover;
+  object-fit: cover;
   background-position: center;
 }
 
@@ -74,6 +75,7 @@
   text-align: center;
   padding: 10px;
   margin-top: 10px;
+  color: #E0E0E0;
 }
 
 .referencia {

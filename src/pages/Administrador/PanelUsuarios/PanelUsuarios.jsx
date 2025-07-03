@@ -1,5 +1,5 @@
 import { NavBarAdministrador } from '../../../components/NavBar/NavBarAdministrador'
-import { LogicaPanelUsuarios } from '../../../utils/logicaPanelUsuarios'
+import { LogicaPanelUsuarios } from '../../../utils/LogicaPanelUsuarios'
 import style from './PanelUsuarios.module.css'
 
 function PanelUsuarios() {

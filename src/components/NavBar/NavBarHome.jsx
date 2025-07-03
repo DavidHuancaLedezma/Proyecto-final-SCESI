@@ -47,7 +47,7 @@ export const NavBarHome = ({
   return (
     <section>
       <header className={opcionesDeInicio}>
-        <h1 className={style.titulo}>Bienvenidos a fragmentos</h1>
+        <h1 className={style.titulo}>Fragmentos</h1>
         <button className={style.botonAbrir} onClick={handleClick}>
           ☰
         </button>
