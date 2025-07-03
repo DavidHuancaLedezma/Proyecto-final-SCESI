@@ -51,12 +51,11 @@ export const useProducto = () => {
   }
 
   const getDatos = async () => {
-      const respuesta = await getProductos()
-      setProductos(respuesta)
-    }
+    const respuesta = await getProductos()
+    setProductos(respuesta)
+  }
 
   useEffect(() => {
-    
     getDatos()
     let productosSeleccionados = localStorage.getItem('carrito')
     if (productosSeleccionados) {

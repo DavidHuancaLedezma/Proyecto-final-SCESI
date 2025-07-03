@@ -34,14 +34,6 @@
   text-align: center;
 }
 
-.tamanioCeldas {
-  max-width: 170px;
-}
-
-.estado {
-  width: 100px;
-}
-
 @media only screen and (min-width: 480px) {
   .contenedor {
     flex-direction: row;

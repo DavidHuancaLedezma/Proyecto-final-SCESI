@@ -31,7 +31,7 @@ export const editarProducto = async (idProducto, nuevoEstado) => {
 }
 
 export const eliminarProducto = async (idProducto) => {
-    await deleteDoc(doc(db, 'producto', idProducto))
+  await deleteDoc(doc(db, 'producto', idProducto))
 }
 
 export const addProdructo = async (datosProducto) => {
@@ -50,6 +50,24 @@ export const getUsuario = async (idUsuario) => {
   const docRef = doc(db, 'usuarios', idUsuario)
   const docSnap = await getDoc(docRef)
   return docSnap.data()
+}
+
+export const obtenerTodosLosUsuarios = async () => {
+  const q = query(
+    collection(db, 'usuarios'),
+    where('rol', '!=', 'Administrador')
+  )
+
+  const querySnapshot = await getDocs(q)
+  let res = []
+  querySnapshot.forEach((doc) => {
+    res.push({ idUsuario: doc.id, ...doc.data() })
+  })
+  return res
+}
+
+export const eliminarUsuario = async (idUsuario) => {
+  await deleteDoc(doc(db, 'usuarios', idUsuario))
 }
 
 export const getCategorias = async () => {
