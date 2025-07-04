@@ -1,5 +1,4 @@
 import { FaShoppingCart, FaBan } from 'react-icons/fa'
-import '../../normalize.css'
 import style from './ProductoCard.module.css'
 
 export const ProductoCard = ({
@@ -56,10 +55,10 @@ export const ProductoCard = ({
               className={style.productoDisponible}
               onClick={() => agregarProductoAlCarrito(producto)}
             >
-              Agregar al carrito <FaShoppingCart className={style.icono}/>
+              Agregar al carrito <FaShoppingCart className={style.icono} />
             </button>
             <button className={style.productoAgotado}>
-              Producto agotado <FaBan className={style.icono}/>
+              Producto agotado <FaBan className={style.icono} />
             </button>
           </section>
         </footer>

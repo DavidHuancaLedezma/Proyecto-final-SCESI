@@ -1,7 +1,6 @@
 import { useCategoria } from '../../hooks/useCategoria'
 import { FaSearch } from 'react-icons/fa'
 import style from './BarraBusqueda.module.css'
-import '../../normalize.css'
 
 export const BarraBusqueda = ({
   cambiosEnTexto,

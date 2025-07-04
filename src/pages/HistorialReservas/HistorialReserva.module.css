@@ -20,23 +20,25 @@
 .contenedorInformacion h1 {
   font-size: 23px;
   margin-top: 30px;
+  color: white;
 }
 .descripcion {
   font-size: 12px;
   text-align: center;
   margin: 10px;
+  color: white;
 }
 .descripcion img {
   width: 50px;
   height: 50px;
-  border: 3px solid green;
+  border: 3px solid white;
   border-radius: 35px;
   padding: 2px;
   margin: 10px;
 }
 
 .titulosTabla {
-  background-color: orange;
+  background-color: rgb(255, 123, 0);
 }
 
 .titulosTabla th {
