@@ -91,17 +91,12 @@
 }
 
 .mapa {
-  width: 280px;
   height: 280px;
-  border: 0;
-  border-radius: 20px;
+  width: 280px;
+  border-radius: 10px;
+  border: none;
 }
 
-.contenedorMapa {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
 
 @media only screen and (min-width: 480px) {
   .carteleraDeComidas {
@@ -111,7 +106,6 @@
     align-items: stretch;
   }
   .contenedorFotos {
-    display: flex;
     flex-direction: row;
     align-items: center;
   }
@@ -122,8 +116,5 @@
   .ambientes {
     display: flex;
     justify-content: center;
-  }
-  .contenedorMapa {
-    flex-direction: row;
   }
 }

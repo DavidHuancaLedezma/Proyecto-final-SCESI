@@ -9,11 +9,13 @@
   text-align: center;
   margin: 30px;
   font-size: 30px;
+  color: white;
 }
 
 .contenedorTabla {
   overflow-x: auto;
   height: 380px;
+  background-color: white;
 }
 
 .tabla {
@@ -22,11 +24,14 @@
 }
 
 .tabla thead {
-  background-color: orange;
+  background-color: rgb(255, 123, 0);
+  position: sticky;
+  top: 0;
 }
 
 .tabla thead th {
   padding: 10px 5px;
+  color: white;
 }
 
 .tabla tbody td {
@@ -43,7 +48,28 @@
 }
 
 .estado {
-  width: 100px;
+  width: 110px;
+  outline: none;
+  border-radius: 10px;
+  border: 1px solid gray;
+}
+
+.btnEliminar {
+  color: white;
+  background-color: red;
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 14px;
+}
+
+.btnGuardar {
+  color: white;
+  background-color: rgb(1, 89, 252);
+  border: none;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 14px;
 }
 
 @media only screen and (min-width: 480px) {

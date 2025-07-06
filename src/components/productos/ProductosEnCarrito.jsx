@@ -16,7 +16,7 @@ export const ProductoEnCarrito = ({
     <section className={style.contenedorProductos}>
       <header className={style.titulo}>
         <h1>
-          <FaShoppingCart /> Tu carrito
+          <FaShoppingCart className={style.icono} /> Tu carrito
         </h1>
       </header>
       <main className={style.listaProductos}>

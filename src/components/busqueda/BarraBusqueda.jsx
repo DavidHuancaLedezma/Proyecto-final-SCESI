@@ -27,7 +27,7 @@ export const BarraBusqueda = ({
           ))}
         </select>
         <button className={style.busquedaBtnLimpiar} onClick={limpiar}>
-          Limpiar
+          Limpiar filtros
         </button>
       </section>
       <section className={style.busquedaIconoContenedor}>

@@ -13,6 +13,7 @@ function Perfil() {
         productosAgregados={carritoDeProductos}
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
+        contadorProductos={localStorage.getItem('contadorProductos')}
       />
       {datosUsuarioActivo ? (
         <Usuario

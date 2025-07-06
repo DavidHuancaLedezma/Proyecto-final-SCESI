@@ -79,7 +79,6 @@ export const inicioDeSesion = (email, contrasenia, navigate) => {
 
 export const usuarioLogueado = (setDatosUsuarioActivo) => {
   onAuthStateChanged(auth, async (user) => {
-    console.log('datos usuario actual: ', user.email, user.uid)
     localStorage.setItem('idUsuario', user.uid)
     const datos = await getUsuario(user.uid)
     setDatosUsuarioActivo(datos)

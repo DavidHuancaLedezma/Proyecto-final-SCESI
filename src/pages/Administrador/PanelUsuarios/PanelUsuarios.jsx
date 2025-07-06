@@ -33,6 +33,7 @@ function PanelUsuarios() {
 
                       <td>
                         <button
+                          className={style.btnEliminar}
                           onClick={() => eliminarUsuariosDelSistema(idUsuario)}
                         >
                           Eliminar

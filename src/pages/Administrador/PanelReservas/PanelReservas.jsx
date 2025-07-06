@@ -89,11 +89,15 @@ function PanelReservas() {
                           <option value={false}>pendiente</option>
                         </select>
                       </td>
-                      <td>
-                        <button onClick={() => guardarEdicion(idReserva)}>
+                      <td className={style.tamanioCeldasMinimo}>
+                        <button
+                          className={style.btnGuardar}
+                          onClick={() => guardarEdicion(idReserva)}
+                        >
                           Guardar
                         </button>{' '}
                         <button
+                          className={style.btnEliminar}
                           onClick={() => eliminarReservaCliente(idReserva)}
                         >
                           Eliminar

@@ -27,6 +27,7 @@ function Productos() {
         productosAgregados={carritoDeProductos}
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
+        contadorProductos={localStorage.getItem('contadorProductos')}
       />
       <BarraBusqueda
         cambiosEnTexto={manejarCambioBusquedaPorTexto}

@@ -21,6 +21,7 @@
   font-size: 23px;
   margin-top: 30px;
   color: white;
+  text-align: center;
 }
 .descripcion {
   font-size: 12px;
@@ -37,13 +38,18 @@
   margin: 10px;
 }
 
-.titulosTabla {
+.contenedorTabla thead {
   background-color: rgb(255, 123, 0);
+  position: sticky;
+  top: 0;
+  
+  
 }
 
-.titulosTabla th {
+.contenedorTabla thead th {
   color: white;
   padding: 10px 20px;
+  
 }
 
 .contenidoTabla td {
@@ -57,21 +63,18 @@
   overflow-x: auto;
   height: 200px;
   background-color: white;
+  
 }
 
 .contenedorTabla table {
   border-collapse: collapse;
-  min-width: 700px;
+  min-width: 760px;
 }
 
 @media only screen and (min-width: 480px) {
   .contenedor {
     flex-direction: row;
     align-items: center;
-  }
-  .contenedorTabla {
-    display: flex;
-    justify-content: center;
   }
   .descripcion {
     max-width: 300px;

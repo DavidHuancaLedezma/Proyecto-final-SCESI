@@ -4,14 +4,10 @@ import {
   FaUser,
   FaSignOutAlt,
   FaCalendarAlt,
-  FaHome,
   FaUtensils,
   FaTimesCircle,
   FaUserAlt,
-  FaHistory,
-  FaProductHunt,
   FaPlusCircle,
-  FaBars,
 } from 'react-icons/fa'
 import style from './NavBarAdministrador.module.css'
 
@@ -36,7 +32,7 @@ export const NavBarAdministrador = () => {
           ☰
         </button>
         <button className={style.botonCerrar} onClick={handleClick}>
-          <FaTimesCircle />
+          <FaTimesCircle className={style.icono} />
         </button>
 
         <ul className={style.opcionesContenedorHorizontalPc}>
@@ -70,7 +66,11 @@ export const NavBarAdministrador = () => {
           <ul className={style.opcionesContenedorHorizontalPc}>
             <li className={style.opciones}>
               <Link className={style.cerrarSesion} to="/">
+                <FaSignOutAlt className={style.icono} />
                 Cerrar sesion
+              </Link>
+              <Link className={style.cerrarSesionSoloIcono} to="/">
+                <FaSignOutAlt className={style.icono} />
               </Link>
             </li>
           </ul>
@@ -80,32 +80,32 @@ export const NavBarAdministrador = () => {
         <ul className={style.opcionesContenedor}>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PerfilAdministrador">
-              <FaUser /> Perfil
+              <FaUser className={style.icono} /> Perfil
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/RegistroProductos">
-              <FaPlusCircle /> Añadir menú
+              <FaPlusCircle className={style.icono} /> Añadir menú
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PanelReservas">
-              <FaCalendarAlt /> Reservas
+              <FaCalendarAlt className={style.icono} /> Reservas
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PanelProductos">
-              <FaUtensils /> Productos
+              <FaUtensils className={style.icono} /> Productos
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/PanelUsuarios">
-              <FaUserAlt /> Usuarios
+              <FaUserAlt className={style.icono} /> Usuarios
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/">
-              <FaSignOutAlt /> Cerrar sesión
+              <FaSignOutAlt className={style.icono} /> Cerrar sesión
             </Link>
           </li>
         </ul>
