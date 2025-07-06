@@ -1,0 +1,119 @@
+.productoContenedor {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #2C2C2C;
+  border-radius: 15px;
+  background-color: #1E1E1E;
+  width: 290px;
+  min-height: 350px;
+  margin: 16px;
+  z-index: 1;
+}
+
+.productoFoto {
+  margin: auto;
+  margin-top: 10px;
+  border-radius: 15px;
+  width: 270px;
+  height: 160px;
+  object-fit: cover;
+}
+.productoDetalles {
+  padding: 5px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-around;
+  
+}
+
+.productoNombre {
+  margin: 0;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+.productoDescripcion {
+  font-size: 13px;
+  color: white;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+.productoComprar {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.productoInformacion {
+  font-size: 10px;
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.productoInformacionItem {
+  border: 1px solid white;
+  color: white;
+  border-radius: 10px;
+  padding: 5px;
+  margin: 5px;
+}
+
+.productoDisponible {
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: rgb(255, 123, 0);
+  color: white;
+  font-size: 12px;
+  width: 200px;
+}
+.productoDisponible:hover {
+  color: black;
+}
+
+.productoAgotado {
+  display: none;
+  background-color: red;
+}
+
+
+
+.stockProducto.agotado .productoDisponible {
+  display: none;
+}
+
+.stockProducto.agotado .productoAgotado {
+  border: 0;
+  padding: 10px;
+  border-radius: 10px;
+  display: block;
+  color: white;
+  font-size: 12px;
+  width: 200px;
+}
+
+.stockProducto.agotado .productoAgotado:hover {
+  color: black;
+}
+
+.stockProducto {
+  display: flex;
+  justify-content: center;
+}
+
+.productoPrecio {
+  color: rgb(255, 123, 0);
+}
+
+.icono {
+  vertical-align: middle;
+}
+
+@media only screen and (min-width: 480px) {
+  .productoContenedor {
+    min-height: 350px;
+  }
+}
