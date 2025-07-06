@@ -6,7 +6,7 @@ import {
 } from 'firebase/auth'
 import { setDoc, doc, serverTimestamp } from 'firebase/firestore'
 import { mensajeExito, mensajeError } from './mensajes'
-import { getUsuario } from './consultas'
+import { obtenerUsuario } from './consultas'
 
 export const registroDeCuenta = (nombre, email, contrasenia) => {
   createUserWithEmailAndPassword(auth, email, contrasenia)
@@ -59,7 +59,7 @@ export const inicioDeSesion = (email, contrasenia, navigate) => {
   signInWithEmailAndPassword(auth, email, contrasenia)
     .then(async (userCredential) => {
       const user = userCredential.user
-      const datos = await getUsuario(user.uid)
+      const datos = await obtenerUsuario(user.uid)
       const rol = datos.rol
       if (rol === 'Usuario') {
         navigate('/perfil')
@@ -80,7 +80,7 @@ export const inicioDeSesion = (email, contrasenia, navigate) => {
 export const usuarioLogueado = (setDatosUsuarioActivo) => {
   onAuthStateChanged(auth, async (user) => {
     localStorage.setItem('idUsuario', user.uid)
-    const datos = await getUsuario(user.uid)
+    const datos = await obtenerUsuario(user.uid)
     setDatosUsuarioActivo(datos)
   })
 }

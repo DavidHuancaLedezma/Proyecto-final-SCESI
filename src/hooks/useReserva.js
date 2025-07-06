@@ -1,8 +1,11 @@
 import { useEffect, useState } from 'react'
-import { getMesas } from '../services/consultas'
+import { obtenerMesas } from '../services/consultas'
 import { registrarReserva } from '../services/consultas'
 import { serverTimestamp } from 'firebase/firestore'
-import { getIdUltimaReserva, setProductosReserva } from '../services/consultas'
+import {
+  obtenerIdUltimaReserva,
+  editarProductosReserva,
+} from '../services/consultas'
 import { mensajeExito, mensajeError } from '../services/mensajes'
 
 export const useReserva = () => {
@@ -36,11 +39,11 @@ export const useReserva = () => {
   }
 
   useEffect(() => {
-    const getDatos = async () => {
-      const respuesta = await getMesas()
+    const obtenerDatos = async () => {
+      const respuesta = await obtenerMesas()
       setMesas(respuesta)
     }
-    getDatos()
+    obtenerDatos()
   }, [])
 
   const agregarOrdenEnReserva = async (productos) => {
@@ -52,10 +55,10 @@ export const useReserva = () => {
     if (listaProductos !== '') {
       listaProductos = listaProductos.slice(0, -2)
       let idUsuario = localStorage.getItem('idUsuario')
-      const id = await getIdUltimaReserva(idUsuario)
+      const id = await obtenerIdUltimaReserva(idUsuario)
 
       if (id.length > 0) {
-        setProductosReserva(id[0].id, listaProductos)
+        editarProductosReserva(id[0].id, listaProductos)
         mensajeExito(
           'Orden realizada',
           'Tus orden fue agregada con exito a tu ultima reserva de mesa.'

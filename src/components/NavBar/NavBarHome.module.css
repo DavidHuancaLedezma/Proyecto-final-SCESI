@@ -24,7 +24,7 @@
   left: 0;
   width: 200px;
   height: 100vh;
-  background-color: rgb(255, 123, 0);
+  background-color: rgba(255, 123, 0, 0.795);
   transition: transform 0.6s ease;
   z-index: 2;
 }
@@ -93,7 +93,7 @@
 }
 
 .obcionesDeTextoSoloIcono {
-    display: none;
+  display: none;
 }
 
 @media only screen and (min-width: 480px) {
@@ -212,7 +212,6 @@
   }
 }
 
-
 @media only screen and (max-width: 720px) {
   .titulo {
     display: none;
@@ -222,7 +221,6 @@
     padding: 5px;
     display: none;
   }
-
 
   .cerrarSesionSoloIcono {
     display: block;

@@ -1,38 +1,14 @@
-import { useState, useEffect } from 'react'
 import { NavBarAdministrador } from '../../../components'
-import { useHistorialReserva } from '../../../hooks/useHistorialReserva'
-import { setEstadoReserva, eliminarReserva } from '../../../services/consultas'
+import { LogicaPanelReservas } from '../../../utils/LogicaPanelReservas'
 import style from './PanelReservas.module.css'
 function PanelReservas() {
-  const { datosReserva, cargarDatos } = useHistorialReserva()
-
-  const [estadosSeleccionados, setEstadosSeleccionados] = useState({})
-
-  useEffect(() => {
-    const estadosIniciales = {}
-    datosReserva.forEach((reserva) => {
-      estadosIniciales[reserva.idReserva] = reserva.estado
-    })
-    setEstadosSeleccionados(estadosIniciales)
-  }, [datosReserva])
-
-  const estadoActual = (e, idReserva) => {
-    let valor = e.target.value === 'true'
-    setEstadosSeleccionados((prev) => ({
-      ...prev,
-      [idReserva]: valor,
-    }))
-  }
-
-  const guardarEdicion = async (idReserva) => {
-    const estadoSeleccionado = estadosSeleccionados[idReserva]
-    setEstadoReserva(idReserva, estadoSeleccionado)
-    await cargarDatos()
-  }
-  const eliminarReservaCliente = async (idReserva) => {
-    await eliminarReserva(idReserva)
-    await cargarDatos()
-  }
+  const {
+    datosReserva,
+    estadosSeleccionados,
+    estadoActual,
+    guardarEdicion,
+    eliminarReservaCliente,
+  } = LogicaPanelReservas()
 
   return (
     <>

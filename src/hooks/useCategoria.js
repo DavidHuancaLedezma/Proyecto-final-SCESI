@@ -1,15 +1,15 @@
 import { useState, useEffect } from 'react'
-import { getCategorias } from '../services/consultas'
+import { obtenerCategorias } from '../services/consultas'
 
 export const useCategoria = () => {
   const [categorias, setCategorias] = useState([])
 
   useEffect(() => {
-    const getDatos = async () => {
-      const respuesta = await getCategorias()
+    const obtenerDatos = async () => {
+      const respuesta = await obtenerCategorias()
       setCategorias(respuesta)
     }
-    getDatos()
+    obtenerDatos()
   }, [])
 
   return { categorias }

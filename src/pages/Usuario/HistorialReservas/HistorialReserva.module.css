@@ -42,14 +42,11 @@
   background-color: rgb(255, 123, 0);
   position: sticky;
   top: 0;
-  
-  
 }
 
 .contenedorTabla thead th {
   color: white;
   padding: 10px 20px;
-  
 }
 
 .contenidoTabla td {
@@ -63,7 +60,6 @@
   overflow-x: auto;
   height: 200px;
   background-color: white;
-  
 }
 
 .contenedorTabla table {
