@@ -53,6 +53,7 @@
   text-decoration: none;
   color: white;
   font-weight: bold;
+  font-size: 13px;
 }
 
 .opcionesDeInicio button {
@@ -87,6 +88,14 @@
   display: none;
 }
 
+.icono {
+  vertical-align: middle;
+}
+
+.obcionesDeTextoSoloIcono {
+    display: none;
+}
+
 @media only screen and (min-width: 480px) {
   .menuLateral,
   .botonAbrir {
@@ -105,11 +114,6 @@
     padding: 3px;
   }
 
-  .opcionesTexto {
-    color: white;
-    font-size: 15px;
-  }
-
   footer {
     display: flex;
   }
@@ -120,16 +124,19 @@
     border-radius: 10px;
     text-align: center;
     color: white;
-    font-size: 15px;
+    font-size: 11px;
     text-decoration: none;
     font-weight: bold;
-    width: 95px;
-    padding: 5px;
+    padding: 8px;
+  }
+
+  .cerrarSesionSoloIcono {
+    display: none;
   }
 
   .titulo {
     display: block;
-    font-size: 25px;
+    font-size: 20px;
   }
 
   .tituloCarrito {
@@ -194,5 +201,35 @@
     opacity: 0.6;
     margin-top: 50%;
     color: white;
+  }
+  .contador {
+    background-color: red;
+    color: white;
+    padding: 3px 5px;
+    border-radius: 10px;
+    font-size: 7px;
+    margin-left: 2px;
+  }
+}
+
+
+@media only screen and (max-width: 720px) {
+  .titulo {
+    display: none;
+  }
+  footer .cerrarSesion {
+    font-size: 10px;
+    padding: 5px;
+    display: none;
+  }
+
+
+  .cerrarSesionSoloIcono {
+    display: block;
+    background-color: red;
+    border-radius: 10px;
+    color: white;
+    font-size: 14px;
+    padding: 5px;
   }
 }

@@ -12,63 +12,36 @@
   color: white;
 }
 
-.datosReserva {
-  border-radius: 10px;
-}
-
 .contenedorTabla {
-  height: 380px;
   overflow-x: auto;
+  height: 380px;
   background-color: white;
 }
 
-.contenedorTabla table {
+.tabla {
   border-collapse: collapse;
-  min-width: 1080px;
+  min-width: 700px;
 }
 
-.contenedorTabla table thead {
+.tabla thead {
   background-color: rgb(255, 123, 0);
   position: sticky;
   top: 0;
 }
 
-.contenedorTabla table thead th {
+.tabla thead th {
   padding: 10px 5px;
   color: white;
 }
 
-.contenedorTabla table tbody td {
+.tabla tbody td {
   padding: 10px 5px;
   text-align: center;
-}
-
-.tamanioCeldas {
-  width: 120px;
-}
-.tamanioCeldasMinimo {
-  min-width: 150px;
-}
-
-.estado {
-  width: 100px;
-  border-radius: 10px;
-  border: 1px solid gray;
-  outline: none;
 }
 
 .btnEliminar {
   color: white;
   background-color: red;
-  border: none;
-  border-radius: 10px;
-  padding: 5px;
-  font-size: 14px;
-}
-
-.btnGuardar {
-  color: white;
-  background-color: rgb(1, 89, 252);
   border: none;
   border-radius: 10px;
   padding: 5px;

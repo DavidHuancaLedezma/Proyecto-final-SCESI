@@ -19,7 +19,6 @@ export const useUsuario = () => {
   const envioDeRegistro = (e) => {
     e.preventDefault()
 
-    console.log(usuario.nombre, usuario.correoElectronico, usuario.contrasenia)
     registroDeCuenta(
       usuario.nombre,
       usuario.correoElectronico,
@@ -34,7 +33,6 @@ export const useUsuario = () => {
 
   const iniciarSesion = (e) => {
     e.preventDefault()
-    console.log(usuario.correoElectronico, usuario.contrasenia)
     inicioDeSesion(usuario.correoElectronico, usuario.contrasenia, navigate)
     setUsuario({
       nombre: '',

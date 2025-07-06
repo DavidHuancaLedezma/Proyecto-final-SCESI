@@ -11,22 +11,23 @@ import {
   FaHistory,
 } from 'react-icons/fa'
 import { useReserva } from '../../hooks/useReserva'
-import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
+import { ProductoCardPequenio } from '../Productos/ProductoCardPequenio'
 import style from './NavBarHome.module.css'
 
 export const NavBarHome = ({
   productosAgregados,
   eliminarProductoDelCarrito,
   precioTotal,
+  contadorProductos,
 }) => {
   const [desplegable, setDesplegable] = useState(false)
   const [productosComprados, setProductosComprados] = useState(false)
   const { agregarOrdenEnReserva } = useReserva()
-  const handleClick = () => {
+  const manejarClick = () => {
     setDesplegable(!desplegable)
   }
 
-  const handleClickCarrito = () => {
+  const manejarClickCarrito = () => {
     setProductosComprados(!productosComprados)
   }
 
@@ -45,13 +46,13 @@ export const NavBarHome = ({
     : style.opcionesDeInicio
 
   return (
-    <section>
+    <div>
       <header className={opcionesDeInicio}>
-        <h1 className={style.titulo}>Bienvenidos a fragmentos</h1>
-        <button className={style.botonAbrir} onClick={handleClick}>
+        <h1 className={style.titulo}>Fragmentos</h1>
+        <button className={style.botonAbrir} onClick={manejarClick}>
           ☰
         </button>
-        <button className={style.botonCerrar} onClick={handleClick}>
+        <button className={style.botonCerrar} onClick={manejarClick}>
           <FaTimesCircle />
         </button>
 
@@ -73,7 +74,7 @@ export const NavBarHome = ({
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/historial-reserva">
-              Historial de reservas
+              Historial
             </Link>
           </li>
           <li className={style.opciones}>
@@ -82,8 +83,11 @@ export const NavBarHome = ({
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} onClick={handleClickCarrito}>
-              <FaShoppingCart />
+            <Link className={style.opcionesTexto} onClick={manejarClickCarrito}>
+              <FaShoppingCart className={style.icono} />
+              {contadorProductos > 0 && (
+                <span className={style.contador}>{contadorProductos}</span>
+              )}
             </Link>
           </li>
         </ul>
@@ -91,7 +95,10 @@ export const NavBarHome = ({
           <ul className={style.opcionesContenedorHorizontalPc}>
             <li className={style.opciones}>
               <Link className={style.cerrarSesion} to="/">
-                Cerrar sesion
+                <FaSignOutAlt className={style.icono} /> Cerrar sesión
+              </Link>
+              <Link className={style.cerrarSesionSoloIcono} to="/">
+                <FaSignOutAlt className={style.icono} />
               </Link>
             </li>
           </ul>
@@ -102,37 +109,37 @@ export const NavBarHome = ({
         <ul className={style.opcionesContenedor}>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/inicio">
-              <FaHome /> Inicio
+              <FaHome className={style.icono} /> Inicio
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/productos">
-              <FaUtensils /> Menú
+              <FaUtensils className={style.icono} /> Menú
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/reserva">
-              <FaCalendarAlt /> Reservas
+              <FaCalendarAlt className={style.icono} /> Reservas
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/historial-reserva">
-              <FaHistory /> Historial de reservas
+              <FaHistory className={style.icono} /> Historial
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/carrito">
-              <FaShoppingCart /> Carrito
+              <FaShoppingCart className={style.icono} /> Carrito
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/Perfil">
-              <FaUser /> Perfil
+              <FaUser className={style.icono} /> Perfil
             </Link>
           </li>
           <li className={style.opciones}>
             <Link className={style.opcionesTexto} to="/">
-              <FaSignOutAlt /> Cerrar sesión
+              <FaSignOutAlt className={style.icono} /> Cerrar sesión
             </Link>
           </li>
         </ul>
@@ -183,6 +190,6 @@ export const NavBarHome = ({
           </footer>
         </aside>
       </section>
-    </section>
+    </div>
   )
 }

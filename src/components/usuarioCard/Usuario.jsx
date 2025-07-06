@@ -1,5 +1,5 @@
 import { FaUser, FaCalendar, FaEnvelope, FaUserShield } from 'react-icons/fa'
-import style from './usuario.module.css'
+import style from './Usuario.module.css'
 
 export const Usuario = ({ nombre, correoElectrico, fechaDeRegistro, rol }) => {
   return (

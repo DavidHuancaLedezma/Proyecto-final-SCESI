@@ -1,6 +1,6 @@
 .busquedaContenedor {
   display: flex;
-  background-color: white;
+  background-color: #1E1E1E;
   justify-content: space-between;
   margin: 0px 15px;
   padding: 12px;
@@ -14,6 +14,8 @@
   outline: none;
   padding: 12px;
   border-radius: 5px;
+  background-color: #1E1E1E;
+  color: white;
 }
 
 .busquedaInput {
@@ -22,15 +24,17 @@
   max-width: 130px;
   border-radius: 5px;
   padding: 12px 0px 12px 12px;
+  background-color: #1E1E1E;
+  color: white;
 }
 
-.busquedaBtnLimpiar {
-  display: none;
-}
+
+
 .busquedaIconoContenedor {
   border: 1px solid gray;
   border-radius: 5px;
   padding-left: 10px;
+  color: white;
 }
 .busquedaIconoContenedor .busquedaInput {
   border: none;
@@ -51,8 +55,22 @@
     display: block;
     border: 1px solid gray;
     cursor: pointer;
-    max-width: 130px;
+    
     border-radius: 5px;
     padding: 12px;
+    background-color: #1E1E1E;
+    color: white;
+  }
+}
+
+
+
+@media only screen and (max-width: 720px) {
+  .busquedaBtnLimpiar {
+    display: none;
+  }
+
+  .busquedaComboBox {
+    width: 140px;
   }
 }

@@ -1,5 +1,5 @@
-import { NavBarLogin, ProductoCard } from '../../components'
-import { useProducto } from '../../hooks/useProducto'
+import { NavBarLogin, ProductoCard } from '../../../components'
+import { useProducto } from '../../../hooks/useProducto'
 import style from './ProductosDeMuestra.module.css'
 
 function ProductosDeMuestra() {
@@ -29,6 +29,7 @@ function ProductosDeMuestra() {
               origen={origen}
               categoria={categoria}
               disponible={disponible}
+              muestra={!true}
             />
           )
         )}

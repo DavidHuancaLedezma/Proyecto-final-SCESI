@@ -1,5 +1,5 @@
-import { NavBarHome, PublicidadRestaurante } from '../../components'
-import { useProducto } from '../../hooks/useProducto'
+import { NavBarHome, PublicidadRestaurante } from '../../../components'
+import { useProducto } from '../../../hooks/useProducto'
 
 function Inicio() {
   const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
@@ -9,6 +9,7 @@ function Inicio() {
         productosAgregados={carritoDeProductos}
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
+        contadorProductos={localStorage.getItem('contadorProductos')}
       />
       <PublicidadRestaurante />
     </>

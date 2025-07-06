@@ -38,7 +38,7 @@ function PanelReservas() {
     <>
       <NavBarAdministrador />
       <div className={style.contenedor}>
-        <main className={style.datosReserva}>
+        <div className={style.datosReserva}>
           <header className={style.titulo}>Panel de reservas</header>
           <main className={style.contenedorTabla}>
             <table>
@@ -89,11 +89,15 @@ function PanelReservas() {
                           <option value={false}>pendiente</option>
                         </select>
                       </td>
-                      <td>
-                        <button onClick={() => guardarEdicion(idReserva)}>
+                      <td className={style.tamanioCeldasMinimo}>
+                        <button
+                          className={style.btnGuardar}
+                          onClick={() => guardarEdicion(idReserva)}
+                        >
                           Guardar
                         </button>{' '}
                         <button
+                          className={style.btnEliminar}
                           onClick={() => eliminarReservaCliente(idReserva)}
                         >
                           Eliminar
@@ -105,7 +109,7 @@ function PanelReservas() {
               </tbody>
             </table>
           </main>
-        </main>
+        </div>
       </div>
     </>
   )

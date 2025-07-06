@@ -1,4 +1,4 @@
-import style from './reservaMesa.module.css'
+import style from './ReservaMesa.module.css'
 export const ReservaMesa = ({
   mesasDisponibles,
   setDatosReserva,

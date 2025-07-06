@@ -1,18 +1,19 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import Inicio from '../pages/inicio/Inicio'
-import Perfil from '../pages/Perfil'
-import Productos from '../pages/producto/Productos'
-import Carrito from '../pages/Carrito'
-import Reserva from '../pages/Reserva'
-import Publicidad from '../pages/MenuInicial/PublicidadInicio'
-import ProductosDeMuestra from '../pages/MenuInicial/ProductosDeMuestra'
-import IniciarSesion from '../pages/MenuInicial/IniciarSesion'
-import Registrarse from '../pages/MenuInicial/Registrarse'
-import HistorialReserva from '../pages/HistorialReservas/HistorialReservas'
+import Inicio from '../pages/Usuario/Inicio/Inicio'
+import Perfil from '../pages/Usuario/Perfil/Perfil'
+import Productos from '../pages/Usuario/Producto/Productos'
+import Carrito from '../pages/Usuario/Carrito/Carrito'
+import Reserva from '../pages/Usuario/Reserva/Reserva'
+import HistorialReserva from '../pages/Usuario/HistorialReservas/HistorialReservas'
+import Publicidad from '../pages/MenuInicial/PublicidadInicio/PublicidadInicio'
+import ProductosDeMuestra from '../pages/MenuInicial/ProductosDeMuestra/ProductosDeMuestra'
+import IniciarSesion from '../pages/MenuInicial/IniciarSesion/IniciarSesion'
+import Registrarse from '../pages/MenuInicial/Registrarse/Registrarse'
 import PerfilAdministrador from '../pages/Administrador/Perfil/PerfilAdministrador'
 import RegistroProductos from '../pages/Administrador/RegistroProductos/RegistroProductos'
 import PanelReservas from '../pages/Administrador/PanelReservas/PanelReservas'
-
+import PanelProductos from '../pages/Administrador/PanelProductos/PanelProductos'
+import PanelUsuarios from '../pages/Administrador/PanelUsuarios/PanelUsuarios'
 export default function AppRoutes() {
   return (
     <BrowserRouter>
@@ -30,6 +31,8 @@ export default function AppRoutes() {
         <Route path="/PerfilAdministrador" element={<PerfilAdministrador />} />
         <Route path="/RegistroProductos" element={<RegistroProductos />} />
         <Route path="/PanelReservas" element={<PanelReservas />} />
+        <Route path="/PanelProductos" element={<PanelProductos />} />
+        <Route path="/PanelUsuarios" element={<PanelUsuarios />} />
       </Routes>
     </BrowserRouter>
   )

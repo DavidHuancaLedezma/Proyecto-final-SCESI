@@ -1,7 +1,7 @@
-import { ProductoCard, BarraBusqueda, NavBarHome } from '../../components'
-import { useBusqueda } from '../../hooks/useBusqueda'
-import { useProducto } from '../../hooks/useProducto'
-import style from './productos.module.css'
+import { ProductoCard, BarraBusqueda, NavBarHome } from '../../../components'
+import { useBusqueda } from '../../../hooks/useBusqueda'
+import { useProducto } from '../../../hooks/useProducto'
+import style from './Productos.module.css'
 function Productos() {
   const {
     productos,
@@ -27,6 +27,7 @@ function Productos() {
         productosAgregados={carritoDeProductos}
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
+        contadorProductos={localStorage.getItem('contadorProductos')}
       />
       <BarraBusqueda
         cambiosEnTexto={manejarCambioBusquedaPorTexto}
@@ -61,6 +62,7 @@ function Productos() {
                 disponible={disponible}
                 categoria={categoria}
                 agregarProductoAlCarrito={agregarProducto}
+                muestra={!false}
               />
             )
           )}

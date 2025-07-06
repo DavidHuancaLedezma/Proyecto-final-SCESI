@@ -5,14 +5,19 @@ export const useProducto = () => {
   const [productos, setProductos] = useState([])
   const [carritoDeProductos, setCarritoDeProductos] = useState([])
   const [precioTotal, setPrecioTotal] = useState('')
-
+  
   const agregarProducto = (producto) => {
+
+    let contador = parseInt(localStorage.getItem('contadorProductos') ? localStorage.getItem('contadorProductos') : 0)
+    contador += 1;
+    localStorage.setItem('contadorProductos', contador)
+
     const index = carritoDeProductos.findIndex(
       (productosExistentes) => productosExistentes.nombre === producto.nombre
     )
 
     let productosActualizados = []
-
+    
     if (index !== -1) {
       const productoConNuevaCantida = {
         ...carritoDeProductos[index],
@@ -35,6 +40,9 @@ export const useProducto = () => {
       (productoParaEliminar) => productoParaEliminar.idProducto === idProducto
     )
 
+    let contador = parseInt(localStorage.getItem('contadorProductos')) - carritoDeProductos[index].cantidad
+    localStorage.setItem('contadorProductos', contador)
+
     let productosActualizados = [...carritoDeProductos]
     productosActualizados.splice(index, 1)
     setCarritoDeProductos(productosActualizados)
@@ -50,11 +58,12 @@ export const useProducto = () => {
     setPrecioTotal(precio)
   }
 
+  const getDatos = async () => {
+    const respuesta = await getProductos()
+    setProductos(respuesta)
+  }
+
   useEffect(() => {
-    const getDatos = async () => {
-      const respuesta = await getProductos()
-      setProductos(respuesta)
-    }
     getDatos()
     let productosSeleccionados = localStorage.getItem('carrito')
     if (productosSeleccionados) {
@@ -70,5 +79,7 @@ export const useProducto = () => {
     setCarritoDeProductos,
     agregarProducto,
     eliminarProducto,
+    getDatos,
+    //contadorProductos,
   }
 }

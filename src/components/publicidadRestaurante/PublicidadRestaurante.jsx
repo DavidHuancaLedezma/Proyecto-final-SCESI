@@ -1,7 +1,7 @@
 import logo from '../../assets/img/icono.png'
-import ambientes1 from '../../assets/img/restaurante-foto-2.webp'
-import ambientes2 from '../../assets/img/restaurante-foto-5.webp'
-import ambientes3 from '../../assets/img/comidas.jpg'
+import ambientes1 from '../../../public/assets/img/restaurante-foto-2.webp'
+import ambientes2 from '../../../public/assets/img/restaurante-foto-5.webp'
+import ambientes3 from '../../../public/assets/img/comidas.jpg'
 import style from './PublicidadRestaurante.module.css'
 
 export const PublicidadRestaurante = () => {
@@ -16,10 +16,11 @@ export const PublicidadRestaurante = () => {
             </div>
             <figcaption className={style.descripcion}>
               <p className={style.descripcionTitulo}>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Doloremque sed aliquid unde at voluptatum optio soluta, tempore
-                molestias molestiae, suscipit eum repudiandae, a nobis! Suscipit
-                facere necessitatibus exercitationem soluta eveniet.
+                Bienvenido a Fragmentos, un lugar donde el sabor se encuentra
+                con la pasión. Descubre una experiencia culinaria única, llena
+                de detalles, aromas inolvidables y platos pensados para
+                sorprender. Vive momentos memorables y déjate llevar por el arte
+                de nuestra comida especial.
               </p>
             </figcaption>
           </figure>
@@ -31,10 +32,9 @@ export const PublicidadRestaurante = () => {
             <img className={style.foto} src={ambientes1} alt="" />
             <figcaption className={style.descripcionFotos}>
               <h2>Entrada</h2>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Asperiores delectus ullam labore quae nam ad voluptate vitae
-              maxime quos? Odit aspernatur hic nihil ab in necessitatibus
-              suscipit autem explicabo omnis?
+              Apenas llegás a Fragmentos, ya se siente la onda del lugar. Luces
+              cálidas, un aroma rico que viene desde adentro y ese detalle en
+              cada rincón que te hace querer entrar sin pensarlo.
             </figcaption>
           </figure>
         </article>
@@ -43,10 +43,9 @@ export const PublicidadRestaurante = () => {
             <img className={style.foto} src={ambientes2} alt="" />
             <figcaption className={style.descripcionFotos}>
               <h2>Mesas</h2>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est vel
-              iste obcaecati ullam, ex eligendi. Vitae, ut! Accusamus optio
-              perferendis doloribus numquam maiores ipsa error vitae natus
-              cupiditate! Consectetur, ipsum!
+              Adentro, las mesas están pensadas para sentirse a gusto. Ni muy
+              cerca, ni muy lejos. Hay espacio para charlar tranquilo, con una
+              luz que acompaña y una decoración sencilla pero con onda.
             </figcaption>
           </figure>
         </article>
@@ -55,27 +54,27 @@ export const PublicidadRestaurante = () => {
             <img className={style.foto} src={ambientes3} alt="" />
             <figcaption className={style.descripcionFotos}>
               <h2>Comidas</h2>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              Consequuntur, ut? Deleniti voluptatibus dolor molestiae ab
-              officiis, autem laudantium? Quis sequi fugit minima maxime hic
-              consectetur fugiat ipsam sed corrupti aut.
+              Acá la comida es simple pero llena de sabor. Todo se hace con
+              ganas y cada plato tiene su propio toque especial. Hay opciones
+              para todos, bien servidas y con ese sabor que te hace querer
+              repetir.
             </figcaption>
           </figure>
         </article>
         <article className={style.ambientes}>
-          <div className={style.contenedorMapa}>
+          <figure className={style.contenedorFotos}>
             <iframe
               className={style.mapa}
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d475.94218043379885!2d-66.155644!3d-17.385977!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x93e37408d97cdf8f%3A0x42a91c4b11f1225f!2sSuassuna%20by%20Fragmentos!5e0!3m2!1ses-419!2sbo!4v1749945191972!5m2!1ses-419!2sbo"
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
-            <div className={style.descripcionFotos}>
+            <figcaption className={style.descripcionFotos}>
               <h2>Ubicación</h2>
-              Encuentranos en nuestro restaurante, esperamos que nos visites
-              pronto, que esperas.
-            </div>
-          </div>
+              Encuéntranos en nuestro restaurante. Esperamos que nos visites
+              pronto. ¿Qué esperas?
+            </figcaption>
+          </figure>
         </article>
       </main>
       <footer className={style.referencia}>

@@ -1,5 +1,4 @@
-import { NavBarLogin, PublicidadRestaurante } from '../../components'
-// <PublicidadRestaurante />
+import { NavBarLogin, PublicidadRestaurante } from '../../../components'
 function PublicidadInicio() {
   localStorage.clear()
 
