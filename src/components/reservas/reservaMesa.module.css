@@ -57,7 +57,7 @@
 }
 
 .btnEnviar {
-  border: 0;
+  border: none;
   padding: 10px;
   border-radius: 10px;
   background-color: rgb(1, 89, 252);

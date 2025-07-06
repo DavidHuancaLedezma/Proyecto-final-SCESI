@@ -1,6 +1,6 @@
-import { Usuario, NavBarHome } from '../components'
-import { useUsuario } from '../hooks/useUsuario'
-import { useProducto } from '../hooks/useProducto'
+import { Usuario, NavBarHome } from '../../../components'
+import { useUsuario } from '../../../hooks/useUsuario'
+import { useProducto } from '../../../hooks/useProducto'
 
 function Perfil() {
   const { datosUsuarioActivo } = useUsuario()

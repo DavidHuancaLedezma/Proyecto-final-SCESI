@@ -1,7 +1,7 @@
 import { FaShoppingCart } from 'react-icons/fa'
 import { ProductoCardPequenio } from './ProductoCardPequenio'
 import { useReserva } from '../../hooks/useReserva'
-import style from './productoEnCarrito.module.css'
+import style from './ProductoEnCarrito.module.css'
 export const ProductoEnCarrito = ({
   productosAgregados,
   precioTotal,

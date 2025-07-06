@@ -3,7 +3,7 @@
 }
 
 .portada {
-  background-image: url('/src/assets/img/portada.png');
+  background-image: url('/public/assets/img/portada.png');
   background-repeat: no-repeat;
   background-size: cover;
   object-fit: cover;
@@ -75,7 +75,7 @@
   text-align: center;
   padding: 10px;
   margin-top: 10px;
-  color: #E0E0E0;
+  color: white;
 }
 
 .referencia {

@@ -13,7 +13,7 @@ import style from './NavBarAdministrador.module.css'
 
 export const NavBarAdministrador = () => {
   const [desplegable, setDesplegable] = useState(false)
-  const handleClick = () => {
+  const manejarClick = () => {
     setDesplegable(!desplegable)
   }
 
@@ -28,10 +28,10 @@ export const NavBarAdministrador = () => {
     <section>
       <header className={opcionesDeInicio}>
         <h1 className={style.titulo}>Administrador</h1>
-        <button className={style.botonAbrir} onClick={handleClick}>
+        <button className={style.botonAbrir} onClick={manejarClick}>
           ☰
         </button>
-        <button className={style.botonCerrar} onClick={handleClick}>
+        <button className={style.botonCerrar} onClick={manejarClick}>
           <FaTimesCircle className={style.icono} />
         </button>
 

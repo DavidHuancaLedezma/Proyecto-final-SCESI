@@ -5,6 +5,7 @@ export const mensajeExito = (titulo, descripcion) => {
     title: titulo,
     text: descripcion,
     icon: 'success',
+    confirmButtonText: 'Aceptar',
   })
 }
 
@@ -13,5 +14,6 @@ export const mensajeError = (titulo, descripcion) => {
     title: titulo,
     text: descripcion,
     icon: 'error',
+    confirmButtonText: 'Aceptar',
   })
 }

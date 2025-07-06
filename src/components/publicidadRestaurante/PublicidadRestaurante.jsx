@@ -1,7 +1,7 @@
 import logo from '../../assets/img/icono.png'
-import ambientes1 from '../../assets/img/restaurante-foto-2.webp'
-import ambientes2 from '../../assets/img/restaurante-foto-5.webp'
-import ambientes3 from '../../assets/img/comidas.jpg'
+import ambientes1 from '../../../public/assets/img/restaurante-foto-2.webp'
+import ambientes2 from '../../../public/assets/img/restaurante-foto-5.webp'
+import ambientes3 from '../../../public/assets/img/comidas.jpg'
 import style from './PublicidadRestaurante.module.css'
 
 export const PublicidadRestaurante = () => {

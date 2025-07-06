@@ -11,6 +11,7 @@ export const ProductoCard = ({
   categoria,
   disponible,
   agregarProductoAlCarrito,
+  muestra,
 }) => {
   const stock = disponible
     ? style.stockProducto
@@ -49,18 +50,19 @@ export const ProductoCard = ({
           </section>
 
           <span className={style.productoPrecio}>{precio} Bs.</span>
-
-          <section className={stock}>
-            <button
-              className={style.productoDisponible}
-              onClick={() => agregarProductoAlCarrito(producto)}
-            >
-              Agregar al carrito <FaShoppingCart className={style.icono} />
-            </button>
-            <button className={style.productoAgotado}>
-              Producto agotado <FaBan className={style.icono} />
-            </button>
-          </section>
+          {muestra && (
+            <section className={stock}>
+              <button
+                className={style.productoDisponible}
+                onClick={() => agregarProductoAlCarrito(producto)}
+              >
+                Agregar al carrito <FaShoppingCart className={style.icono} />
+              </button>
+              <button className={style.productoAgotado}>
+                Producto agotado <FaBan className={style.icono} />
+              </button>
+            </section>
+          )}
         </footer>
       </section>
     </article>

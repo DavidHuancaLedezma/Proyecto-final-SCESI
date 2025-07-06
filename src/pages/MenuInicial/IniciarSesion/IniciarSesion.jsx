@@ -1,5 +1,5 @@
-import { NavBarLogin } from '../../components'
-import { useUsuario } from '../../hooks/useUsuario'
+import { NavBarLogin } from '../../../components'
+import { useUsuario } from '../../../hooks/useUsuario'
 import { Link } from 'react-router-dom'
 import style from './IniciarSesion.module.css'
 function IniciarSesion() {

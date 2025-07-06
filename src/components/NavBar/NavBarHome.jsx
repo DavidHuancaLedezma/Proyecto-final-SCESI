@@ -11,7 +11,7 @@ import {
   FaHistory,
 } from 'react-icons/fa'
 import { useReserva } from '../../hooks/useReserva'
-import { ProductoCardPequenio } from '../productos/ProductoCardPequenio'
+import { ProductoCardPequenio } from '../Productos/ProductoCardPequenio'
 import style from './NavBarHome.module.css'
 
 export const NavBarHome = ({
@@ -23,11 +23,11 @@ export const NavBarHome = ({
   const [desplegable, setDesplegable] = useState(false)
   const [productosComprados, setProductosComprados] = useState(false)
   const { agregarOrdenEnReserva } = useReserva()
-  const handleClick = () => {
+  const manejarClick = () => {
     setDesplegable(!desplegable)
   }
 
-  const handleClickCarrito = () => {
+  const manejarClickCarrito = () => {
     setProductosComprados(!productosComprados)
   }
 
@@ -49,10 +49,10 @@ export const NavBarHome = ({
     <div>
       <header className={opcionesDeInicio}>
         <h1 className={style.titulo}>Fragmentos</h1>
-        <button className={style.botonAbrir} onClick={handleClick}>
+        <button className={style.botonAbrir} onClick={manejarClick}>
           ☰
         </button>
-        <button className={style.botonCerrar} onClick={handleClick}>
+        <button className={style.botonCerrar} onClick={manejarClick}>
           <FaTimesCircle />
         </button>
 
@@ -83,7 +83,7 @@ export const NavBarHome = ({
             </Link>
           </li>
           <li className={style.opciones}>
-            <Link className={style.opcionesTexto} onClick={handleClickCarrito}>
+            <Link className={style.opcionesTexto} onClick={manejarClickCarrito}>
               <FaShoppingCart className={style.icono} />
               {contadorProductos > 0 && (
                 <span className={style.contador}>{contadorProductos}</span>

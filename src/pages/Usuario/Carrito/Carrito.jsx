@@ -1,5 +1,5 @@
-import { ProductoEnCarrito, NavBarHome } from '../../components'
-import { useProducto } from '../../hooks/useProducto'
+import { ProductoEnCarrito, NavBarHome } from '../../../components'
+import { useProducto } from '../../../hooks/useProducto'
 import style from './Carrito.module.css'
 function Carrito() {
   const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()

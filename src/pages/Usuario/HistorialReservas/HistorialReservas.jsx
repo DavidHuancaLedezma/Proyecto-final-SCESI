@@ -1,8 +1,8 @@
-import { NavBarHome } from '../../components'
+import { NavBarHome } from '../../../components'
 import style from './HistorialReserva.module.css'
-import imgCarrito from '../../assets/img/carrito-de-historial.png'
-import { useHistorialReserva } from '../../hooks/useHistorialReserva'
-import { useProducto } from '../../hooks/useProducto'
+import imgCarrito from '../../../assets/img/carrito-de-historial.png'
+import { useHistorialReserva } from '../../../hooks/useHistorialReserva'
+import { useProducto } from '../../../hooks/useProducto'
 function HistorialReserva() {
   const { datosReserva } = useHistorialReserva()
   const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
