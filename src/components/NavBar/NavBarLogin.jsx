@@ -5,7 +5,7 @@ export const NavBarLogin = () => {
   return (
     <main>
       <header className={style.opcionesDeInicio}>
-        <h1 className={style.titulo}>Bienvenidos a fragmentos</h1>
+        <h1 className={style.titulo}>Fragmentos</h1>
 
         <nav>
           <ul className={style.menuBar}>

@@ -1,8 +1,8 @@
-import { NavBarHome } from '../../components'
+import { NavBarHome } from '../../../components'
 import style from './HistorialReserva.module.css'
-import imgCarrito from '../../assets/img/carrito-de-historial.png'
-import { useHistorialReserva } from '../../hooks/useHistorialReserva'
-import { useProducto } from '../../hooks/useProducto'
+import imgCarrito from '../../../assets/img/carrito-de-historial.png'
+import { useHistorialReserva } from '../../../hooks/useHistorialReserva'
+import { useProducto } from '../../../hooks/useProducto'
 function HistorialReserva() {
   const { datosReserva } = useHistorialReserva()
   const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
@@ -12,11 +12,12 @@ function HistorialReserva() {
         productosAgregados={carritoDeProductos}
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
+        contadorProductos={localStorage.getItem('contadorProductos')}
       />
       <div className={style.contenedor}>
         <section className={style.contenedorInformacion}>
           <header>
-            <h1>Historial de compras</h1>
+            <h1>Historial de reservas y compras</h1>
             <figure className={style.descripcion}>
               <img src={imgCarrito} alt="" />
               <figcaption>
@@ -29,7 +30,7 @@ function HistorialReserva() {
           </header>
           <main className={style.contenedorTabla}>
             <table>
-              <thead className={style.titulosTabla}>
+              <thead>
                 <tr>
                   <th>Nro de mesa</th>
                   <th>Fecha de reserva</th>
@@ -57,7 +58,7 @@ function HistorialReserva() {
                       </td>
                       <td>{horaReserva}</td>
                       <td>{nroDePersonas}</td>
-                      <td>{estado ? 'Aceptado' : 'Pendiente'}</td>
+                      <td>{estado ? 'Aceptado ✅' : 'Pendiente ⏳'}</td>
                       <td>{listaProductos ? listaProductos : 'Sin orden'}</td>
                     </tr>
                   )

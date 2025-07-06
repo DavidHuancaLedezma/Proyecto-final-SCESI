@@ -1,6 +1,6 @@
-import { ReservaMesa, NavBarHome } from '../components/index'
-import { useProducto } from '../hooks/useProducto'
-import { useReserva } from '../hooks/useReserva'
+import { ReservaMesa, NavBarHome } from '../../../components/index'
+import { useProducto } from '../../../hooks/useProducto'
+import { useReserva } from '../../../hooks/useReserva'
 function Reserva() {
   const { carritoDeProductos, precioTotal, eliminarProducto } = useProducto()
 
@@ -13,6 +13,7 @@ function Reserva() {
         productosAgregados={carritoDeProductos}
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
+        contadorProductos={localStorage.getItem('contadorProductos')}
       />
       <ReservaMesa
         mesasDisponibles={mesas}

@@ -1,6 +1,6 @@
-import { Usuario, NavBarHome } from '../components'
-import { useUsuario } from '../hooks/useUsuario'
-import { useProducto } from '../hooks/useProducto'
+import { Usuario, NavBarHome } from '../../../components'
+import { useUsuario } from '../../../hooks/useUsuario'
+import { useProducto } from '../../../hooks/useProducto'
 
 function Perfil() {
   const { datosUsuarioActivo } = useUsuario()
@@ -13,6 +13,7 @@ function Perfil() {
         productosAgregados={carritoDeProductos}
         eliminarProductoDelCarrito={eliminarProducto}
         precioTotal={precioTotal}
+        contadorProductos={localStorage.getItem('contadorProductos')}
       />
       {datosUsuarioActivo ? (
         <Usuario

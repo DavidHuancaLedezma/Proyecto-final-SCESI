@@ -38,7 +38,6 @@ export const useReserva = () => {
   useEffect(() => {
     const getDatos = async () => {
       const respuesta = await getMesas()
-      console.log(respuesta)
       setMesas(respuesta)
     }
     getDatos()

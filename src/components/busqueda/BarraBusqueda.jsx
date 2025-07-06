@@ -1,7 +1,6 @@
 import { useCategoria } from '../../hooks/useCategoria'
 import { FaSearch } from 'react-icons/fa'
 import style from './BarraBusqueda.module.css'
-import '../../normalize.css'
 
 export const BarraBusqueda = ({
   cambiosEnTexto,
@@ -28,7 +27,7 @@ export const BarraBusqueda = ({
           ))}
         </select>
         <button className={style.busquedaBtnLimpiar} onClick={limpiar}>
-          Limpiar
+          Limpiar filtros
         </button>
       </section>
       <section className={style.busquedaIconoContenedor}>

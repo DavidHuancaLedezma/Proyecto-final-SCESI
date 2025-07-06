@@ -9,6 +9,7 @@
   border: 1px solid grey;
   border-radius: 10px;
   padding: 20px;
+  background-color: white;
 }
 
 .titulo {
@@ -19,7 +20,7 @@
 .datosDeEntrada {
   display: flex;
   flex-direction: column;
-  margin: 20px 0px;
+  margin: 19px 0px;
 }
 
 .datosDeEntrada input {
