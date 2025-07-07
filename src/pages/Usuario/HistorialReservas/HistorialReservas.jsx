@@ -38,6 +38,7 @@ function HistorialReserva() {
                   <th>Nro de personas</th>
                   <th>Estado</th>
                   <th>Orden</th>
+                  <th>Total</th>
                 </tr>
               </thead>
               <tbody className={style.contenidoTabla}>
@@ -50,16 +51,24 @@ function HistorialReserva() {
                     estado,
                     nroDePersonas,
                     listaProductos,
+                    precioProductos,
                   }) => (
                     <tr key={idReserva}>
-                      <td>{mesaSeleccionada}</td>
+                      <td className={style.anchoMinimoMayor}>
+                        {mesaSeleccionada}
+                      </td>
                       <td>
                         {new Date(fechaReserva).toLocaleDateString('es-BO')}
                       </td>
                       <td>{horaReserva}</td>
                       <td>{nroDePersonas}</td>
-                      <td>{estado ? 'Aceptado ✅' : 'Pendiente ⏳'}</td>
+                      <td className={style.anchoMinimoMayor}>
+                        {estado ? 'Aceptado ✅' : 'Pendiente ⏳'}
+                      </td>
                       <td>{listaProductos ? listaProductos : 'Sin orden'}</td>
+                      <td className={style.anchoMinimo}>
+                        {precioProductos} Bs.
+                      </td>
                     </tr>
                   )
                 )}

@@ -40,7 +40,7 @@
 }
 
 .tamanioCeldas {
-  max-width: 170px;
+  min-width: 300px;
 }
 
 .tamanioMinimoCeldas {
@@ -76,5 +76,9 @@
   .contenedor {
     flex-direction: row;
     align-items: center;
+  }
+
+  .tamanioCeldas {
+    max-width: 300px;
   }
 }

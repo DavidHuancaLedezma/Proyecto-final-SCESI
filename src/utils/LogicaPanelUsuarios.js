@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { obtenerTodosLosUsuarios, eliminarUsuario } from '../services/consultas'
+import { mensajeExito } from '../services/mensajes'
 export const LogicaPanelUsuarios = () => {
   const [usuarios, setUsuarios] = useState([])
 
@@ -10,6 +11,7 @@ export const LogicaPanelUsuarios = () => {
 
   const eliminarUsuariosDelSistema = async (idUsuario) => {
     eliminarUsuario(idUsuario)
+    mensajeExito('Usuario eliminado', 'El usuario fue eliminado con éxito.')
     await obtenerUsuarios()
   }
 

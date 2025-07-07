@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { addProdructo } from '../services/consultas'
+import { añadirProducto } from '../services/consultas'
 export const useRegistroProducto = () => {
   const [datosProducto, setDatosProducto] = useState({
     categoria: '',
@@ -13,7 +13,7 @@ export const useRegistroProducto = () => {
 
   const registrarProducto = (e) => {
     e.preventDefault()
-    addProdructo(datosProducto)
+    añadirProducto(datosProducto)
     setDatosProducto({
       categoria: '',
       descripcion: '',

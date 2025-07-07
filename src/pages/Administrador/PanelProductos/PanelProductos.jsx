@@ -1,46 +1,22 @@
-import { useEffect, useState } from 'react'
 import { NavBarAdministrador } from '../../../components/NavBar/NavBarAdministrador'
-import { useProducto } from '../../../hooks/useProducto'
-import { editarProducto, eliminarProducto } from '../../../services/consultas'
+import { LogicaPanelProductos } from '../../../utils/LogicaPanelProductos'
 import style from './PanelProductos.module.css'
 
 function PanelProductos() {
-  const { productos, getDatos } = useProducto()
-
-  const [estadosSeleccionados, setEstadosSeleccionados] = useState({})
-
-  useEffect(() => {
-    const estadosIniciales = {}
-    productos.forEach((producto) => {
-      estadosIniciales[producto.idProducto] = producto.disponible
-    })
-    setEstadosSeleccionados(estadosIniciales)
-  }, [productos])
-
-  const estadoActual = (e, idReserva) => {
-    let valor = e.target.value === 'true'
-    setEstadosSeleccionados((prev) => ({
-      ...prev,
-      [idReserva]: valor,
-    }))
-  }
-
-  const guardarEdicion = async (idProducto) => {
-    const estadoSeleccionado = estadosSeleccionados[idProducto]
-    editarProducto(idProducto, estadoSeleccionado)
-    await getDatos()
-  }
-  const eliminarProductoDelMenu = async (idReserva) => {
-    await eliminarProducto(idReserva)
-    await getDatos()
-  }
+  const {
+    productos,
+    estadosSeleccionados,
+    estadoActual,
+    guardarEdicion,
+    eliminarProductoDelMenu,
+  } = LogicaPanelProductos()
 
   return (
     <>
       <NavBarAdministrador />
       <div className={style.contenedor}>
         <div>
-          <header className={style.titulo}>Panel de productos</header>
+          <header className={style.titulo}>Panel de productos 🍽️</header>
           <main className={style.contenedorTabla}>
             <table className={style.tabla}>
               <thead>
@@ -68,7 +44,7 @@ function PanelProductos() {
                   }) => (
                     <tr key={idProducto}>
                       <td>{categoria}</td>
-                      <td className={style.tamanioCeldas}>{nombre}</td>
+                      <td>{nombre}</td>
                       <td className={style.tamanioCeldas}>{descripcion}</td>
                       <td>{origen}</td>
                       <td>{precio} bs</td>

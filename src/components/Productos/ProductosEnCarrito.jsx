@@ -20,7 +20,7 @@ export const ProductoEnCarrito = ({
         </h1>
       </header>
       <main className={style.listaProductos}>
-        {productosAgregados ? (
+        {productosAgregados && productosAgregados.length > 0 ? (
           productosAgregados.map(
             ({ idProducto, nombre, cantidad, imagen, precio }) => (
               <ProductoCardPequenio
@@ -46,7 +46,7 @@ export const ProductoEnCarrito = ({
         <button
           className={style.comprarProductosCarrito}
           onClick={() => {
-            agregarOrdenEnReserva(productosAgregados)
+            agregarOrdenEnReserva(productosAgregados, precioTotal)
           }}
         >
           comprar

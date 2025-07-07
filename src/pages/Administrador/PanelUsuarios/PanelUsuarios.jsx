@@ -10,7 +10,7 @@ function PanelUsuarios() {
       <NavBarAdministrador />
       <div className={style.contenedor}>
         <div>
-          <header className={style.titulo}>Panel de usuarios</header>
+          <header className={style.titulo}>Panel de usuarios 👥</header>
           <main className={style.contenedorTabla}>
             <table className={style.tabla}>
               <thead>

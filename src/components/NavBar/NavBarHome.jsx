@@ -9,6 +9,7 @@ import {
   FaUtensils,
   FaTimesCircle,
   FaHistory,
+  FaBars,
 } from 'react-icons/fa'
 import { useReserva } from '../../hooks/useReserva'
 import { ProductoCardPequenio } from '../Productos/ProductoCardPequenio'
@@ -50,7 +51,7 @@ export const NavBarHome = ({
       <header className={opcionesDeInicio}>
         <h1 className={style.titulo}>Fragmentos</h1>
         <button className={style.botonAbrir} onClick={manejarClick}>
-          ☰
+          <FaBars />
         </button>
         <button className={style.botonCerrar} onClick={manejarClick}>
           <FaTimesCircle />
@@ -183,7 +184,9 @@ export const NavBarHome = ({
             </section>
             <button
               className={style.comprarProductosCarrito}
-              onClick={() => agregarOrdenEnReserva(productosAgregados)}
+              onClick={() =>
+                agregarOrdenEnReserva(productosAgregados, precioTotal)
+              }
             >
               Comprar
             </button>

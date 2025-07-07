@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { getReserva, getAllReservas } from '../services/consultas'
+import { obtenerReserva, obtenerTodasLasReservas } from '../services/consultas'
 export const useHistorialReserva = () => {
   const [datosReserva, setDatosReserva] = useState([])
 
@@ -7,10 +7,10 @@ export const useHistorialReserva = () => {
     let rol = localStorage.getItem('rol')
     if (rol === 'Usuario') {
       const idUsuario = localStorage.getItem('idUsuario')
-      const respuesta = await getReserva(idUsuario)
+      const respuesta = await obtenerReserva(idUsuario)
       setDatosReserva(respuesta)
     } else if (rol === 'Administrador') {
-      const respuesta = await getAllReservas()
+      const respuesta = await obtenerTodasLasReservas()
       setDatosReserva(respuesta)
     }
   }
