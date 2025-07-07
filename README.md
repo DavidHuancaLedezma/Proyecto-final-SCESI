@@ -2,6 +2,8 @@
 
 La problemática principal es el limitado espacio que tienen los restaurantes y la demanda de clientes que hay en estos mismos, para ese efecto se desarrolló una aplicación web que permite realizar las respectivas reservas en el restaurante y ordenar el respectivo menú que desee el cliente, con esto el dueño del restaurante tendrá un control de todas las reservas que son realizadas en el restaurante teniendo la posibilidad de aceptar estas reservas o rechazarlas, al mismo tiempo tendrá un control de todos sus clientes que utilizan la aplicación web y del menú ofertado en el restaurante teniendo la posibilidad de agregar, eliminar y cambiar el estado de disponibilidad del producto, con todas estas funcionalidades se tendrá un control sobre la demanda de clientes y la administración de los espacios disponibles del restaurante así dando una mejor atención al cliente y al dueño del restaurante una mejor gestión de su negocio. Para la creación de esta aplicación web se tomó de referencia el restaurante fragmentos.
 
+**Nota: La aplicación web es para la version de pc y responsive a móvil.**
+
 # Aplicación web
 
 - Link de la aplicación 👉 [https://proyecto-final-scesi.pages.dev/](https://proyecto-final-scesi.pages.dev/)
@@ -14,7 +16,7 @@ La problemática principal es el limitado espacio que tienen los restaurantes y 
 
 # Demostración del funcionamiento de la aplicación web
 
-- Link del video 👉 []()
+- Link del video 👉 [https://youtu.be/ohITaJnvxJA](https://youtu.be/ohITaJnvxJA)
 
 # Tecnologías utilizadas
 

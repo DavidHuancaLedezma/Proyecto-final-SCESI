@@ -54,13 +54,17 @@ function HistorialReserva() {
                     precioProductos,
                   }) => (
                     <tr key={idReserva}>
-                      <td>{mesaSeleccionada}</td>
+                      <td className={style.anchoMinimoMayor}>
+                        {mesaSeleccionada}
+                      </td>
                       <td>
                         {new Date(fechaReserva).toLocaleDateString('es-BO')}
                       </td>
                       <td>{horaReserva}</td>
                       <td>{nroDePersonas}</td>
-                      <td>{estado ? 'Aceptado ✅' : 'Pendiente ⏳'}</td>
+                      <td className={style.anchoMinimoMayor}>
+                        {estado ? 'Aceptado ✅' : 'Pendiente ⏳'}
+                      </td>
                       <td>{listaProductos ? listaProductos : 'Sin orden'}</td>
                       <td className={style.anchoMinimo}>
                         {precioProductos} Bs.
