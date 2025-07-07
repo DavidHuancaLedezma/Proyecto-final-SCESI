@@ -14,7 +14,7 @@ import {
 import { db } from './firebase'
 import { mensajeExito } from './mensajes'
 
-export const getProductos = async () => {
+export const obtenerProductos = async () => {
   const querySnapshot = await getDocs(collection(db, 'producto'))
   let res = []
   querySnapshot.forEach((doc) => {
@@ -34,7 +34,7 @@ export const eliminarProducto = async (idProducto) => {
   await deleteDoc(doc(db, 'producto', idProducto))
 }
 
-export const addProdructo = async (datosProducto) => {
+export const añadirProducto = async (datosProducto) => {
   try {
     await addDoc(collection(db, 'producto'), datosProducto)
     mensajeExito(
@@ -46,7 +46,7 @@ export const addProdructo = async (datosProducto) => {
   }
 }
 
-export const getUsuario = async (idUsuario) => {
+export const obtenerUsuario = async (idUsuario) => {
   const docRef = doc(db, 'usuarios', idUsuario)
   const docSnap = await getDoc(docRef)
   return docSnap.data()
@@ -70,7 +70,7 @@ export const eliminarUsuario = async (idUsuario) => {
   await deleteDoc(doc(db, 'usuarios', idUsuario))
 }
 
-export const getCategorias = async () => {
+export const obtenerCategorias = async () => {
   const querySnapshot = await getDocs(collection(db, 'categoria'))
   let res = []
   querySnapshot.forEach((doc) => {
@@ -79,7 +79,7 @@ export const getCategorias = async () => {
   return res
 }
 
-export const getMesas = async () => {
+export const obtenerMesas = async () => {
   const querySnapshot = await getDocs(collection(db, 'mesa'))
   let res = []
   querySnapshot.forEach((doc) => {
@@ -97,7 +97,7 @@ export const registrarReserva = async (datosDeRegistro) => {
   }
 }
 
-export const getReserva = async (idUsuario) => {
+export const obtenerReserva = async (idUsuario) => {
   const q = query(
     collection(db, 'reserva'),
     where('idUsuario', '==', idUsuario)
@@ -111,7 +111,7 @@ export const getReserva = async (idUsuario) => {
   return res
 }
 
-export const getAllReservas = async () => {
+export const obtenerTodasLasReservas = async () => {
   let res = []
   const querySnapshot = await getDocs(collection(db, 'reserva'))
   querySnapshot.forEach((doc) => {
@@ -120,7 +120,7 @@ export const getAllReservas = async () => {
   return res
 }
 
-export const getIdUltimaReserva = async (idUsuario) => {
+export const obtenerIdUltimaReserva = async (idUsuario) => {
   const q = query(
     collection(db, 'reserva'),
     where('idUsuario', '==', idUsuario),
@@ -131,14 +131,15 @@ export const getIdUltimaReserva = async (idUsuario) => {
   return querySnapshot.docs
 }
 
-export const setProductosReserva = async (idReserva, productos) => {
+export const editarProductosReserva = async (idReserva, productos, precioTotal) => {
   const washingtonRef = doc(db, 'reserva', idReserva)
   await updateDoc(washingtonRef, {
     listaProductos: productos,
+    precioProductos: precioTotal,
   })
 }
 
-export const setEstadoReserva = async (idReserva, nuevoEstado) => {
+export const editarEstadoReserva = async (idReserva, nuevoEstado) => {
   const washingtonRef = doc(db, 'reserva', idReserva)
   await updateDoc(washingtonRef, {
     estado: nuevoEstado,

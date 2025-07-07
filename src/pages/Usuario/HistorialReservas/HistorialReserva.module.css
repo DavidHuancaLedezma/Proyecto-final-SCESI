@@ -42,14 +42,11 @@
   background-color: rgb(255, 123, 0);
   position: sticky;
   top: 0;
-  
-  
 }
 
 .contenedorTabla thead th {
   color: white;
   padding: 10px 20px;
-  
 }
 
 .contenidoTabla td {
@@ -63,12 +60,18 @@
   overflow-x: auto;
   height: 200px;
   background-color: white;
-  
 }
 
 .contenedorTabla table {
   border-collapse: collapse;
   min-width: 760px;
+}
+.anchoMinimo {
+  min-width: 50px;
+}
+
+.anchoMinimoMayor {
+  min-width: 100px;
 }
 
 @media only screen and (min-width: 480px) {

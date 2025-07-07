@@ -8,6 +8,7 @@ import {
   FaTimesCircle,
   FaUserAlt,
   FaPlusCircle,
+  FaBars,
 } from 'react-icons/fa'
 import style from './NavBarAdministrador.module.css'
 
@@ -29,10 +30,10 @@ export const NavBarAdministrador = () => {
       <header className={opcionesDeInicio}>
         <h1 className={style.titulo}>Administrador</h1>
         <button className={style.botonAbrir} onClick={manejarClick}>
-          ☰
+          <FaBars />
         </button>
         <button className={style.botonCerrar} onClick={manejarClick}>
-          <FaTimesCircle className={style.icono} />
+          <FaTimesCircle />
         </button>
 
         <ul className={style.opcionesContenedorHorizontalPc}>

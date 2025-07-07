@@ -1,6 +1,6 @@
 .busquedaContenedor {
   display: flex;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   justify-content: space-between;
   margin: 0px 15px;
   padding: 12px;
@@ -14,21 +14,19 @@
   outline: none;
   padding: 12px;
   border-radius: 5px;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   color: white;
 }
 
 .busquedaInput {
   border: 1px solid gray;
   outline: none;
-  max-width: 130px;
+  max-width: 125px;
   border-radius: 5px;
   padding: 12px 0px 12px 12px;
-  background-color: #1E1E1E;
+  background-color: #1e1e1e;
   color: white;
 }
-
-
 
 .busquedaIconoContenedor {
   border: 1px solid gray;
@@ -55,15 +53,13 @@
     display: block;
     border: 1px solid gray;
     cursor: pointer;
-    
+
     border-radius: 5px;
     padding: 12px;
-    background-color: #1E1E1E;
+    background-color: #1e1e1e;
     color: white;
   }
 }
-
-
 
 @media only screen and (max-width: 720px) {
   .busquedaBtnLimpiar {

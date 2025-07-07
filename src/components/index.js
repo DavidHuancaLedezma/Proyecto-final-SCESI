@@ -1,4 +1,3 @@
-/* eslint-disable react-refresh/only-export-components */
 export * from './Busqueda/BarraBusqueda'
 export * from './NavBar/NavBarHome'
 export * from './Productos/ProductoCard'
