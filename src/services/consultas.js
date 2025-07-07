@@ -131,10 +131,11 @@ export const obtenerIdUltimaReserva = async (idUsuario) => {
   return querySnapshot.docs
 }
 
-export const editarProductosReserva = async (idReserva, productos) => {
+export const editarProductosReserva = async (idReserva, productos, precioTotal) => {
   const washingtonRef = doc(db, 'reserva', idReserva)
   await updateDoc(washingtonRef, {
     listaProductos: productos,
+    precioProductos: precioTotal,
   })
 }
 

@@ -20,6 +20,7 @@ export const useReserva = () => {
     estado: false,
     idUsuario: localStorage.getItem('idUsuario'),
     nombreUsuario: localStorage.getItem('nombreUsuario'),
+    precioProductos: 0,
   })
 
   const envioFormularioDeReserva = (e) => {
@@ -35,6 +36,7 @@ export const useReserva = () => {
       estado: false,
       idUsuario: localStorage.getItem('idUsuario'),
       nombreUsuario: localStorage.getItem('nombreUsuario'),
+      precioProductos: 0,
     })
   }
 
@@ -46,7 +48,7 @@ export const useReserva = () => {
     obtenerDatos()
   }, [])
 
-  const agregarOrdenEnReserva = async (productos) => {
+  const agregarOrdenEnReserva = async (productos, precioTotal) => {
     let listaProductos = ''
     productos.forEach((producto) => {
       listaProductos += producto.cantidad + ' ' + producto.nombre + ', '
@@ -58,7 +60,7 @@ export const useReserva = () => {
       const id = await obtenerIdUltimaReserva(idUsuario)
 
       if (id.length > 0) {
-        editarProductosReserva(id[0].id, listaProductos)
+        editarProductosReserva(id[0].id, listaProductos, precioTotal)
         mensajeExito(
           'Orden realizada',
           'Tus orden fue agregada con exito a tu ultima reserva de mesa.'

@@ -16,7 +16,7 @@ function PanelProductos() {
       <NavBarAdministrador />
       <div className={style.contenedor}>
         <div>
-          <header className={style.titulo}>Panel de productos</header>
+          <header className={style.titulo}>Panel de productos 🍽️</header>
           <main className={style.contenedorTabla}>
             <table className={style.tabla}>
               <thead>

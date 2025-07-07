@@ -184,7 +184,9 @@ export const NavBarHome = ({
             </section>
             <button
               className={style.comprarProductosCarrito}
-              onClick={() => agregarOrdenEnReserva(productosAgregados)}
+              onClick={() =>
+                agregarOrdenEnReserva(productosAgregados, precioTotal)
+              }
             >
               Comprar
             </button>

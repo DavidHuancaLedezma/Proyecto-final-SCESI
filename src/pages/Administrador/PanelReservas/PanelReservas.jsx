@@ -15,7 +15,7 @@ function PanelReservas() {
       <NavBarAdministrador />
       <div className={style.contenedor}>
         <div className={style.datosReserva}>
-          <header className={style.titulo}>Panel de reservas</header>
+          <header className={style.titulo}>Panel de reservas 📋</header>
           <main className={style.contenedorTabla}>
             <table>
               <thead>
@@ -26,6 +26,7 @@ function PanelReservas() {
                   <th>Usuario</th>
                   <th>Nro de Personas</th>
                   <th>Orden</th>
+                  <th>Total</th>
                   <th>Estado Actual</th>
                   <th>Estado</th>
                   <th>Acciones</th>
@@ -42,6 +43,7 @@ function PanelReservas() {
                     estado,
                     nroDePersonas,
                     listaProductos,
+                    precioProductos,
                   }) => (
                     <tr key={idReserva}>
                       <td>{mesaSeleccionada}</td>
@@ -53,6 +55,9 @@ function PanelReservas() {
                       <td>{nroDePersonas}</td>
                       <td className={style.tamanioCeldas}>
                         {listaProductos ? listaProductos : 'Sin orden'}
+                      </td>
+                      <td className={style.tamanioCeldas}>
+                        {precioProductos} Bs.
                       </td>
                       <td>{estado ? 'Aceptado ✅' : 'Pendiente ⏳'}</td>
                       <td>
